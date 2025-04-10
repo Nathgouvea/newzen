@@ -10,13 +10,22 @@
       href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <header class="header">
       <div class="header__container container">
         <div class="logo">
-          <a href="index.html">Zen Secrets</a>
+          <img
+            src="assets/imagens/logo.svg"
+            alt="Zen Secrets Logo"
+            href="index.html"
+            class="logo__image"
+          />
         </div>
 
         <button class="menu-toggle" aria-label="Toggle menu">
@@ -28,7 +37,7 @@
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="index.html" class="nav__link">Início</a>
+              <a href="index.html" class="nav__link active">Início</a>
             </li>
             <li class="nav__item">
               <a href="comprar.html" class="nav__link">Comprar</a>
@@ -57,13 +66,32 @@
               <a href="contato.html" class="nav__link">Fale Conosco</a>
             </li>
           </ul>
+
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input
+              type="search"
+              placeholder="Buscar produtos..."
+              aria-label="Search"
+            />
+          </div>
+
+          <div class="user-actions">
+            <a href="#" class="user-actions__item" aria-label="Minha conta">
+              <i class="fas fa-user"></i>
+            </a>
+            <a href="#" class="user-actions__item" aria-label="Carrinho">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </div>
         </nav>
       </div>
     </header>
 
     <main>
       <section class="hero">
-        <div class="hero__content container fade-in">
+        <div class="hero__content container">
           <h1 class="hero__title">Harmonia e Bem-Estar Através do Aroma</h1>
           <p class="hero__text">
             Descubra nossa coleção exclusiva de aromas que transformam ambientes
@@ -73,44 +101,175 @@
         </div>
       </section>
 
+      <section class="trust-indicators">
+        <div class="container">
+          <div class="trust-grid">
+            <div class="trust-item fade-in-up-1">
+              <i class="fas fa-credit-card"></i>
+              <p>Pague com cartão, boleto bancário ou PIX.</p>
+            </div>
+            <div class="trust-item fade-in-up-2">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Enviamos para todo o Brasil.</p>
+            </div>
+            <div class="trust-item fade-in-up-3">
+              <i class="fas fa-lock"></i>
+              <p>Compra Segura: Seus dados estão protegidos.</p>
+            </div>
+            <a
+              href="https://wa.me/5516991626921"
+              class="trust-item trust-item--link fade-in-up-4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-whatsapp"></i>
+              <p>Ficou com dúvidas? Fale conosco no WhatsApp.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="featured-products container">
         <h2>Produtos em Destaque</h2>
         <div class="product-grid">
           <article class="product-card fade-in">
-            <img
-              src="assets/imagens/vela-bamboo.jpg"
-              alt="Vela Aromática Bamboo"
-            />
-            <h3>Vela Bamboo</h3>
-            <p>
-              Uma fragrância suave e refrescante que traz a sensação de natureza
-              para seu ambiente.
-            </p>
-            <a href="comprar.html#velas" class="button">Ver Produto</a>
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/velabamboo.jpeg"
+                alt="Vela Bamboo"
+                class="product-card__image"
+              />
+              <span class="product-card__badge">Mais Vendido</span>
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Vela Bamboo</h3>
+              <p class="product-card__description">
+                Uma fragrância suave e refrescante que traz a sensação de
+                natureza para seu ambiente.
+              </p>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$65,00</div>
+                <button class="product-card__button">Ver Produto</button>
+              </div>
+            </div>
           </article>
+
           <article class="product-card fade-in">
-            <img
-              src="assets/imagens/home-spray.jpg"
-              alt="Home Spray Chá Branco"
-            />
-            <h3>Home Spray Chá Branco</h3>
-            <p>
-              Aroma delicado e relaxante, perfeito para perfumar ambientes com
-              elegância.
-            </p>
-            <a href="comprar.html#home-spray" class="button">Ver Produto</a>
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/homespray.jpeg"
+                alt="Home Spray Chá Branco"
+                class="product-card__image"
+              />
+              <span class="product-card__badge">Novo</span>
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Home Spray Chá Branco</h3>
+              <p class="product-card__description">
+                Aroma delicado e relaxante, perfeito para perfumar ambientes com
+                elegância.
+              </p>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$69,90</div>
+                <button class="product-card__button">Ver Produto</button>
+              </div>
+            </div>
           </article>
+
           <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/aromatizador-flordefigo.jpeg"
+                alt="Aromatizador Flor de Figo"
+                class="product-card__image"
+              />
+              <span class="product-card__badge">Exclusivo</span>
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Aromatizador Flor de Figo</h3>
+              <p class="product-card__description">
+                Uma combinação única de notas frutadas e florais para uma
+                experiência sensorial marcante.
+              </p>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$69,90</div>
+                <button class="product-card__button">Ver Produto</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="ambient-quote">
+        <p>"Respire fundo. O agora é o único tempo real."</p>
+      </div>
+
+      <section class="categories-section">
+        <div class="section-header">
+          <h2 class="section-title">Principais Categorias</h2>
+          <p class="section-description">
+            Descubra nossa linha completa de produtos para harmonizar seu
+            ambiente
+          </p>
+        </div>
+
+        <div class="categories-grid">
+          <!-- Velas Aromáticas Card -->
+          <article class="category-card">
             <img
-              src="assets/imagens/aromatizador.jpg"
-              alt="Aromatizador Flor de Figo"
+              src="assets/imagens/vela.jpeg"
+              alt="Velas Aromáticas Zen Secrets"
+              class="category-card__image"
             />
-            <h3>Aromatizador Flor de Figo</h3>
-            <p>
-              Uma combinação única de notas frutadas e florais para uma
-              experiência sensorial marcante.
-            </p>
-            <a href="comprar.html#aromatizadores" class="button">Ver Produto</a>
+            <div class="category-card__overlay">
+              <h3 class="category-card__title">Velas Aromáticas</h3>
+              <p class="category-card__description">
+                Fragrâncias exclusivas para criar momentos especiais em seu
+                ambiente
+              </p>
+            </div>
+            <a href="/velas-aromaticas" class="category-card__link"
+              >Ver Velas Aromáticas</a
+            >
+          </article>
+
+          <!-- Aromatizador Card -->
+          <article class="category-card">
+            <img
+              src="assets/imagens/aromatizador-flordefigo.jpeg"
+              alt="Aromatizadores Zen Secrets"
+              class="category-card__image"
+            />
+            <div class="category-card__overlay">
+              <h3 class="category-card__title">Aromatizadores</h3>
+              <p class="category-card__description">
+                Perfume seu espaço com nossas essências naturais duradouras
+              </p>
+            </div>
+            <a
+              href="assets/imagens/aromatizador-flordefigo.jpeg"
+              class="category-card__link"
+              >Ver Aromatizadores</a
+            >
+          </article>
+
+          <!-- Home Spray Card -->
+          <article class="category-card">
+            <img
+              src="assets/imagens/homespray.jpeg"
+              alt="Home Sprays Zen Secrets"
+              class="category-card__image"
+            />
+            <div class="category-card__overlay">
+              <h3 class="category-card__title">Home Spray</h3>
+              <p class="category-card__description">
+                Fragrâncias refrescantes para uma atmosfera instantaneamente
+                agradável
+              </p>
+            </div>
+            <a href="/home-sprays" class="category-card__link"
+              >Ver Home Sprays</a
+            >
           </article>
         </div>
       </section>
@@ -118,23 +277,98 @@
 
     <footer class="footer">
       <div class="footer__content container">
-        <div class="social-links">
-          <a
-            href="https://instagram.com/secretszen"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Instagram</a
-          >
-          <a
-            href="https://wa.me/5516991626921"
-            target="_blank"
-            rel="noopener noreferrer"
-            >WhatsApp</a
-          >
+        <div class="footer__grid">
+          <!-- Instagram Section -->
+          <div class="footer__section">
+            <div class="instagram-section">
+              <i class="fab fa-instagram"></i>
+              <p>Siga-nos no Instagram</p>
+              <a
+                href="https://instagram.com/secretszen"
+                class="instagram-handle"
+                >@secretszen</a
+              >
+            </div>
+          </div>
+
+          <!-- Institutional Links -->
+          <div class="footer__section">
+            <h3>Institucional</h3>
+            <ul class="footer__links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/contato">Contato</a></li>
+              <li><a href="/trocas-e-devolucoes">Trocas e Devoluções</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="footer__section">
+            <h3>Entre em contato</h3>
+            <ul class="footer__contact">
+              <li>
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/5516991626921">(16) 99162-6921</a>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>(16) 99162-6921</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:secretszen888@gmail.com"
+                  >secretszen888@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        <p class="copyright">
-          &copy; 2024 Zen Secrets. Todos os direitos reservados.
-        </p>
+
+        <!-- Payment and Shipping Methods -->
+        <div class="footer__info">
+          <div class="payment-methods">
+            <h4>Formas de pagamento</h4>
+            <div class="payment-icons">
+              <img src="assets/imagens/visa.png" alt="Visa" />
+              <img src="assets/imagens/mastercard.png" alt="Mastercard" />
+              <img src="assets/imagens/elo.png" alt="Elo" />
+              <img src="assets/imagens/pix.png" alt="PIX" />
+            </div>
+          </div>
+
+          <div class="shipping-methods">
+            <h4>Meios de envio</h4>
+            <img src="assets/imagens/melhorenvio.png" alt="Melhor Envio" />
+          </div>
+
+          <div class="security">
+            <h4>Segurança</h4>
+            <div class="security-badges">
+              <img src="assets/imagens/ssl.png" alt="SSL Security" />
+              <img
+                src="assets/imagens/google-safe-browsing.png"
+                alt="Google Safe Browsing"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright and Credits -->
+        <div class="footer__bottom">
+          <p class="copyright">
+            &copy; 2024 Zen Secrets. Todos os direitos reservados.
+          </p>
+          <div class="credits">
+            <span>criado com amor por</span>
+            <a
+              href="https://pickypixels.studio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Picky Pixels Studio
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
 

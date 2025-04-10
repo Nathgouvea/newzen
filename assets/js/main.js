@@ -1,8 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Header scroll behavior
+  const header = document.querySelector(".header");
+  let lastScroll = 0;
+  const scrollThreshold = 100; // Minimum scroll amount before showing/hiding header
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    // Always show header at the top of the page
+    if (currentScroll <= 0) {
+      header.classList.remove("scroll-up");
+      header.classList.remove("scroll-down");
+      header.classList.remove("scrolled");
+      return;
+    }
+
+    // Add scrolled class for background when scrolling down
+    if (currentScroll > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+
+    // Handle header show/hide based on scroll direction
+    if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+      // Scrolling down
+      header.classList.remove("scroll-up");
+      header.classList.add("scroll-down");
+    } else if (currentScroll < lastScroll) {
+      // Scrolling up
+      header.classList.remove("scroll-down");
+      header.classList.add("scroll-up");
+    }
+
+    lastScroll = currentScroll;
+  });
+
   // Mobile menu toggle
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav");
-  const dropdownItems = document.querySelectorAll(".has-dropdown");
 
   if (menuToggle && nav) {
     menuToggle.addEventListener("click", () => {
@@ -11,14 +47,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Handle dropdown menus on mobile
-  dropdownItems.forEach((item) => {
-    const link = item.querySelector("a");
+  // Handle mobile dropdowns
+  const navItems = document.querySelectorAll(".nav__item");
 
-    if (window.innerWidth <= 768) {
+  navItems.forEach((item) => {
+    const link = item.querySelector(".nav__link");
+    const dropdown = item.querySelector(".dropdown");
+
+    if (dropdown) {
       link.addEventListener("click", (e) => {
-        e.preventDefault();
-        item.classList.toggle("active");
+        // Only prevent default and toggle dropdown on mobile
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          dropdown.classList.toggle("show");
+
+          // Close other dropdowns
+          navItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherDropdown = otherItem.querySelector(".dropdown");
+              if (otherDropdown) {
+                otherDropdown.classList.remove("show");
+              }
+            }
+          });
+        }
       });
     }
   });
