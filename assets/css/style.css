@@ -1370,17 +1370,13 @@ label {
 /* Featured Categories Section */
 .categories-section {
   padding: 6rem 0;
-  background: linear-gradient(
-    to bottom,
-    var(--color-light-gray) 0%,
-    var(--color-white) 100%
-  );
+  background: var(--color-white);
 }
 
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  gap: 2rem;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 20px;
@@ -1388,19 +1384,12 @@ label {
 
 .category-card {
   position: relative;
-  border-radius: var(--border-radius-lg);
+  border-radius: 0;
   overflow: hidden;
-  aspect-ratio: 3/4;
+  aspect-ratio: 1/1;
   background: var(--color-white);
-  box-shadow: var(--shadow-md);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s ease;
   transform: translateY(0);
-  border: 1px solid var(--glass-border);
-}
-
-.category-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
 }
 
 .category-card__image {
@@ -1411,11 +1400,13 @@ label {
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: grayscale(100%);
+  transition: all 0.6s ease;
 }
 
 .category-card:hover .category-card__image {
   transform: scale(1.05);
+  filter: grayscale(0%);
 }
 
 .category-card__overlay {
@@ -1426,46 +1417,48 @@ label {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(0, 0, 0, 0.6)
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.4)
   );
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 2rem;
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
 }
 
 .category-card:hover .category-card__overlay {
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(0, 0, 0, 0.7)
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.5)
   );
 }
 
 .category-card__title {
-  color: var(--color-text);
-  font-size: 1.5rem;
-  font-weight: 400;
+  color: var(--color-white);
+  font-size: 2rem;
+  font-weight: 300;
   margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
-  transform: translateY(20px);
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .category-card__description {
-  color: var(--color-text-soft);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
   line-height: 1.5;
-  transform: translateY(20px);
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 0.2s;
+  max-width: 24ch;
+  margin: 0 auto;
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .category-card__link {
@@ -1480,44 +1473,57 @@ label {
 
 .category-card__link:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-white);
 }
 
 /* Responsive adjustments for categories */
 @media (max-width: 992px) {
   .categories-grid {
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+
+  .category-card__title {
+    font-size: 1.75rem;
   }
 }
 
 @media (max-width: 768px) {
   .categories-grid {
     grid-template-columns: 1fr;
-    max-width: 400px;
-    gap: 2rem;
+    max-width: 500px;
+    gap: 1.5rem;
   }
 
   .category-card {
     aspect-ratio: 16/9;
   }
+
+  .category-card__title {
+    font-size: 1.5rem;
+  }
 }
 
-/* Category Card Loading State */
-.category-card.loading {
-  background: var(--color-light-gray);
-  animation: pulse 1.5s infinite;
+/* Section Header for Categories */
+.categories-section .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
+.categories-section .section-title {
+  font-size: 2.5rem;
+  color: var(--color-text);
+  font-weight: 300;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.categories-section .section-description {
+  font-size: 1.125rem;
+  color: var(--color-text-soft);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* Section Transitions */
