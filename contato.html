@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fale Conosco - Zen Secrets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container">
+        <div class="logo">
+          <a href="index.html">Zen Secrets</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Início</a>
+            </li>
+            <li class="nav__item">
+              <a href="comprar.html" class="nav__link">Comprar</a>
+              <ul class="dropdown">
+                <li>
+                  <a href="comprar.html#aromatizadores">Aromatizadores</a>
+                </li>
+                <li><a href="comprar.html#home-spray">Home Spray</a></li>
+                <li><a href="comprar.html#velas">Velas Aromáticas</a></li>
+                <li><a href="comprar.html#kits">Kits Especiais</a></li>
+                <li><a href="comprar.html#lembrancinhas">Lembrancinhas</a></li>
+                <li><a href="comprar.html#acessorios">Acessórios</a></li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="aromas.html" class="nav__link">Sobre os Aromas</a>
+              <ul class="dropdown">
+                <li><a href="aromas.html#flor-de-figo">Flor de Figo</a></li>
+                <li><a href="aromas.html#cha-branco">Chá Branco</a></li>
+                <li><a href="aromas.html#marinho">Marinho</a></li>
+                <li><a href="aromas.html#bamboo">Vela Bamboo</a></li>
+                <li><a href="aromas.html#palo-santo">Vela Palo Santo</a></li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="contato.html" class="nav__link active">Fale Conosco</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="contact-page">
+      <div class="container">
+        <h1 class="page-title fade-in">Fale Conosco</h1>
+        <p class="page-description fade-in">
+          Estamos aqui para ajudar! Entre em contato conosco através de qualquer
+          um dos canais abaixo.
+        </p>
+
+        <div class="contact-grid">
+          <section class="contact-info fade-in">
+            <h2>Canais de Atendimento</h2>
+            <div class="contact-channels">
+              <div class="contact-channel">
+                <h3>WhatsApp</h3>
+                <a
+                  href="https://wa.me/5516991626921"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >(16) 99162-6921</a
+                >
+                <p>Atendimento de segunda a sexta, das 9h às 18h</p>
+              </div>
+              <div class="contact-channel">
+                <h3>Instagram</h3>
+                <a
+                  href="https://instagram.com/secretszen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >@secretszen</a
+                >
+                <p>Siga-nos para novidades e promoções exclusivas</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="contact-form-section fade-in">
+            <h2>Envie uma Mensagem</h2>
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Nome</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject">Assunto</label>
+                <select id="subject" name="subject" class="form-input" required>
+                  <option value="">Selecione um assunto</option>
+                  <option value="duvida">Dúvida sobre produtos</option>
+                  <option value="sugestao">Sugestão</option>
+                  <option value="revenda">Informações sobre revenda</option>
+                  <option value="outro">Outro assunto</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Mensagem</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-textarea"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="button">Enviar Mensagem</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__content container">
+        <div class="social-links">
+          <a
+            href="https://instagram.com/secretszen"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a
+            href="https://wa.me/5516991626921"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WhatsApp</a
+          >
+        </div>
+        <p class="copyright">
+          &copy; 2024 Zen Secrets. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

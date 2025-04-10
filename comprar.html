@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produtos - Zen Secrets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container">
+        <div class="logo">
+          <a href="index.html">Zen Secrets</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Início</a>
+            </li>
+            <li class="nav__item">
+              <a href="comprar.html" class="nav__link active">Comprar</a>
+              <ul class="dropdown">
+                <li><a href="#aromatizadores">Aromatizadores</a></li>
+                <li><a href="#home-spray">Home Spray</a></li>
+                <li><a href="#velas">Velas Aromáticas</a></li>
+                <li><a href="#kits">Kits Especiais</a></li>
+                <li><a href="#lembrancinhas">Lembrancinhas</a></li>
+                <li><a href="#acessorios">Acessórios</a></li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="aromas.html" class="nav__link">Sobre os Aromas</a>
+              <ul class="dropdown">
+                <li><a href="aromas.html#flor-de-figo">Flor de Figo</a></li>
+                <li><a href="aromas.html#cha-branco">Chá Branco</a></li>
+                <li><a href="aromas.html#marinho">Marinho</a></li>
+                <li><a href="aromas.html#bamboo">Vela Bamboo</a></li>
+                <li><a href="aromas.html#palo-santo">Vela Palo Santo</a></li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="contato.html" class="nav__link">Fale Conosco</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="products-page">
+      <div class="container">
+        <h1 class="page-title fade-in">Nossos Produtos</h1>
+
+        <section id="aromatizadores" class="product-section fade-in">
+          <h2>Aromatizadores</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img
+                src="assets/imagens/aromatizador-figo.jpg"
+                alt="Aromatizador Flor de Figo"
+              />
+              <h3>Aromatizador Flor de Figo</h3>
+              <p>Fragrância sofisticada com notas de figo e flores brancas.</p>
+              <a href="#" class="button">Ver Produto</a>
+            </article>
+            <article class="product-card">
+              <img
+                src="assets/imagens/aromatizador-cha.jpg"
+                alt="Aromatizador Chá Branco"
+              />
+              <h3>Aromatizador Chá Branco</h3>
+              <p>
+                Aroma suave e relaxante inspirado no tradicional chá branco.
+              </p>
+              <a href="#" class="button">Ver Produto</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="home-spray" class="product-section fade-in">
+          <h2>Home Spray</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img
+                src="assets/imagens/spray-marinho.jpg"
+                alt="Home Spray Marinho"
+              />
+              <h3>Home Spray Marinho</h3>
+              <p>Fragrância refrescante com notas marinhas e cítricas.</p>
+              <a href="#" class="button">Ver Produto</a>
+            </article>
+            <article class="product-card">
+              <img
+                src="assets/imagens/spray-bamboo.jpg"
+                alt="Home Spray Bamboo"
+              />
+              <h3>Home Spray Bamboo</h3>
+              <p>Aroma verde e revigorante com notas de bambu.</p>
+              <a href="#" class="button">Ver Produto</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="velas" class="product-section fade-in">
+          <h2>Velas Aromáticas</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="assets/imagens/vela-bamboo.jpg" alt="Vela Bamboo" />
+              <h3>Vela Bamboo</h3>
+              <p>Vela aromática com fragrância natural de bambu.</p>
+              <a href="#" class="button">Ver Produto</a>
+            </article>
+            <article class="product-card">
+              <img
+                src="assets/imagens/vela-palo-santo.jpg"
+                alt="Vela Palo Santo"
+              />
+              <h3>Vela Palo Santo</h3>
+              <p>Vela com aroma místico e amadeirado do Palo Santo.</p>
+              <a href="#" class="button">Ver Produto</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="kits" class="product-section fade-in">
+          <h2>Kits Especiais</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="assets/imagens/kit-zen.jpg" alt="Kit Zen" />
+              <h3>Kit Zen</h3>
+              <p>Conjunto com vela, home spray e aromatizador.</p>
+              <a href="#" class="button">Ver Produto</a>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__content container">
+        <div class="social-links">
+          <a
+            href="https://instagram.com/secretszen"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a
+            href="https://wa.me/5516991626921"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WhatsApp</a
+          >
+        </div>
+        <p class="copyright">
+          &copy; 2024 Zen Secrets. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
