@@ -68,12 +68,21 @@
           </ul>
 
           <div class="search-bar">
-            <i class="fas fa-search"></i>
-            <input
-              type="search"
-              placeholder="Buscar produtos..."
-              aria-label="Search"
-            />
+            <form class="search-form" role="search">
+              <input
+                type="search"
+                placeholder="Buscar..."
+                aria-label="Search"
+                class="search-input"
+              />
+              <button
+                type="button"
+                class="search-icon"
+                aria-label="Toggle search"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
           </div>
 
           <div class="user-actions">
@@ -91,13 +100,55 @@
 
     <main>
       <section class="hero">
-        <div class="hero__content container">
-          <h1 class="hero__title">Harmonia e Bem-Estar Através do Aroma</h1>
-          <p class="hero__text">
-            Descubra nossa coleção exclusiva de aromas que transformam ambientes
-            e elevam suas experiências sensoriais.
-          </p>
-          <a href="comprar.html" class="button">Conheça nossos Produtos</a>
+        <div class="hero-slider">
+          <!-- Slide 1 -->
+          <div
+            class="slide active"
+            style="background-image: url('assets/imagens/all-hero.png')"
+          >
+            <div class="hero__content">
+              <h1 class="hero__title">Bem-vindo à Zen Secrets</h1>
+              <p class="hero__text">
+                Descubra nossa coleção exclusiva de aromas que transformam
+                ambientes em experiências únicas.
+              </p>
+              <a href="#produtos" class="button">Explorar Produtos</a>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide">
+            <div class="hero__content">
+              <h1 class="hero__title">Aromas que Inspiram</h1>
+              <p class="hero__text">
+                Fragrâncias cuidadosamente selecionadas para criar momentos
+                especiais em sua casa.
+              </p>
+              <a href="#colecao" class="button">Ver Coleção</a>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide">
+            <div class="hero__content">
+              <h1 class="hero__title">Experiência Sensorial</h1>
+              <p class="hero__text">
+                Transforme seu ambiente com nossas fragrâncias exclusivas.
+              </p>
+              <a href="#sobre" class="button">Saiba Mais</a>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="hero-slider-nav">
+            <button class="hero-slider-dot active"></button>
+            <button class="hero-slider-dot"></button>
+            <button class="hero-slider-dot"></button>
+          </div>
+
+          <!-- Arrows -->
+          <button class="hero-slider-arrow prev">&#8592;</button>
+          <button class="hero-slider-arrow next">&#8594;</button>
         </div>
       </section>
 
@@ -129,74 +180,277 @@
         </div>
       </section>
 
+      <section class="benefits-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Por que escolher a Zen Secrets?</h2>
+            <p class="section-description">
+              Descubra como nossos produtos podem transformar seu ambiente e
+              bem-estar
+            </p>
+          </div>
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <i class="fas fa-leaf"></i>
+              <h3>Produtos 100% Naturais</h3>
+              <p>
+                Fragrâncias desenvolvidas com ingredientes naturais
+                selecionados, garantindo qualidade e pureza em cada produto.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <i class="fas fa-star"></i>
+              <h3>Fragrâncias Exclusivas</h3>
+              <p>
+                Aromas únicos criados para proporcionar experiências sensoriais
+                memoráveis e ambientes acolhedores.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <i class="fas fa-heart"></i>
+              <h3>Bem-estar e Harmonia</h3>
+              <p>
+                Produtos pensados para trazer equilíbrio e tranquilidade ao seu
+                espaço, melhorando sua qualidade de vida.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="featured-products container">
         <h2>Produtos em Destaque</h2>
-        <div class="product-grid">
-          <article class="product-card fade-in">
-            <div class="product-card__image-container">
-              <img
-                src="assets/imagens/velabamboo.jpeg"
-                alt="Vela Bamboo"
-                class="product-card__image"
-              />
-              <span class="product-card__badge">Mais Vendido</span>
-            </div>
-            <div class="product-card__content">
-              <h3 class="product-card__title">Vela Bamboo</h3>
-              <p class="product-card__description">
-                Uma fragrância suave e refrescante que traz a sensação de
-                natureza para seu ambiente.
-              </p>
-              <div class="product-card__footer">
-                <div class="product-card__price">R$65,00</div>
-                <button class="product-card__button">Ver Produto</button>
-              </div>
-            </div>
-          </article>
+        <div class="product-slider">
+          <div class="product-slide">
+            <!-- First Slide -->
+            <div class="product-grid">
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/velabamboo.jpeg"
+                    alt="Vela Bamboo"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Mais Vendido</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Vela Bamboo</h3>
+                  <p class="product-card__description">
+                    Uma fragrância suave e refrescante que traz a sensação de
+                    natureza para seu ambiente.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$65,00</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
 
-          <article class="product-card fade-in">
-            <div class="product-card__image-container">
-              <img
-                src="assets/imagens/homespray.jpeg"
-                alt="Home Spray Chá Branco"
-                class="product-card__image"
-              />
-              <span class="product-card__badge">Novo</span>
-            </div>
-            <div class="product-card__content">
-              <h3 class="product-card__title">Home Spray Chá Branco</h3>
-              <p class="product-card__description">
-                Aroma delicado e relaxante, perfeito para perfumar ambientes com
-                elegância.
-              </p>
-              <div class="product-card__footer">
-                <div class="product-card__price">R$69,90</div>
-                <button class="product-card__button">Ver Produto</button>
-              </div>
-            </div>
-          </article>
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/homespray.jpeg"
+                    alt="Home Spray Chá Branco"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Novo</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Home Spray Chá Branco</h3>
+                  <p class="product-card__description">
+                    Aroma delicado e relaxante, perfeito para perfumar ambientes
+                    com elegância.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$69,90</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
 
-          <article class="product-card fade-in">
-            <div class="product-card__image-container">
-              <img
-                src="assets/imagens/aromatizador-flordefigo.jpeg"
-                alt="Aromatizador Flor de Figo"
-                class="product-card__image"
-              />
-              <span class="product-card__badge">Exclusivo</span>
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/aromatizador-flordefigo.jpeg"
+                    alt="Aromatizador Flor de Figo"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Exclusivo</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Aromatizador Flor de Figo</h3>
+                  <p class="product-card__description">
+                    Uma combinação única de notas frutadas e florais para uma
+                    experiência sensorial marcante.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$69,90</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
             </div>
-            <div class="product-card__content">
-              <h3 class="product-card__title">Aromatizador Flor de Figo</h3>
-              <p class="product-card__description">
-                Uma combinação única de notas frutadas e florais para uma
-                experiência sensorial marcante.
-              </p>
-              <div class="product-card__footer">
-                <div class="product-card__price">R$69,90</div>
-                <button class="product-card__button">Ver Produto</button>
-              </div>
+          </div>
+
+          <div class="product-slide">
+            <!-- Second Slide -->
+            <div class="product-grid">
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/homespraymarinho.jpeg"
+                    alt="Home Spray Marinho"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Refrescante</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Home Spray Marinho</h3>
+                  <p class="product-card__description">
+                    A brisa do mar em seu ambiente, trazendo frescor e
+                    tranquilidade.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$69,90</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/difusor.jpeg"
+                    alt="Difusor de Ambiente"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Lançamento</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Difusor de Ambiente</h3>
+                  <p class="product-card__description">
+                    Elegante difusor que perfuma seu ambiente de forma suave e
+                    duradoura.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$89,90</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/kitpresente.jpeg"
+                    alt="Kit Presente"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Especial</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Kit Presente</h3>
+                  <p class="product-card__description">
+                    Conjunto especial com nossas fragrâncias mais amadas em uma
+                    embalagem elegante.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$149,90</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
             </div>
-          </article>
+          </div>
+
+          <div class="product-slide">
+            <!-- Third Slide -->
+            <div class="product-grid">
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/velamini.jpeg"
+                    alt="Kit Mini Velas"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Kit</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Kit Mini Velas</h3>
+                  <p class="product-card__description">
+                    Conjunto com três mini velas aromáticas para experimentar
+                    diferentes fragrâncias.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$79,90</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/velabamboo.jpeg"
+                    alt="Vela Bamboo"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Mais Vendido</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Vela Bamboo</h3>
+                  <p class="product-card__description">
+                    Uma fragrância suave e refrescante que traz a sensação de
+                    natureza para seu ambiente.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$65,00</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card fade-in">
+                <div class="product-card__image-container">
+                  <img
+                    src="assets/imagens/homespray.jpeg"
+                    alt="Home Spray Chá Branco"
+                    class="product-card__image"
+                  />
+                  <span class="product-card__badge">Novo</span>
+                </div>
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Home Spray Chá Branco</h3>
+                  <p class="product-card__description">
+                    Aroma delicado e relaxante, perfeito para perfumar ambientes
+                    com elegância.
+                  </p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">R$69,90</div>
+                    <button class="product-card__button">Ver Produto</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Slider Navigation -->
+        <div class="product-slider-nav">
+          <button
+            class="product-slider-arrow prev"
+            aria-label="Previous products"
+          >
+            ←
+          </button>
+          <div class="product-slider-dots">
+            <button class="product-slider-dot active" data-slide="0"></button>
+            <button class="product-slider-dot" data-slide="1"></button>
+            <button class="product-slider-dot" data-slide="2"></button>
+          </div>
+          <button class="product-slider-arrow next" aria-label="Next products">
+            →
+          </button>
         </div>
       </section>
 
@@ -275,6 +529,34 @@
       </section>
     </main>
 
+    <section class="instagram-feed">
+      <div class="section-header">
+        <h2 class="section-title">Siga nosso Instagram</h2>
+        <p class="section-description">
+          Explore nosso feed para mais conteúdo, dicas e inspiração para seu
+          bem-estar.
+        </p>
+      </div>
+
+      <div class="instagram-feed__embed">
+        <!-- Elfsight Instagram Feed -->
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-YOUR-APP-ID"></div>
+      </div>
+
+      <div class="instagram-feed__cta">
+        <a
+          href="https://www.instagram.com/secretszen/"
+          class="instagram-feed__username"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-instagram"></i>
+          @secretszen
+        </a>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="footer__content container">
         <div class="footer__grid">
@@ -340,38 +622,25 @@
             <h4>Meios de envio</h4>
             <img src="assets/imagens/melhorenvio.png" alt="Melhor Envio" />
           </div>
-
-          <div class="security">
-            <h4>Segurança</h4>
-            <div class="security-badges">
-              <img src="assets/imagens/ssl.png" alt="SSL Security" />
-              <img
-                src="assets/imagens/google-safe-browsing.png"
-                alt="Google Safe Browsing"
-              />
-            </div>
-          </div>
         </div>
 
         <!-- Copyright and Credits -->
         <div class="footer__bottom">
-          <p class="copyright">
-            &copy; 2024 Zen Secrets. Todos os direitos reservados.
-          </p>
           <div class="credits">
-            <span>criado com amor por</span>
-            <a
-              href="https://pickypixels.studio"
-              target="_blank"
-              rel="noopener noreferrer"
+            <span>© 2024 Zen Secrets. Todos os direitos reservados.</span>
+            <span class="separator">|</span>
+            <span
+              >criado com <i class="fas fa-heart"></i> por
+              <a href="#">Picky Pixels Studio</a></span
             >
-              Picky Pixels Studio
-            </a>
           </div>
         </div>
       </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/product-slider.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/search.js"></script>
   </body>
 </html>

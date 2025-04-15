@@ -118,4 +118,23 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle?.classList.remove("active");
     }
   });
+
+  // Search Bar Functionality
+  const searchForm = document.querySelector(".search-form");
+  const searchIcon = document.querySelector(".search-icon");
+  const searchInput = document.querySelector(".search-input");
+
+  searchIcon.addEventListener("click", (e) => {
+    e.preventDefault();
+    searchForm.classList.toggle("active");
+    if (searchForm.classList.contains("active")) {
+      searchInput.focus();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!searchForm.contains(e.target)) {
+      searchForm.classList.remove("active");
+    }
+  });
 });
