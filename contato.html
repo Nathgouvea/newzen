@@ -10,13 +10,23 @@
       href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/contact.css" />
   </head>
   <body>
     <header class="header">
       <div class="header__container container">
         <div class="logo">
-          <a href="index.html">Zen Secrets</a>
+          <img
+            src="assets/imagens/logo.svg"
+            alt="Zen Secrets Logo"
+            href="index.html"
+            class="logo__image"
+          />
         </div>
 
         <button class="menu-toggle" aria-label="Toggle menu">
@@ -57,72 +67,83 @@
               <a href="contato.html" class="nav__link active">Fale Conosco</a>
             </li>
           </ul>
+
+          <div class="search-bar">
+            <form class="search-form" role="search">
+              <input
+                type="search"
+                placeholder="Buscar..."
+                aria-label="Search"
+                class="search-input"
+              />
+              <button
+                type="button"
+                class="search-icon"
+                aria-label="Toggle search"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="user-actions">
+            <a href="#" class="user-actions__item" aria-label="Minha conta">
+              <i class="fas fa-user"></i>
+            </a>
+            <a href="#" class="user-actions__item" aria-label="Carrinho">
+              <i class="far fa-shopping-bag"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </div>
         </nav>
       </div>
     </header>
 
     <main class="contact-page">
       <div class="container">
-        <h1 class="page-title fade-in">Fale Conosco</h1>
-        <p class="page-description fade-in">
-          Estamos aqui para ajudar! Entre em contato conosco através de qualquer
-          um dos canais abaixo.
-        </p>
+        <div class="section-header">
+          <h1 class="section-title fade-in">Conecte-se Conosco</h1>
+          <p class="section-description fade-in">
+            Estamos aqui para criar uma experiência única para você. Escolha a
+            melhor forma de nos contatar.
+          </p>
+        </div>
 
         <div class="contact-grid">
-          <section class="contact-info fade-in">
-            <h2>Canais de Atendimento</h2>
-            <div class="contact-channels">
-              <div class="contact-channel">
-                <h3>WhatsApp</h3>
-                <a
-                  href="https://wa.me/5516991626921"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >(16) 99162-6921</a
-                >
-                <p>Atendimento de segunda a sexta, das 9h às 18h</p>
-              </div>
-              <div class="contact-channel">
-                <h3>Instagram</h3>
-                <a
-                  href="https://instagram.com/secretszen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >@secretszen</a
-                >
-                <p>Siga-nos para novidades e promoções exclusivas</p>
-              </div>
-            </div>
-          </section>
-
           <section class="contact-form-section fade-in">
-            <h2>Envie uma Mensagem</h2>
+            <div class="form-intro">
+              <h2>Deixe sua mensagem</h2>
+              <p>Estamos ansiosos para conhecer você e suas necessidades.</p>
+            </div>
             <form class="contact-form" id="contactForm">
-              <div class="form-group">
-                <label for="name">Nome</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="form-input"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="email">E-mail</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-input"
-                  required
-                />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Seu nome</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    required
+                    placeholder="Como gostaria de ser chamado?"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Seu e-mail</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    required
+                    placeholder="Onde podemos te responder?"
+                  />
+                </div>
               </div>
               <div class="form-group">
                 <label for="subject">Assunto</label>
                 <select id="subject" name="subject" class="form-input" required>
-                  <option value="">Selecione um assunto</option>
+                  <option value="">Como podemos ajudar?</option>
                   <option value="duvida">Dúvida sobre produtos</option>
                   <option value="sugestao">Sugestão</option>
                   <option value="revenda">Informações sobre revenda</option>
@@ -130,16 +151,77 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="message">Mensagem</label>
+                <label for="message">Sua mensagem</label>
                 <textarea
                   id="message"
                   name="message"
                   class="form-textarea"
                   required
+                  placeholder="Conte-nos como podemos te ajudar..."
                 ></textarea>
               </div>
-              <button type="submit" class="button">Enviar Mensagem</button>
+              <button type="submit" class="button">
+                <i class="fas fa-paper-plane"></i>
+                Enviar mensagem
+              </button>
             </form>
+          </section>
+
+          <section class="contact-info fade-in">
+            <div class="contact-info-header">
+              <h2>Outras formas de contato</h2>
+              <p>Escolha a maneira mais conveniente para você</p>
+            </div>
+            <div class="contact-channels">
+              <div class="contact-channel">
+                <div class="contact-icon">
+                  <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-content">
+                  <h3>WhatsApp</h3>
+                  <a
+                    href="https://wa.me/5516991626921"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                    >(16) 99162-6921</a
+                  >
+                  <p>Converse conosco em tempo real</p>
+                </div>
+              </div>
+              <div class="contact-channel">
+                <div class="contact-icon">
+                  <i class="fab fa-instagram"></i>
+                </div>
+                <div class="contact-content">
+                  <h3>Instagram</h3>
+                  <a
+                    href="https://instagram.com/secretszen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                    >@secretszen</a
+                  >
+                  <p>Inspire-se com nossos momentos</p>
+                </div>
+              </div>
+              <div class="contact-channel">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-content">
+                  <h3>E-mail</h3>
+                  <a
+                    href="mailto:secretszen888@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                    >secretszen888@gmail.com</a
+                  >
+                  <p>Conte-nos sua história</p>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       </div>
@@ -147,26 +229,86 @@
 
     <footer class="footer">
       <div class="footer__content container">
-        <div class="social-links">
-          <a
-            href="https://instagram.com/secretszen"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Instagram</a
-          >
-          <a
-            href="https://wa.me/5516991626921"
-            target="_blank"
-            rel="noopener noreferrer"
-            >WhatsApp</a
-          >
+        <div class="footer__grid">
+          <!-- Instagram Section -->
+          <div class="footer__section">
+            <div class="instagram-section">
+              <i class="fab fa-instagram"></i>
+              <p>Siga-nos no Instagram</p>
+              <a
+                href="https://instagram.com/secretszen"
+                class="instagram-handle"
+                >@secretszen</a
+              >
+            </div>
+          </div>
+
+          <!-- Institutional Links -->
+          <div class="footer__section">
+            <h3>Institucional</h3>
+            <ul class="footer__links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/contato">Contato</a></li>
+              <li><a href="/trocas-e-devolucoes">Trocas e Devoluções</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="footer__section">
+            <h3>Entre em contato</h3>
+            <ul class="footer__contact">
+              <li>
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/5516991626921">(16) 99162-6921</a>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>(16) 99162-6921</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:secretszen888@gmail.com"
+                  >secretszen888@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        <p class="copyright">
-          &copy; 2024 Zen Secrets. Todos os direitos reservados.
-        </p>
+
+        <!-- Payment and Shipping Methods -->
+        <div class="footer__info">
+          <div class="payment-methods">
+            <h4>Formas de pagamento</h4>
+            <div class="payment-icons">
+              <img src="assets/imagens/visa.png" alt="Visa" />
+              <img src="assets/imagens/mastercard.png" alt="Mastercard" />
+              <img src="assets/imagens/elo.png" alt="Elo" />
+              <img src="assets/imagens/pix.png" alt="PIX" />
+            </div>
+          </div>
+
+          <div class="shipping-methods">
+            <h4>Meios de envio</h4>
+            <img src="assets/imagens/melhorenvio.png" alt="Melhor Envio" />
+          </div>
+        </div>
+
+        <!-- Copyright and Credits -->
+        <div class="footer__bottom">
+          <div class="credits">
+            <span>© 2024 Zen Secrets. Todos os direitos reservados.</span>
+            <span class="separator">|</span>
+            <span
+              >criado com <i class="fas fa-heart"></i> por
+              <a href="#">Picky Pixels Studio</a></span
+            >
+          </div>
+        </div>
       </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/search.js"></script>
   </body>
 </html>

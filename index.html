@@ -54,13 +54,6 @@
             </li>
             <li class="nav__item">
               <a href="aromas.html" class="nav__link">Sobre os Aromas</a>
-              <ul class="dropdown">
-                <li><a href="aromas.html#flor-de-figo">Flor de Figo</a></li>
-                <li><a href="aromas.html#cha-branco">Chá Branco</a></li>
-                <li><a href="aromas.html#marinho">Marinho</a></li>
-                <li><a href="aromas.html#bamboo">Vela Bamboo</a></li>
-                <li><a href="aromas.html#palo-santo">Vela Palo Santo</a></li>
-              </ul>
             </li>
             <li class="nav__item">
               <a href="contato.html" class="nav__link">Fale Conosco</a>
@@ -156,19 +149,25 @@
         <div class="container">
           <div class="trust-grid">
             <div class="trust-item fade-in-up-1">
-              <i class="fas fa-credit-card"></i>
-              <h4 class="trust-item__title">Pagamento Flexível</h4>
-              <p class="trust-item__subtitle">Cartão, boleto ou PIX</p>
+              <i class="fas fa-heart"></i>
+              <div class="trust-item__content">
+                <h4 class="trust-item__title">Pagamento Flexível</h4>
+                <p class="trust-item__subtitle">Cartão, boleto ou PIX</p>
+              </div>
             </div>
             <div class="trust-item fade-in-up-2">
-              <i class="fas fa-map-marked-alt"></i>
-              <h4 class="trust-item__title">Entrega Nacional</h4>
-              <p class="trust-item__subtitle">Enviamos para todo o Brasil</p>
+              <i class="fas fa-feather-alt"></i>
+              <div class="trust-item__content">
+                <h4 class="trust-item__title">Entrega Nacional</h4>
+                <p class="trust-item__subtitle">Enviamos para todo o Brasil</p>
+              </div>
             </div>
             <div class="trust-item fade-in-up-3">
               <i class="fas fa-lock"></i>
-              <h4 class="trust-item__title">Compra Segura</h4>
-              <p class="trust-item__subtitle">Seus dados estão protegidos</p>
+              <div class="trust-item__content">
+                <h4 class="trust-item__title">Compra Segura</h4>
+                <p class="trust-item__subtitle">Seus dados estão protegidos</p>
+              </div>
             </div>
             <a
               href="https://wa.me/5516991626921"
@@ -176,48 +175,12 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i class="fab fa-whatsapp"></i>
-              <h4 class="trust-item__title">Atendimento</h4>
-              <p class="trust-item__subtitle">Fale conosco no WhatsApp</p>
+              <i class="fas fa-comment-dots"></i>
+              <div class="trust-item__content">
+                <h4 class="trust-item__title">Atendimento</h4>
+                <p class="trust-item__subtitle">Fale conosco no WhatsApp</p>
+              </div>
             </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="benefits-section">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Por que escolher a Zen Secrets?</h2>
-            <p class="section-description">
-              Descubra como nossos produtos podem transformar seu ambiente e
-              bem-estar
-            </p>
-          </div>
-          <div class="benefits-grid">
-            <div class="benefit-card">
-              <i class="fas fa-leaf"></i>
-              <h3>Produtos 100% Naturais</h3>
-              <p>
-                Fragrâncias desenvolvidas com ingredientes naturais
-                selecionados, garantindo qualidade e pureza em cada produto.
-              </p>
-            </div>
-            <div class="benefit-card">
-              <i class="fas fa-star"></i>
-              <h3>Fragrâncias Exclusivas</h3>
-              <p>
-                Aromas únicos criados para proporcionar experiências sensoriais
-                memoráveis e ambientes acolhedores.
-              </p>
-            </div>
-            <div class="benefit-card">
-              <i class="fas fa-heart"></i>
-              <h3>Bem-estar e Harmonia</h3>
-              <p>
-                Produtos pensados para trazer equilíbrio e tranquilidade ao seu
-                espaço, melhorando sua qualidade de vida.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -500,9 +463,154 @@
         </div>
       </section>
 
-      <div class="ambient-quote">
-        <p>"Respire fundo. O agora é o único tempo real."</p>
-      </div>
+      <!-- Featured Collections -->
+      <section class="featured-collections">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Nossas Coleções</h2>
+            <p class="section-description">
+              Descubra nossas fragrâncias exclusivas
+            </p>
+          </div>
+
+          <div class="collections-grid">
+            <div class="collection-item primary">
+              <div class="collection-image-wrapper">
+                <img
+                  src="assets/imagens/vala-bamboo.png"
+                  alt="Coleção Bamboo"
+                  class="collection-image"
+                />
+              </div>
+              <div class="collection-content">
+                <span class="collection-tag">Destaque</span>
+                <h3>Coleção Bamboo</h3>
+                <p>
+                  Uma fragrância sofisticada inspirada na serenidade oriental,
+                  trazendo paz e harmonia para seu ambiente com notas verdes e
+                  amadeiradas.
+                </p>
+                <a href="#" class="btn-collection">Explorar Coleção</a>
+              </div>
+            </div>
+
+            <div class="collection-item secondary">
+              <div class="collection-image-wrapper">
+                <img
+                  src="assets/imagens/homespray-chabranco.png"
+                  alt="Linha Chá Branco"
+                  class="collection-image"
+                />
+              </div>
+              <div class="collection-content">
+                <h3>Chá Branco</h3>
+                <p>Fragrância suave e relaxante com notas florais delicadas</p>
+                <a href="#" class="btn-collection outline">Ver Produtos</a>
+              </div>
+            </div>
+
+            <div class="collection-item secondary">
+              <div class="collection-image-wrapper">
+                <img
+                  src="assets/imagens/marinho.png"
+                  alt="Coleção Marinho"
+                  class="collection-image"
+                />
+              </div>
+              <div class="collection-content">
+                <h3>Marinho</h3>
+                <p>Aroma fresco e revigorante que remete à brisa do mar</p>
+                <a href="#" class="btn-collection outline">Descobrir</a>
+              </div>
+            </div>
+
+            <div class="collection-item secondary">
+              <div class="collection-image-wrapper">
+                <img
+                  src="assets/imagens/homespray-flordefigo.png"
+                  alt="Flor de Figo"
+                  class="collection-image"
+                />
+              </div>
+              <div class="collection-content">
+                <h3>Flor de Figo</h3>
+                <p>Fragrância única com notas doces e amadeiradas</p>
+                <a href="#" class="btn-collection outline">Ver Produtos</a>
+              </div>
+            </div>
+
+            <div class="collection-item secondary">
+              <div class="collection-image-wrapper">
+                <img
+                  src="assets/imagens/vela-palosanto.png"
+                  alt="Palo Santo"
+                  class="collection-image"
+                />
+              </div>
+              <div class="collection-content">
+                <h3>Palo Santo</h3>
+                <p>Aroma místico e acolhedor com notas amadeiradas</p>
+                <a href="#" class="btn-collection outline">Explorar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Custom Order Section -->
+      <section class="custom-order">
+        <div class="custom-order__container">
+          <div class="custom-order__content">
+            <h2 class="custom-order__title">
+              Encomende com a gente sua lembrancinha
+            </h2>
+            <p class="custom-order__text">
+              Torne seu evento ainda mais especial com nossas lembrancinhas
+              personalizadas. Criamos produtos únicos que vão marcar o seu
+              momento e encantar seus convidados.
+            </p>
+            <div class="custom-order__features">
+              <div class="custom-order__feature">
+                <i class="fas fa-gift"></i>
+                <span class="custom-order__feature-text"
+                  >Produtos personalizados para seu evento</span
+                >
+              </div>
+              <div class="custom-order__feature">
+                <i class="fas fa-heart"></i>
+                <span class="custom-order__feature-text"
+                  >Fragrâncias exclusivas</span
+                >
+              </div>
+              <div class="custom-order__feature">
+                <i class="fas fa-star"></i>
+                <span class="custom-order__feature-text"
+                  >Embalagens especiais</span
+                >
+              </div>
+              <div class="custom-order__feature">
+                <i class="fas fa-check-circle"></i>
+                <span class="custom-order__feature-text"
+                  >Atendimento personalizado</span
+                >
+              </div>
+            </div>
+            <div class="custom-order__cta-wrapper">
+              <a href="https://wa.me/5516991626921" class="custom-order__cta">
+                <i class="fab fa-whatsapp"></i>
+                Faça seu pedido pelo WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="custom-order__image-wrapper">
+            <img
+              src="assets/imagens/lembrancinhas.jpeg"
+              alt="Lembrancinhas personalizadas Zen Secrets"
+              class="custom-order__image"
+            />
+          </div>
+        </div>
+      </section>
 
       <section class="categories-section">
         <div class="section-header">
