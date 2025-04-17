@@ -105,7 +105,12 @@
                 Descubra nossa coleção exclusiva de aromas que transformam
                 ambientes em experiências únicas.
               </p>
-              <a href="#produtos" class="button">Explorar Produtos</a>
+              <div class="hero__ctas">
+                <a href="#shop" class="hero__cta-primary">Shop Now</a>
+                <a href="#collections" class="hero__cta-secondary"
+                  >View Collections</a
+                >
+              </div>
             </div>
           </div>
 
@@ -464,96 +469,240 @@
       </section>
 
       <!-- Featured Collections -->
-      <section class="featured-collections">
+      <section class="categories-circle">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">Nossas Coleções</h2>
-            <p class="section-description">
-              Descubra nossas fragrâncias exclusivas
-            </p>
+            <h2 class="section-title">Nossos Aromas</h2>
           </div>
 
-          <div class="collections-grid">
-            <div class="collection-item primary">
-              <div class="collection-image-wrapper">
+          <div class="categories-circle__grid">
+            <div class="category-circle">
+              <div class="category-circle__image-wrapper">
                 <img
                   src="assets/imagens/vala-bamboo.png"
-                  alt="Coleção Bamboo"
-                  class="collection-image"
+                  alt="Bamboo"
+                  class="category-circle__image"
                 />
               </div>
-              <div class="collection-content">
-                <span class="collection-tag">Destaque</span>
-                <h3>Coleção Bamboo</h3>
-                <p>
-                  Uma fragrância sofisticada inspirada na serenidade oriental,
-                  trazendo paz e harmonia para seu ambiente com notas verdes e
-                  amadeiradas.
-                </p>
-                <a href="#" class="btn-collection">Explorar Coleção</a>
-              </div>
+              <h3 class="category-circle__title">Bamboo</h3>
             </div>
 
-            <div class="collection-item secondary">
-              <div class="collection-image-wrapper">
-                <img
-                  src="assets/imagens/homespray-chabranco.png"
-                  alt="Linha Chá Branco"
-                  class="collection-image"
-                />
-              </div>
-              <div class="collection-content">
-                <h3>Chá Branco</h3>
-                <p>Fragrância suave e relaxante com notas florais delicadas</p>
-                <a href="#" class="btn-collection outline">Ver Produtos</a>
-              </div>
-            </div>
-
-            <div class="collection-item secondary">
-              <div class="collection-image-wrapper">
+            <div class="category-circle">
+              <div class="category-circle__image-wrapper">
                 <img
                   src="assets/imagens/marinho.png"
-                  alt="Coleção Marinho"
-                  class="collection-image"
+                  alt="Marinho"
+                  class="category-circle__image"
                 />
               </div>
-              <div class="collection-content">
-                <h3>Marinho</h3>
-                <p>Aroma fresco e revigorante que remete à brisa do mar</p>
-                <a href="#" class="btn-collection outline">Descobrir</a>
-              </div>
+              <h3 class="category-circle__title">Marinho</h3>
             </div>
 
-            <div class="collection-item secondary">
-              <div class="collection-image-wrapper">
+            <div class="category-circle">
+              <div class="category-circle__image-wrapper">
+                <img
+                  src="assets/imagens/homespray-chabranco.png"
+                  alt="Chá Branco"
+                  class="category-circle__image"
+                />
+              </div>
+              <h3 class="category-circle__title">Chá Branco</h3>
+            </div>
+
+            <div class="category-circle">
+              <div class="category-circle__image-wrapper">
                 <img
                   src="assets/imagens/homespray-flordefigo.png"
                   alt="Flor de Figo"
-                  class="collection-image"
+                  class="category-circle__image"
                 />
               </div>
-              <div class="collection-content">
-                <h3>Flor de Figo</h3>
-                <p>Fragrância única com notas doces e amadeiradas</p>
-                <a href="#" class="btn-collection outline">Ver Produtos</a>
-              </div>
+              <h3 class="category-circle__title">Flor de Figo</h3>
             </div>
 
-            <div class="collection-item secondary">
-              <div class="collection-image-wrapper">
+            <div class="category-circle">
+              <div class="category-circle__image-wrapper">
                 <img
                   src="assets/imagens/vela-palosanto.png"
                   alt="Palo Santo"
-                  class="collection-image"
+                  class="category-circle__image"
                 />
               </div>
-              <div class="collection-content">
-                <h3>Palo Santo</h3>
-                <p>Aroma místico e acolhedor com notas amadeiradas</p>
-                <a href="#" class="btn-collection outline">Explorar</a>
-              </div>
+              <h3 class="category-circle__title">Palo Santo</h3>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Velas Section -->
+      <section class="featured-products container">
+        <h2>Compre Nossas Velas</h2>
+        <div class="product-grid">
+          <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/vala-bamboo.png"
+                alt="Vela Bamboo"
+                class="product-card__image"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Vela Bamboo</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$69,90</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Agora
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/vela-palosanto.png"
+                alt="Vela Palo Santo"
+                class="product-card__image"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Vela Palo Santo</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$69,90</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Agora
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/vela.jpeg"
+                alt="Vela Flor de Figo"
+                class="product-card__image"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Vela Flor de Figo</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$69,90</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Agora
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/velabamboo.jpeg"
+                alt="Vela Chá Branco"
+                class="product-card__image"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Vela Chá Branco</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$69,90</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Agora
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Kits Especiais Section -->
+      <section class="featured-products container">
+        <h2>Compre Nossos Kits Especiais</h2>
+        <div class="product-grid">
+          <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/kitpresente.jpeg"
+                alt="Kit Completo Bamboo"
+                class="product-card__image"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Kit Completo Bamboo</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$225,90</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Agora
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/kitpresente.jpeg"
+                alt="Kit Completo Marinho"
+                class="product-card__image"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Kit Completo Marinho</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$225,90</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Agora
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/kitpresente.jpeg"
+                alt="Kit Completo Chá Branco"
+                class="product-card__image"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Kit Completo Chá Branco</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$225,90</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Agora
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card fade-in">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/kitpresente.jpeg"
+                alt="Kit Completo Flor de Figo"
+                class="product-card__image"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Kit Completo Flor de Figo</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$225,90</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Agora
+                </button>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -604,7 +753,7 @@
           </div>
           <div class="custom-order__image-wrapper">
             <img
-              src="assets/imagens/lembrancinhas.jpeg"
+              src="assets/imagens/lembrancinhas.png"
               alt="Lembrancinhas personalizadas Zen Secrets"
               class="custom-order__image"
             />
