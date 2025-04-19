@@ -25,31 +25,42 @@
   --color-background-soft: var(--color-gray-100);
   --color-background-muted: var(--color-gray-200);
 
-  /* Typography */
-  --font-family: "Arimo", "Inter", sans-serif;
-  --font-family-headings: "Arimo", "Inter", sans-serif;
+  /* UI neutrals & gradients */
+  --color-gray: #8a8a8a; /* neutral body copy alt */
+  --color-gray-dark: #4f4f4f;
+  --color-light-gray: #f5f5f5;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Border radius */
+  --border-radius-sm: 6px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+
+  /* Transitions */
+  --transition-base: all 0.3s ease;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Container */
+  --container-padding: 1rem;
+  --container-width: 1200px;
+  --container-width-xl: 1400px;
 
   /* Other variables remain unchanged */
   --color-accent: var(--color-black); /* subtle emphasis */
   --color-accent-light: rgba(27, 27, 27, 0.08);
   --color-accent-dark: #141414;
 
-  --color-gray: #8a8a8a; /* neutral body copy alt */
-  --color-gray-dark: #4f4f4f;
-  --color-light-gray: linear-gradient(135deg, #f3f3f0 0%, #ebebe8 100%);
-  --color-background: linear-gradient(
-    135deg,
-    var(--color-white) 0%,
-    #f8f8f8 100%
-  );
-
   /* Glass effect */
-  --glass-background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.7) 100%
-  );
-  --glass-border: rgba(27, 27, 27, 0.1);
+  --glass-background: rgba(255, 255, 255, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(10px);
 
   /* Gradient accents */
   --gradient-primary: linear-gradient(
@@ -76,10 +87,6 @@
   /* Layout */
   --max-width: 1280px;
   --header-height: 80px;
-  --border-radius-sm: 6px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 16px;
-  --container-padding: clamp(1rem, 5vw, 2rem);
 
   /* Typography */
   --font-family: "Inter", system-ui, -apple-system, sans-serif;
@@ -90,8 +97,19 @@
 
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* Z-index layers */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-tooltip: 500;
 }
 
 /* Import Quicksand font */
@@ -215,7 +233,7 @@ body {
 }
 
 .nav__link:hover {
-  color: var(--color-secondary-dark);
+  color: var(--color-text-soft);
 }
 
 .nav__link:hover::after {
@@ -253,7 +271,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
+  background: var(--color-gray-100);
   min-width: 200px;
   padding: 0.5rem 0;
   border-radius: var(--border-radius-sm);
@@ -744,7 +762,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem 3rem;
-  background: var(--color-white);
+  background: var(--color-gray-100);
   color: var(--color-text);
   text-decoration: none;
   border-radius: 100px;
@@ -770,7 +788,7 @@ body {
 
 .button:hover {
   transform: translateY(-2px);
-  background: var(--gradient-soft);
+  background: var(--color-gray-200);
   box-shadow: var(--shadow-sm);
 }
 
@@ -891,13 +909,13 @@ body {
 }
 
 .footer__list a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer__list a:hover {
-  color: #ffffff;
+  color: var(--color-text-soft);
 }
 
 /* Instagram Section */
@@ -954,13 +972,13 @@ body {
 }
 
 .footer__links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer__links a:hover {
-  color: #ffffff;
+  color: var(--color-text-soft);
 }
 
 /* Contact Information */
@@ -982,13 +1000,13 @@ body {
 }
 
 .footer__contact a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer__contact a:hover {
-  color: #ffffff;
+  color: var(--color-text-soft);
 }
 
 /* Payment and Shipping Methods */
@@ -3229,5 +3247,10 @@ h3,
 [data-theme="dark"] .hero__cta-secondary:focus-visible,
 [data-theme="dark"] .custom-order__cta:focus-visible,
 [data-theme="dark"] .btn-collection:focus-visible {
+  outline: 2px solid var(--color-white);
+}
+
+/* Accessibility - Focus styles */
+[data-theme="dark"] :focus-visible {
   outline: 2px solid var(--color-white);
 }
