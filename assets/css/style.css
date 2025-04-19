@@ -1,36 +1,62 @@
 /* Variables */
 :root {
-  /* Core colors */
+  /* Colors */
+  --color-primary: #1a1a1a;
+  --color-secondary: #6b4fc4; /* luxury purple */
+  --color-secondary-light: #8c77d1;
+  --color-secondary-dark: #4f3a96;
+  --color-black: #000000;
   --color-white: #ffffff;
-  --color-text: #4a4a4a;
-  --color-text-soft: #757575;
-  --color-black: #4a4a4a;
+  --color-gray-100: #f8f8f8;
+  --color-gray-200: #f3f3f0;
+  --color-gray-300: #e0e0e0;
+  --color-gray-400: #bdbdbd;
+  --color-gray-500: #9e9e9e;
+  --color-gray-600: #757575;
+  --color-gray-700: #616161;
+  --color-gray-800: #424242;
+  --color-gray-900: #212121;
 
-  /* Brand colors */
-  --color-accent: #4a4a4a;
-  --color-accent-light: rgba(74, 74, 74, 0.1);
-  --color-accent-dark: #3a3a3a;
-  --color-secondary: #6b4fc4;
-  --color-secondary-light: rgba(107, 79, 196, 0.2);
-  --color-secondary-dark: #5a42a8;
+  --color-text: var(--color-gray-900);
+  --color-text-soft: var(--color-gray-600);
+  --color-text-inverse: var(--color-white);
 
-  /* UI colors with gradients */
-  --color-gray: #757575;
-  --color-gray-dark: #4a4a4a;
-  --color-light-gray: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
-  --color-background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  --color-background: var(--color-white);
+  --color-background-soft: var(--color-gray-100);
+  --color-background-muted: var(--color-gray-200);
 
-  /* Glass effect with gradient */
+  /* Typography */
+  --font-family: "Arimo", "Inter", sans-serif;
+  --font-family-headings: "Arimo", "Inter", sans-serif;
+
+  /* Other variables remain unchanged */
+  --color-accent: var(--color-black); /* subtle emphasis */
+  --color-accent-light: rgba(27, 27, 27, 0.08);
+  --color-accent-dark: #141414;
+
+  --color-gray: #8a8a8a; /* neutral body copy alt */
+  --color-gray-dark: #4f4f4f;
+  --color-light-gray: linear-gradient(135deg, #f3f3f0 0%, #ebebe8 100%);
+  --color-background: linear-gradient(
+    135deg,
+    var(--color-white) 0%,
+    #f8f8f8 100%
+  );
+
+  /* Glass effect */
   --glass-background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.9) 0%,
     rgba(255, 255, 255, 0.7) 100%
   );
-  --glass-border: rgba(58, 58, 58, 0.1);
-  --glass-blur: blur(12px);
+  --glass-border: rgba(27, 27, 27, 0.1);
 
   /* Gradient accents */
-  --gradient-primary: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-black) 0%,
+    var(--color-accent-dark) 100%
+  );
   --gradient-secondary: linear-gradient(
     135deg,
     var(--color-secondary) 0%,
@@ -38,8 +64,8 @@
   );
   --gradient-accent: linear-gradient(
     135deg,
-    rgba(74, 74, 74, 0.1) 0%,
-    rgba(74, 74, 74, 0.05) 100%
+    rgba(27, 27, 27, 0.1) 0%,
+    rgba(27, 27, 27, 0.05) 100%
   );
   --gradient-soft: linear-gradient(
     135deg,
@@ -190,7 +216,17 @@ body {
 
 .nav__link:hover {
   color: var(--color-secondary-dark);
-  background: var(--color-secondary-light);
+}
+
+.nav__link:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 2px;
+  background: var(--color-secondary);
+  border-radius: 2px;
 }
 
 .nav__link.active {
@@ -216,24 +252,23 @@ body {
 .dropdown {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-black);
+  left: 0;
+  background: white;
   min-width: 200px;
-  padding: 1rem 0;
-  border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 100;
-  border: 1px solid var(--color-gray-dark);
+  transform: translateY(10px);
+  transition: var(--transition-base);
+  z-index: 1000;
 }
 
 .nav__item:hover .dropdown {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateY(0);
 }
 
 .dropdown li {
@@ -242,17 +277,16 @@ body {
 
 .dropdown a {
   display: block;
-  padding: 0.7rem 1.5rem;
-  color: var(--color-text-soft);
+  padding: 0.5rem 1rem;
+  color: var(--color-text);
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  text-align: center;
+  font-size: 0.875rem;
+  transition: var(--transition-base);
 }
 
 .dropdown a:hover {
-  background: var(--color-light-gray);
-  color: var(--color-white);
+  color: var(--color-secondary-dark);
+  background: var(--color-gray-100);
 }
 
 /* Mobile Dropdown */
@@ -584,36 +618,26 @@ body {
 }
 
 .hero__cta-primary {
-  display: inline-flex;
-  align-items: center;
-  padding: 1rem 2.5rem;
-  background: var(--color-white);
-  color: var(--color-text);
-  text-decoration: none;
-  border-radius: 100px;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border: 2px solid var(--color-white);
-}
-
-.hero__cta-primary:hover {
-  background: transparent;
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--color-secondary);
   color: var(--color-white);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 100px;
+  transition: var(--transition-base);
 }
 
 .hero__cta-secondary {
-  display: inline-flex;
-  align-items: center;
-  padding: 1rem 2.5rem;
-  background: transparent;
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: transparent;
   color: var(--color-white);
   text-decoration: none;
-  border-radius: 100px;
-  font-size: 1rem;
   font-weight: 500;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--color-white);
+  border-radius: 100px;
+  transition: var(--transition-base);
 }
 
 .hero__cta-secondary:hover {
@@ -767,31 +791,27 @@ body {
 
 /* Product section specific button styles */
 .product-card__button {
-  background: var(--color-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-secondary);
   color: var(--color-white);
   border: none;
-  padding: 0.75rem 1.5rem;
   border-radius: 100px;
-  font-weight: 400;
   font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 500;
   text-decoration: none;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-align: center;
+  transition: var(--transition-base);
+  cursor: pointer;
 }
 
 .product-card__button:hover {
-  background: var(--color-secondary-dark);
-  transform: translateY(-2px);
+  background-color: var(--color-secondary-dark);
 }
 
 .product-card__button:active {
-  transform: translateY(0);
+  transform: translateY(1px);
 }
 
 .product-card__button.secondary {
@@ -1175,10 +1195,27 @@ body {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 .product-card {
@@ -1271,31 +1308,27 @@ body {
 }
 
 .product-card__button {
-  background: var(--color-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-secondary);
   color: var(--color-white);
   border: none;
-  padding: 0.75rem 1.5rem;
   border-radius: 100px;
-  font-weight: 400;
   font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 500;
   text-decoration: none;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-align: center;
+  transition: var(--transition-base);
+  cursor: pointer;
 }
 
 .product-card__button:hover {
-  background: var(--color-secondary-dark);
-  transform: translateY(-2px);
+  background-color: var(--color-secondary-dark);
 }
 
 .product-card__button:active {
-  transform: translateY(0);
+  transform: translateY(1px);
 }
 
 .product-card__button.secondary {
@@ -1341,6 +1374,10 @@ body {
     grid-template-columns: 1fr;
     max-width: 400px;
     margin: 0 auto;
+  }
+
+  .product-slider-nav {
+    gap: 1rem;
   }
 }
 
@@ -1565,15 +1602,15 @@ textarea.form-control {
 }
 
 .btn-submit {
-  background-color: #007bff;
-  color: white;
-  padding: 12px 30px;
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
   border: none;
   border-radius: 100px;
-  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: var(--transition-base);
 }
 
 .btn-submit:hover {
@@ -2162,7 +2199,7 @@ main {
   width: 100%;
   padding: 0.875rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 100px;
   background: var(--color-secondary);
   color: var(--color-white);
   font-size: 0.9rem;
@@ -2373,17 +2410,14 @@ main {
 .custom-order__cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background: linear-gradient(135deg, var(--color-secondary) 0%, #8a2be2 100%);
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-secondary);
   color: var(--color-white);
-  padding: 0.875rem 2rem;
-  border-radius: 100px;
   text-decoration: none;
-  font-weight: 400;
-  font-size: 0.9375rem;
-  transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(161, 48, 242, 0.2);
+  font-weight: 500;
+  border-radius: 100px;
+  transition: var(--transition-base);
 }
 
 .custom-order__cta:hover {
@@ -3167,4 +3201,33 @@ h3,
   .aroma-image-container {
     height: 200px;
   }
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+[data-theme="dark"] :focus-visible {
+  outline: 2px solid var(--color-white);
+}
+
+/* Button focus styles */
+.product-card__button:focus-visible,
+.hero__cta-primary:focus-visible,
+.hero__cta-secondary:focus-visible,
+.custom-order__cta:focus-visible,
+.btn-collection:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* Dark overlay focus styles */
+[data-theme="dark"] .product-card__button:focus-visible,
+[data-theme="dark"] .hero__cta-primary:focus-visible,
+[data-theme="dark"] .hero__cta-secondary:focus-visible,
+[data-theme="dark"] .custom-order__cta:focus-visible,
+[data-theme="dark"] .btn-collection:focus-visible {
+  outline: 2px solid var(--color-white);
 }
