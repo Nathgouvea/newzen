@@ -189,4 +189,40 @@ document.addEventListener("DOMContentLoaded", () => {
     .forEach((el) =>
       el.addEventListener("mouseenter", () => clearInterval(window.novTimer))
     );
+
+  /* contact form inline validation */
+  const f = document.getElementById("contactForm");
+  if (f) {
+    f.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let valid = true;
+      ["nome", "email", "msg"].forEach((id) => {
+        const field = f[id];
+        const err = document.getElementById("err-" + id);
+        if (!field.checkValidity()) {
+          err.textContent = "Campo obrigatório";
+          valid = false;
+        } else {
+          err.textContent = "";
+        }
+      });
+      if (valid) {
+        f.reset();
+        f.querySelector(".form-success").hidden = false;
+      }
+    });
+  }
+
+  /* lazy‑load map */
+  const btn = document.getElementById("loadMap");
+  if (btn) {
+    btn.addEventListener(
+      "click",
+      () => {
+        btn.innerHTML =
+          '<iframe src="https://www.google.com/maps/embed?...yourCoords..." loading="lazy" style="border:0;width:100%;height:450px;" allowfullscreen></iframe>';
+      },
+      { once: true }
+    );
+  }
 });
