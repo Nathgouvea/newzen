@@ -1,3 +1,11 @@
+// Import Alpine.js if not present
+if (typeof Alpine === "undefined") {
+  const script = document.createElement("script");
+  script.src = "https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js";
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Header scroll behavior
   const header = document.querySelector(".header");
@@ -36,16 +44,26 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScroll = currentScroll;
   });
 
-  // Mobile menu toggle
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".nav");
+  // Initialize Alpine.js for mobile navigation
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("mobileNav", () => ({
+      isOpen: false,
+      toggle() {
+        this.isOpen = !this.isOpen;
+        document.body.style.overflow = this.isOpen ? "hidden" : "";
+      },
+    }));
 
-  if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-      menuToggle.classList.toggle("active");
-    });
-  }
+    Alpine.data("productCarousel", () => ({
+      isPaused: false,
+      pauseOnHover() {
+        this.isPaused = true;
+      },
+      resumeOnLeave() {
+        this.isPaused = false;
+      },
+    }));
+  });
 
   // Handle mobile dropdowns
   const navItems = document.querySelectorAll(".nav__item");
@@ -87,6 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
           block: "start",
         });
         // Close mobile menu after clicking
+        const nav = document.querySelector(".nav");
+        const menuToggle = document.querySelector(".menu-toggle");
         nav?.classList.remove("active");
         menuToggle?.classList.remove("active");
       }
@@ -113,6 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Close mobile menu when clicking outside
   document.addEventListener("click", (e) => {
+    const nav = document.querySelector(".nav");
+    const menuToggle = document.querySelector(".menu-toggle");
     if (!nav?.contains(e.target) && !menuToggle?.contains(e.target)) {
       nav?.classList.remove("active");
       menuToggle?.classList.remove("active");
@@ -124,17 +146,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchIcon = document.querySelector(".search-icon");
   const searchInput = document.querySelector(".search-input");
 
-  searchIcon.addEventListener("click", (e) => {
-    e.preventDefault();
-    searchForm.classList.toggle("active");
-    if (searchForm.classList.contains("active")) {
-      searchInput.focus();
-    }
-  });
+  if (searchIcon && searchForm && searchInput) {
+    searchIcon.addEventListener("click", (e) => {
+      e.preventDefault();
+      searchForm.classList.toggle("active");
+      if (searchForm.classList.contains("active")) {
+        searchInput.focus();
+      }
+    });
 
-  document.addEventListener("click", (e) => {
-    if (!searchForm.contains(e.target)) {
-      searchForm.classList.remove("active");
-    }
-  });
+    document.addEventListener("click", (e) => {
+      if (!searchForm.contains(e.target)) {
+        searchForm.classList.remove("active");
+      }
+    });
+  }
+
+  // Initialize MicroModal only for product lightbox links
+  const productLightboxLinks = document.querySelectorAll(
+    "[data-micromodal-trigger]"
+  );
+  if (productLightboxLinks.length > 0) {
+    MicroModal.init({
+      onShow: (modal) => console.log(`${modal.id} is shown`),
+      onClose: (modal) => console.log(`${modal.id} is hidden`),
+      openTrigger: "data-micromodal-trigger",
+      closeTrigger: "data-micromodal-close",
+      openClass: "is-open",
+      disableScroll: true,
+      disableFocus: false,
+      awaitOpenAnimation: false,
+      awaitCloseAnimation: false,
+      debugMode: false,
+    });
+  }
+
+  /* Pause Novidades slider on hover/focus */
+  document
+    .querySelectorAll(
+      "#novidades .product-slider-arrow, #novidades .product-slider-dots"
+    )
+    .forEach((el) =>
+      el.addEventListener("mouseenter", () => clearInterval(window.novTimer))
+    );
 });

@@ -102,111 +102,51 @@
     </header>
 
     <main>
+      <!-- Hero Section -->
       <section class="hero">
-        <div class="hero-slider">
-          <!-- Slide 1 -->
-          <div
-            class="slide active"
-            style="background-image: url('assets/imagens/all-hero.png')"
-          >
-            <div class="hero__content">
-              <h1 class="hero__title">Bem-vindo à Zen Secrets</h1>
-              <p class="hero__text">
-                Descubra nossa coleção exclusiva de aromas que transformam
-                ambientes em experiências únicas.
-              </p>
-              <div class="hero__ctas">
-                <a href="#shop" class="hero__cta-primary">Shop Now</a>
-                <a href="#collections" class="hero__cta-secondary"
-                  >View Collections</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="slide">
-            <div class="hero__content">
-              <h1 class="hero__title">Aromas que Inspiram</h1>
-              <p class="hero__text">
-                Fragrâncias cuidadosamente selecionadas para criar momentos
-                especiais em sua casa.
-              </p>
-              <a href="#colecao" class="button">Ver Coleção</a>
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="slide">
-            <div class="hero__content">
-              <h1 class="hero__title">Experiência Sensorial</h1>
-              <p class="hero__text">
-                Transforme seu ambiente com nossas fragrâncias exclusivas.
-              </p>
-              <a href="#sobre" class="button">Saiba Mais</a>
-            </div>
-          </div>
-
-          <!-- Navigation -->
-          <div class="hero-slider-nav">
-            <button class="hero-slider-dot active"></button>
-            <button class="hero-slider-dot"></button>
-            <button class="hero-slider-dot"></button>
-          </div>
-
-          <!-- Arrows -->
-          <button class="hero-slider-arrow prev">&#8592;</button>
-          <button class="hero-slider-arrow next">&#8594;</button>
-        </div>
-      </section>
-
-      <section class="trust-indicators">
-        <div class="container">
-          <div class="trust-grid">
-            <div class="trust-item fade-in-up-1">
-              <i class="fas fa-heart"></i>
-              <div class="trust-item__content">
-                <h4 class="trust-item__title">Pagamento Flexível</h4>
-                <p class="trust-item__subtitle">Cartão, boleto ou PIX</p>
-              </div>
-            </div>
-            <div class="trust-item fade-in-up-2">
-              <i class="fas fa-feather-alt"></i>
-              <div class="trust-item__content">
-                <h4 class="trust-item__title">Entrega Nacional</h4>
-                <p class="trust-item__subtitle">Enviamos para todo o Brasil</p>
-              </div>
-            </div>
-            <div class="trust-item fade-in-up-3">
-              <i class="fas fa-lock"></i>
-              <div class="trust-item__content">
-                <h4 class="trust-item__title">Compra Segura</h4>
-                <p class="trust-item__subtitle">Seus dados estão protegidos</p>
-              </div>
-            </div>
-            <a
-              href="https://wa.me/5516991626921"
-              class="trust-item trust-item--link fade-in-up-4"
-              target="_blank"
-              rel="noopener noreferrer"
+        <picture>
+          <source type="image/avif" srcset="assets/imagens/hero-products.png" />
+          <img
+            src="assets/imagens/hero-products.png"
+            width="1920"
+            height="1080"
+            alt="ZenSecrets candle trio"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+        <div class="hero__content">
+          <h1 class="hero__title">Ilumine seus sentidos</h1>
+          <p class="hero__text">
+            Velas e aromas criados para o seu ritual de bem‑estar.
+          </p>
+          <div class="hero__ctas">
+            <a class="button hero__cta-primary" href="#mais-vendidos"
+              >Comprar Agora</a
             >
-              <i class="fas fa-comment-dots"></i>
-              <div class="trust-item__content">
-                <h4 class="trust-item__title">Atendimento</h4>
-                <p class="trust-item__subtitle">Fale conosco no WhatsApp</p>
-              </div>
-            </a>
+            <a class="button hero__cta-secondary" href="#colecoes"
+              >Ver Coleções</a
+            >
           </div>
         </div>
       </section>
 
-      <section class="featured-products container">
+      <!-- Mais Vendidos Section -->
+      <section
+        class="featured-products container"
+        id="mais-vendidos"
+        role="region"
+        aria-label="Mais Vendidos"
+      >
         <div class="section-header">
-          <h2 class="section-title">Produtos em Destaque</h2>
+          <h2 class="section-title">Mais Vendidos</h2>
         </div>
         <div class="product-slider">
-          <div class="product-slide">
-            <!-- First Slide -->
+          <div
+            class="product-slide active"
+            role="tabpanel"
+            aria-labelledby="slide-1"
+          >
             <div class="product-grid">
               <article class="product-card fade-in">
                 <div class="product-card__image-container">
@@ -298,536 +238,285 @@
             </div>
           </div>
 
-          <div class="product-slide">
-            <!-- Second Slide -->
-            <div class="product-grid">
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <img
-                    src="assets/imagens/difusor.jpeg"
-                    alt="Aromatizador de Ambiente"
-                    class="product-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Aromatizador de Ambiente</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$89,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <img
-                    src="assets/imagens/kitpresente.jpeg"
-                    alt="Kit Completo"
-                    class="product-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Kit Completo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$225,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <img
-                    src="assets/imagens/difusor.jpeg"
-                    alt="Aromatizador de Ambiente"
-                    class="product-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Aromatizador de Ambiente</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$89,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <img
-                    src="assets/imagens/velabamboo.jpeg"
-                    alt="Vela Bamboo"
-                    class="product-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Bamboo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
+          <!-- Product Slider Navigation -->
+          <div class="product-slider-nav" role="tablist">
+            <button
+              class="product-slider-arrow prev"
+              aria-label="Previous products"
+              role="tab"
+              aria-controls="slide-prev"
+            >
+              ←
+            </button>
+            <div class="product-slider-dots">
+              <button
+                class="product-slider-dot active"
+                data-slide="0"
+                role="tab"
+                aria-controls="slide-1"
+                aria-selected="true"
+              ></button>
+              <button
+                class="product-slider-dot"
+                data-slide="1"
+                role="tab"
+                aria-controls="slide-2"
+              ></button>
+              <button
+                class="product-slider-dot"
+                data-slide="2"
+                role="tab"
+                aria-controls="slide-3"
+              ></button>
+              <button
+                class="product-slider-dot"
+                data-slide="3"
+                role="tab"
+                aria-controls="slide-4"
+              ></button>
             </div>
-          </div>
-
-          <div class="product-slide">
-            <!-- Third Slide -->
-            <div class="product-grid">
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <img
-                    src="assets/imagens/homespray.jpeg"
-                    alt="Home Spray Chá Branco"
-                    class="product-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Chá Branco</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <img
-                    src="assets/imagens/aromatizador-flordefigo.jpeg"
-                    alt="Aromatizador Flor de Figo"
-                    class="product-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Aromatizador Flor de Figo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$89,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <img
-                    src="assets/imagens/homespraymarinho.jpeg"
-                    alt="Home Spray Marinho"
-                    class="product-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Marinho</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <img
-                    src="assets/imagens/difusor.jpeg"
-                    alt="Aromatizador de Ambiente"
-                    class="product-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Aromatizador de Ambiente</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$89,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product Slider Navigation -->
-        <div class="product-slider-nav">
-          <button
-            class="product-slider-arrow prev"
-            aria-label="Previous products"
-          >
-            ←
-          </button>
-          <div class="product-slider-dots">
-            <button class="product-slider-dot active" data-slide="0"></button>
-            <button class="product-slider-dot" data-slide="1"></button>
-            <button class="product-slider-dot" data-slide="2"></button>
-          </div>
-          <button class="product-slider-arrow next" aria-label="Next products">
-            →
-          </button>
-        </div>
-      </section>
-
-      <!-- Featured Collections -->
-      <section class="categories-circle">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Nossos Aromas</h2>
-          </div>
-
-          <div class="categories-circle__grid">
-            <div class="category-circle">
-              <div class="category-circle__image-wrapper">
-                <img
-                  src="assets/imagens/vala-bamboo.png"
-                  alt="Bamboo"
-                  class="category-circle__image"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <h3 class="category-circle__title">Bamboo</h3>
-            </div>
-
-            <div class="category-circle">
-              <div class="category-circle__image-wrapper">
-                <img
-                  src="assets/imagens/marinho.png"
-                  alt="Marinho"
-                  class="category-circle__image"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <h3 class="category-circle__title">Marinho</h3>
-            </div>
-
-            <div class="category-circle">
-              <div class="category-circle__image-wrapper">
-                <img
-                  src="assets/imagens/homespray-chabranco.png"
-                  alt="Chá Branco"
-                  class="category-circle__image"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <h3 class="category-circle__title">Chá Branco</h3>
-            </div>
-
-            <div class="category-circle">
-              <div class="category-circle__image-wrapper">
-                <img
-                  src="assets/imagens/homespray-flordefigo.png"
-                  alt="Flor de Figo"
-                  class="category-circle__image"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <h3 class="category-circle__title">Flor de Figo</h3>
-            </div>
-
-            <div class="category-circle">
-              <div class="category-circle__image-wrapper">
-                <img
-                  src="assets/imagens/vela-palosanto.png"
-                  alt="Palo Santo"
-                  class="category-circle__image"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <h3 class="category-circle__title">Palo Santo</h3>
-            </div>
+            <button
+              class="product-slider-arrow next"
+              aria-label="Next products"
+              role="tab"
+              aria-controls="slide-next"
+            >
+              →
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- Velas Section -->
-      <section class="featured-products container">
-        <h2>Compre Nossas Velas</h2>
-        <div class="product-grid">
-          <article class="product-card fade-in">
+      <!-- ▼ NOVIDADES -->
+      <section
+        id="novidades"
+        class="product-slider gradient-light"
+        aria-label="Novidades"
+      >
+        <h2 class="section-title">Novidades</h2>
+        <div class="product-slider__track" x-data>
+          <article class="product-card product-slide">
             <div class="product-card__image-container">
               <img
-                src="assets/imagens/vala-bamboo.png"
-                alt="Vela Bamboo"
-                class="product-card__image"
+                src="assets/img/prod-new-01.jpg"
+                alt="Vela Lavanda Dreams"
                 loading="lazy"
                 decoding="async"
               />
             </div>
             <div class="product-card__content">
-              <h3 class="product-card__title">Vela Bamboo</h3>
+              <h3 class="product-card__title">Lavanda Dreams</h3>
               <div class="product-card__footer">
-                <div class="product-card__price">R$69,90</div>
+                <div class="product-card__price">R$ 79,90</div>
                 <button class="product-card__button">
                   <i class="far fa-bag-shopping"></i>
-                  Comprar Agora
+                  Comprar
                 </button>
               </div>
             </div>
           </article>
-
-          <article class="product-card fade-in">
+          <article class="product-card product-slide">
             <div class="product-card__image-container">
               <img
-                src="assets/imagens/vela-palosanto.png"
-                alt="Vela Palo Santo"
-                class="product-card__image"
+                src="assets/img/prod-new-02.jpg"
+                alt="Vela Jasmine Nights"
                 loading="lazy"
                 decoding="async"
               />
             </div>
             <div class="product-card__content">
-              <h3 class="product-card__title">Vela Palo Santo</h3>
+              <h3 class="product-card__title">Jasmine Nights</h3>
               <div class="product-card__footer">
-                <div class="product-card__price">R$69,90</div>
+                <div class="product-card__price">R$ 79,90</div>
                 <button class="product-card__button">
                   <i class="far fa-bag-shopping"></i>
-                  Comprar Agora
+                  Comprar
                 </button>
               </div>
             </div>
           </article>
-
-          <article class="product-card fade-in">
+          <article class="product-card product-slide">
             <div class="product-card__image-container">
               <img
-                src="assets/imagens/vela.jpeg"
-                alt="Vela Flor de Figo"
-                class="product-card__image"
+                src="assets/img/prod-new-03.jpg"
+                alt="Vela Vanilla Bliss"
                 loading="lazy"
                 decoding="async"
               />
             </div>
             <div class="product-card__content">
-              <h3 class="product-card__title">Vela Flor de Figo</h3>
+              <h3 class="product-card__title">Vanilla Bliss</h3>
               <div class="product-card__footer">
-                <div class="product-card__price">R$69,90</div>
+                <div class="product-card__price">R$ 79,90</div>
                 <button class="product-card__button">
                   <i class="far fa-bag-shopping"></i>
-                  Comprar Agora
+                  Comprar
                 </button>
               </div>
             </div>
           </article>
-
-          <article class="product-card fade-in">
+          <article class="product-card product-slide">
             <div class="product-card__image-container">
               <img
-                src="assets/imagens/velabamboo.jpeg"
-                alt="Vela Chá Branco"
-                class="product-card__image"
+                src="assets/img/prod-new-04.jpg"
+                alt="Vela Citrus Breeze"
                 loading="lazy"
                 decoding="async"
               />
             </div>
             <div class="product-card__content">
-              <h3 class="product-card__title">Vela Chá Branco</h3>
+              <h3 class="product-card__title">Citrus Breeze</h3>
               <div class="product-card__footer">
-                <div class="product-card__price">R$69,90</div>
+                <div class="product-card__price">R$ 79,90</div>
                 <button class="product-card__button">
                   <i class="far fa-bag-shopping"></i>
-                  Comprar Agora
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Kits Especiais Section -->
-      <section class="featured-products container">
-        <h2>Compre Nossos Kits Especiais</h2>
-        <div class="product-grid">
-          <article class="product-card fade-in">
-            <div class="product-card__image-container">
-              <img
-                src="assets/imagens/kitpresente.jpeg"
-                alt="Kit Completo Bamboo"
-                class="product-card__image"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="product-card__content">
-              <h3 class="product-card__title">Kit Completo Bamboo</h3>
-              <div class="product-card__footer">
-                <div class="product-card__price">R$225,90</div>
-                <button class="product-card__button">
-                  <i class="far fa-bag-shopping"></i>
-                  Comprar Agora
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card fade-in">
-            <div class="product-card__image-container">
-              <img
-                src="assets/imagens/kitpresente.jpeg"
-                alt="Kit Completo Marinho"
-                class="product-card__image"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="product-card__content">
-              <h3 class="product-card__title">Kit Completo Marinho</h3>
-              <div class="product-card__footer">
-                <div class="product-card__price">R$225,90</div>
-                <button class="product-card__button">
-                  <i class="far fa-bag-shopping"></i>
-                  Comprar Agora
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card fade-in">
-            <div class="product-card__image-container">
-              <img
-                src="assets/imagens/kitpresente.jpeg"
-                alt="Kit Completo Chá Branco"
-                class="product-card__image"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="product-card__content">
-              <h3 class="product-card__title">Kit Completo Chá Branco</h3>
-              <div class="product-card__footer">
-                <div class="product-card__price">R$225,90</div>
-                <button class="product-card__button">
-                  <i class="far fa-bag-shopping"></i>
-                  Comprar Agora
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card fade-in">
-            <div class="product-card__image-container">
-              <img
-                src="assets/imagens/kitpresente.jpeg"
-                alt="Kit Completo Flor de Figo"
-                class="product-card__image"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="product-card__content">
-              <h3 class="product-card__title">Kit Completo Flor de Figo</h3>
-              <div class="product-card__footer">
-                <div class="product-card__price">R$225,90</div>
-                <button class="product-card__button">
-                  <i class="far fa-bag-shopping"></i>
-                  Comprar Agora
+                  Comprar
                 </button>
               </div>
             </div>
           </article>
         </div>
+        <button class="product-slider-arrow prev" aria-label="Anterior">
+          ‹
+        </button>
+        <button class="product-slider-arrow next" aria-label="Próximo">
+          ›
+        </button>
+        <div class="product-slider-dots" role="tablist"></div>
       </section>
 
-      <!-- Custom Order Section -->
-      <section class="custom-order">
-        <div class="custom-order__container">
-          <div class="custom-order__content">
-            <h2 class="custom-order__title">
-              Encomende com a gente sua lembrancinha
-            </h2>
-            <p class="custom-order__text">
-              Torne seu evento ainda mais especial com nossas lembrancinhas
-              personalizadas. Criamos produtos únicos que vão marcar o seu
-              momento e encantar seus convidados.
-            </p>
-            <div class="custom-order__features">
-              <div class="custom-order__feature">
-                <i class="fas fa-gift"></i>
-                <span class="custom-order__feature-text"
-                  >Produtos personalizados para seu evento</span
-                >
-              </div>
-              <div class="custom-order__feature">
-                <i class="fas fa-heart"></i>
-                <span class="custom-order__feature-text"
-                  >Fragrâncias exclusivas</span
-                >
-              </div>
-              <div class="custom-order__feature">
-                <i class="fas fa-star"></i>
-                <span class="custom-order__feature-text"
-                  >Embalagens especiais</span
-                >
-              </div>
-              <div class="custom-order__feature">
-                <i class="fas fa-check-circle"></i>
-                <span class="custom-order__feature-text"
-                  >Atendimento personalizado</span
-                >
-              </div>
-            </div>
-            <div class="custom-order__cta-wrapper">
-              <a href="https://wa.me/5516991626921" class="custom-order__cta">
-                <i class="fab fa-whatsapp"></i>
-                Faça seu pedido pelo WhatsApp
-              </a>
-            </div>
-          </div>
-          <div class="custom-order__image-wrapper">
+      <!-- Categories Grid -->
+      <section class="categories-grid" id="colecoes">
+        <article class="category-card">
+          <picture>
+            <source type="image/avif" srcset="assets/img/cat-velas.avif" />
             <img
-              src="assets/imagens/lembrancinhas.png"
-              alt="Lembrancinhas personalizadas Zen Secrets"
-              class="custom-order__image"
+              class="category-card__image"
+              src="assets/img/cat-velas.jpg"
+              alt="Coleção Velas"
               loading="lazy"
               decoding="async"
             />
+          </picture>
+          <a class="category-card__link" href="velas.html">Velas</a>
+        </article>
+        <article class="category-card">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="assets/img/cat-aromatizadores.avif"
+            />
+            <img
+              class="category-card__image"
+              src="assets/img/cat-aromatizadores.jpg"
+              alt="Coleção Aromatizadores"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <a class="category-card__link" href="aromatizadores.html"
+            >Aromatizadores</a
+          >
+        </article>
+        <article class="category-card">
+          <picture>
+            <source type="image/avif" srcset="assets/img/cat-homespray.avif" />
+            <img
+              class="category-card__image"
+              src="assets/img/cat-homespray.jpg"
+              alt="Coleção Home Spray"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <a class="category-card__link" href="homespray.html">Home Spray</a>
+        </article>
+      </section>
+
+      <!-- Brand Promise Strip -->
+      <section class="brand-strip">
+        <div class="brand-strip__content">
+          <div class="brand-strip__text">
+            <h2>Aromas que transformam ambientes</h2>
+            <p>
+              Na ZenSecrets, acreditamos no poder dos aromas para criar
+              experiências únicas e memoráveis. Cada produto é cuidadosamente
+              elaborado para trazer harmonia e bem-estar ao seu espaço. Nossas
+              fragrâncias exclusivas são desenvolvidas por especialistas,
+              combinando ingredientes naturais de alta qualidade para
+              proporcionar momentos de verdadeiro relaxamento e conexão com seus
+              sentidos.
+            </p>
+          </div>
+          <div class="brand-strip__image">
+            <picture>
+              <source
+                type="image/avif"
+                srcset="assets/img/brand-product.avif"
+              />
+              <img
+                src="assets/img/brand-product.jpg"
+                alt="Produtos ZenSecrets em ambiente zen"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </section>
 
-      <section class="categories-section">
+      <!-- Image Mosaic -->
+      <section class="image-mosaic">
+        <figure class="mosaic-item mosaic-item--large">
+          <picture>
+            <source type="image/avif" srcset="assets/img/mosaic-1.avif" />
+            <img
+              src="assets/img/mosaic-1.jpg"
+              alt="Vela aromática em ambiente aconchegante"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <figcaption>
+            <a href="#" class="quick-buy-link">Comprar Vela Bamboo</a>
+          </figcaption>
+        </figure>
+        <figure class="mosaic-item">
+          <picture>
+            <source type="image/avif" srcset="assets/img/mosaic-2.avif" />
+            <img
+              src="assets/img/mosaic-2.jpg"
+              alt="Aromatizador em mesa de centro"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <figcaption>
+            <a href="#" class="quick-buy-link"
+              >Comprar Aromatizador Flor de Figo</a
+            >
+          </figcaption>
+        </figure>
+        <figure class="mosaic-item">
+          <picture>
+            <source type="image/avif" srcset="assets/img/mosaic-3.avif" />
+            <img
+              src="assets/img/mosaic-3.jpg"
+              alt="Home spray em bancada"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <figcaption>
+            <a href="#" class="quick-buy-link">Comprar Home Spray Chá Branco</a>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- Sobre os Aromas Section -->
+      <section class="aromas-section">
         <div class="section-header">
-          <h2 class="section-title">Principais Categorias</h2>
+          <h2 class="section-title">Sobre os Aromas</h2>
           <p class="section-description">
             Descubra nossa linha completa de produtos para harmonizar seu
             ambiente
@@ -900,35 +589,148 @@
           </article>
         </div>
       </section>
+
+      <!-- ▼ KITS ESPECIAIS -->
+      <section
+        id="kits"
+        class="featured-products container"
+        aria-label="Kits Especiais"
+      >
+        <div class="section-header">
+          <h2 class="section-title">Kits Especiais</h2>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/kit-relax-zen.jpg"
+                alt="Kit Relax Zen"
+                class="product-card__image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Kit Relax Zen</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$ 189,00</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Kit
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/kit-aromaterapia.jpg"
+                alt="Kit Aromaterapia"
+                class="product-card__image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Kit Aromaterapia</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$ 189,00</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Kit
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image-container">
+              <img
+                src="assets/imagens/kit-presente.jpg"
+                alt="Kit Presente"
+                class="product-card__image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Kit Presente</h3>
+              <div class="product-card__footer">
+                <div class="product-card__price">R$ 189,00</div>
+                <button class="product-card__button">
+                  <i class="far fa-bag-shopping"></i>
+                  Comprar Kit
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Instagram Feed -->
+      <div class="instagram-feed" x-data>
+        <div class="instagram-feed__embed" id="insta-embed"></div>
+        <script src="https://snapwidget.com/js/snapwidget.js" defer></script>
+      </div>
+
+      <!-- Newsletter moved to footer -->
+      <section class="custom-order">
+        <div class="custom-order__container">
+          <div class="custom-order__content">
+            <h2 class="custom-order__title">
+              Encomende com a gente sua lembrancinha
+            </h2>
+            <p class="custom-order__text">
+              Torne seu evento ainda mais especial com nossas lembrancinhas
+              personalizadas. Criamos produtos únicos que vão marcar o seu
+              momento e encantar seus convidados.
+            </p>
+            <div class="custom-order__features">
+              <div class="custom-order__feature">
+                <i class="fas fa-gift"></i>
+                <span class="custom-order__feature-text"
+                  >Produtos personalizados para seu evento</span
+                >
+              </div>
+              <div class="custom-order__feature">
+                <i class="fas fa-heart"></i>
+                <span class="custom-order__feature-text"
+                  >Fragrâncias exclusivas</span
+                >
+              </div>
+              <div class="custom-order__feature">
+                <i class="fas fa-star"></i>
+                <span class="custom-order__feature-text"
+                  >Embalagens especiais</span
+                >
+              </div>
+              <div class="custom-order__feature">
+                <i class="fas fa-check-circle"></i>
+                <span class="custom-order__feature-text"
+                  >Atendimento personalizado</span
+                >
+              </div>
+            </div>
+            <div class="custom-order__cta-wrapper">
+              <a href="https://wa.me/5516991626921" class="custom-order__cta">
+                <i class="fab fa-whatsapp"></i>
+                Faça seu pedido pelo WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="custom-order__image-wrapper">
+            <img
+              src="assets/imagens/lembrancinhas.png"
+              alt="Lembrancinhas personalizadas Zen Secrets"
+              class="custom-order__image"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
     </main>
-
-    <section class="instagram-feed">
-      <div class="section-header">
-        <h2 class="section-title">Siga nosso Instagram</h2>
-        <p class="section-description">
-          Explore nosso feed para mais conteúdo, dicas e inspiração para seu
-          bem-estar.
-        </p>
-      </div>
-
-      <div class="instagram-feed__embed">
-        <!-- Elfsight Instagram Feed -->
-        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-        <div class="elfsight-app-YOUR-APP-ID"></div>
-      </div>
-
-      <div class="instagram-feed__cta">
-        <a
-          href="https://www.instagram.com/secretszen/"
-          class="instagram-feed__username"
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fab fa-instagram"></i>
-          @secretszen
-        </a>
-      </div>
-    </section>
 
     <footer class="footer">
       <div class="footer__content container">
