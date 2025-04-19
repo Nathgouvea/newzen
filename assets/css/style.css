@@ -10,9 +10,9 @@
   --color-accent: #4a4a4a;
   --color-accent-light: rgba(74, 74, 74, 0.1);
   --color-accent-dark: #3a3a3a;
-  --color-secondary: #a130f2;
-  --color-secondary-light: rgba(161, 48, 242, 0.2);
-  --color-secondary-dark: #8a1ed6;
+  --color-secondary: #6b4fc4;
+  --color-secondary-light: rgba(107, 79, 196, 0.2);
+  --color-secondary-dark: #5a42a8;
 
   /* UI colors with gradients */
   --color-gray: #757575;
