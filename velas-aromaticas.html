@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fale Conosco • ZenSecrets</title>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              bg: "#FAFAF7",
-              fg: "#1B1B1B",
-              accent: "#6B4FC4",
-              gray: { 100: "#F3F3F0", 900: "#2C2C2C" },
-            },
-          },
-        },
-      };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Velas Aromáticas - Zen Secrets</title>
+    <link rel="icon" type="image/x-icon" href="assets/imagens/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      @font-face {
+        font-display: swap;
+      }
+    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/contact.css" />
   </head>
-  <body class="gradient-light">
+  <body>
     <header class="header">
       <div class="header__container container">
         <div class="logo">
@@ -62,7 +57,11 @@
                   <a href="aromatizadores.html">Aromatizadores</a>
                 </li>
                 <li><a href="home-spray.html">Home Spray</a></li>
-                <li><a href="velas-aromaticas.html">Velas Aromáticas</a></li>
+                <li>
+                  <a href="velas-aromaticas.html" class="active"
+                    >Velas Aromáticas</a
+                  >
+                </li>
                 <li><a href="kits-especiais.html">Kits Especiais</a></li>
                 <li><a href="lembrancinhas.html">Lembrancinhas</a></li>
                 <li><a href="acessorios.html">Acessórios</a></li>
@@ -72,7 +71,7 @@
               <a href="aromas.html" class="nav__link">Sobre os Aromas</a>
             </li>
             <li class="nav__item">
-              <a href="contato.html" class="nav__link active">Fale Conosco</a>
+              <a href="contato.html" class="nav__link">Fale Conosco</a>
             </li>
           </ul>
 
@@ -107,117 +106,19 @@
       </div>
     </header>
 
-    <main id="main">
-      <!-- HERO -->
-      <section class="hero hero--contact">
-        <picture>
-          <source type="image/avif" srcset="assets/img/contact-hero.avif" />
-          <img
-            src="assets/img/contact-hero.jpg"
-            alt=""
-            width="1920"
-            height="640"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-        <div class="hero__content" data-theme="dark">
-          <h1 class="hero__title">Fale Conosco</h1>
-        </div>
-      </section>
+    <main class="products-page">
+      <div class="products-intro">
+        <h1 class="page-title">Velas Aromáticas</h1>
+        <p class="page-description">
+          Nossas velas aromáticas são feitas com cera de soja 100% natural e
+          fragrâncias premium. Cada vela é cuidadosamente elaborada para criar
+          uma atmosfera acolhedora e relaxante em seu ambiente.
+        </p>
+      </div>
 
-      <!-- CHANNELS -->
-      <section class="contact-channels wrapper">
-        <h2 class="section-title">Escolha seu canal favorito</h2>
-        <div class="contact-channels__grid">
-          <button class="channel-card" aria-label="Enviar um e‑mail">
-            <i class="lucide lucide-mail"></i>
-            <span>contato@zensecrets.com</span>
-          </button>
-          <a
-            href="https://wa.me/5511999999999"
-            class="channel-card"
-            aria-label="Abrir WhatsApp"
-          >
-            <i class="lucide lucide-smartphone"></i>
-            <span>WhatsApp</span>
-          </a>
-          <a
-            href="https://instagram.com/zensecrets"
-            class="channel-card"
-            aria-label="Abrir Instagram"
-          >
-            <i class="lucide lucide-instagram"></i>
-            <span>@zensecrets</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- FORM -->
-      <section class="contact-form-section wrapper">
-        <h2 class="section-title">Envie sua mensagem</h2>
-        <form id="contactForm" novalidate>
-          <div class="form-row">
-            <label for="nome">Nome*</label>
-            <input id="nome" name="nome" required />
-            <span class="error" id="err-nome" aria-live="polite"></span>
-          </div>
-          <div class="form-row">
-            <label for="email">E‑mail*</label>
-            <input id="email" name="email" type="email" required />
-            <span class="error" id="err-email" aria-live="polite"></span>
-          </div>
-          <div class="form-row">
-            <label for="tel">Telefone (opcional)</label>
-            <input id="tel" name="tel" type="tel" inputmode="tel" />
-          </div>
-          <div class="form-row">
-            <label for="assunto">Assunto</label>
-            <select id="assunto" name="assunto">
-              <option>Geral</option>
-              <option>Pedido</option>
-              <option>Parcerias</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="msg">Mensagem*</label>
-            <textarea id="msg" name="msg" rows="6" required></textarea>
-            <span class="error" id="err-msg" aria-live="polite"></span>
-          </div>
-          <button class="button btn-submit" type="submit">Enviar</button>
-          <p class="form-success" hidden role="alert">
-            Obrigado! Responderemos em breve.
-          </p>
-        </form>
-      </section>
-
-      <!-- MAPA -->
-      <section class="contact-map wrapper">
-        <h2 class="section-title">Nosso endereço</h2>
-        <button id="loadMap" class="map-placeholder" aria-label="Carregar mapa">
-          <img
-            src="assets/img/map-static.jpg"
-            alt="Mapa estático de São Paulo"
-          />
-          <span>Clique para abrir o mapa interativo</span>
-        </button>
-      </section>
-
-      <!-- FAQ teaser -->
-      <section class="faq-teaser wrapper">
-        <details>
-          <summary>Envio</summary>
-          <p>Enviamos para todo o Brasil em até 2 dias úteis.</p>
-        </details>
-        <details>
-          <summary>Devoluções</summary>
-          <p>30 dias sem complicações.</p>
-        </details>
-        <details>
-          <summary>Sustentabilidade</summary>
-          <p>Nossos frascos são 100 % recicláveis.</p>
-        </details>
-      </section>
+      <div class="products-grid">
+        <!-- Product cards will be added here -->
+      </div>
     </main>
 
     <footer class="footer">
@@ -301,6 +202,9 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/product-slider.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/search.js"></script>
   </body>
 </html>

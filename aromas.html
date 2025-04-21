@@ -26,6 +26,181 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .aromas-page {
+        background: var(--color-background);
+        color: var(--color-text);
+      }
+
+      .aromas-intro {
+        background: linear-gradient(
+          135deg,
+          var(--color-white) 0%,
+          var(--color-gray-100) 100%
+        );
+        padding: 8rem 2rem 4rem;
+        text-align: center;
+      }
+
+      .page-title {
+        color: var(--color-text);
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      .page-description {
+        color: var(--color-text-soft);
+        font-size: 1.25rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .aromas-accordion {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .aroma-section {
+        background: var(--color-white);
+        border: 1px solid var(--color-gray-200);
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .aroma-section:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
+        border-color: var(--color-gray-300);
+      }
+
+      .aroma-header {
+        background: var(--color-white);
+        border: none;
+        width: 100%;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .aroma-header:hover {
+        background: var(--color-gray-100);
+      }
+
+      .aroma-header h2 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      .toggle-btn {
+        color: var(--color-secondary);
+        transition: transform 0.3s ease;
+      }
+
+      .aroma-section.expanded .toggle-btn {
+        transform: rotate(45deg);
+      }
+
+      .aroma-content {
+        display: none;
+        padding: 2rem;
+        background: var(--color-white);
+      }
+
+      .aroma-section.expanded .aroma-content {
+        display: block;
+      }
+
+      .aroma-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .aroma-image-container {
+        position: relative;
+        height: 300px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .aroma-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .aroma-section:hover .aroma-image {
+        transform: scale(1.05);
+      }
+
+      .aroma-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .aroma-info h3 {
+        color: var(--color-text-soft);
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .aroma-info p {
+        color: var(--color-text);
+        font-size: 1rem;
+      }
+
+      .aroma-description {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .aroma-notes h3,
+      .aroma-desc h3 {
+        color: var(--color-text-soft);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .aroma-notes p,
+      .aroma-desc p {
+        color: var(--color-text);
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .aroma-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .aroma-details {
+          grid-template-columns: 1fr;
+        }
+
+        .aroma-description {
+          grid-template-columns: 1fr;
+        }
+
+        .aroma-image-container {
+          height: 250px;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="header">
@@ -54,13 +229,13 @@
               <a href="comprar.html" class="nav__link">Comprar</a>
               <ul class="dropdown">
                 <li>
-                  <a href="comprar.html#aromatizadores">Aromatizadores</a>
+                  <a href="aromatizadores.html">Aromatizadores</a>
                 </li>
-                <li><a href="comprar.html#home-spray">Home Spray</a></li>
-                <li><a href="comprar.html#velas">Velas Aromáticas</a></li>
-                <li><a href="comprar.html#kits">Kits Especiais</a></li>
-                <li><a href="comprar.html#lembrancinhas">Lembrancinhas</a></li>
-                <li><a href="comprar.html#acessorios">Acessórios</a></li>
+                <li><a href="home-spray.html">Home Spray</a></li>
+                <li><a href="velas-aromaticas.html">Velas Aromáticas</a></li>
+                <li><a href="kits-especiais.html">Kits Especiais</a></li>
+                <li><a href="lembrancinhas.html">Lembrancinhas</a></li>
+                <li><a href="acessorios.html">Acessórios</a></li>
               </ul>
             </li>
             <li class="nav__item">
