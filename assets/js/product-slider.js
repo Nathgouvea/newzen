@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Get all slider elements with null checks
   const slider = document.querySelector(".product-slider");
-  const slides = document.querySelectorAll(".product-slide");
-  const dots = document.querySelectorAll(".product-slider-dot");
-  const prevButton = document.querySelector(".product-slider-arrow.prev");
-  const nextButton = document.querySelector(".product-slider-arrow.next");
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll(".product-slide");
+  const dots = slider.querySelectorAll(".product-slider-dot");
+  const prevButton = slider.querySelector(".product-slider-arrow.prev");
+  const nextButton = slider.querySelector(".product-slider-arrow.next");
+
+  if (!slides.length || !dots.length) return;
 
   let currentSlide = 0;
   let isAnimating = false;
@@ -22,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update current slide
     currentSlide = index;
+    if (currentSlide >= slides.length) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
 
     // Add active classes
     slides[currentSlide].classList.add("active");
@@ -34,13 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function nextSlide() {
-    const next = (currentSlide + 1) % slides.length;
-    updateSlide(next);
+    updateSlide((currentSlide + 1) % slides.length);
   }
 
   function prevSlide() {
-    const prev = (currentSlide - 1 + slides.length) % slides.length;
-    updateSlide(prev);
+    updateSlide((currentSlide - 1 + slides.length) % slides.length);
   }
 
   // Event Listeners
@@ -84,12 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Auto-advance slides
   function startAutoplay() {
+    if (autoplayInterval) return;
     autoplayInterval = setInterval(nextSlide, 7000);
   }
 
   function stopAutoplay() {
     if (autoplayInterval) {
       clearInterval(autoplayInterval);
+      autoplayInterval = null;
     }
   }
 

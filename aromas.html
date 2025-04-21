@@ -4,30 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobre os Aromas - Zen Secrets</title>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              bg: "#FAFAF7",
-              fg: "#1B1B1B",
-              accent: "#6B4FC4",
-              gray: { 100: "#F3F3F0", 900: "#2C2C2C" },
-            },
-          },
-        },
-      };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="assets/imagens/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      @font-face {
+        font-display: swap;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
@@ -35,7 +31,12 @@
     <header class="header">
       <div class="header__container container">
         <div class="logo">
-          <a href="index.html">Zen Secrets</a>
+          <img
+            src="assets/imagens/logo.svg"
+            alt="Zen Secrets Logo"
+            href="index.html"
+            class="logo__image"
+          />
         </div>
 
         <button class="menu-toggle" aria-label="Toggle menu">
@@ -64,18 +65,39 @@
             </li>
             <li class="nav__item">
               <a href="aromas.html" class="nav__link active">Sobre os Aromas</a>
-              <ul class="dropdown">
-                <li><a href="#flor-de-figo">Flor de Figo</a></li>
-                <li><a href="#cha-branco">Chá Branco</a></li>
-                <li><a href="#marinho">Marinho</a></li>
-                <li><a href="#bamboo">Vela Bamboo</a></li>
-                <li><a href="#palo-santo">Vela Palo Santo</a></li>
-              </ul>
             </li>
             <li class="nav__item">
               <a href="contato.html" class="nav__link">Fale Conosco</a>
             </li>
           </ul>
+
+          <div class="search-bar">
+            <form class="search-form" role="search">
+              <input
+                type="search"
+                placeholder="Buscar..."
+                aria-label="Search"
+                class="search-input"
+              />
+              <button
+                type="button"
+                class="search-icon"
+                aria-label="Toggle search"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="user-actions">
+            <a href="#" class="user-actions__item" aria-label="Minha conta">
+              <i class="fas fa-user"></i>
+            </a>
+            <a href="#" class="user-actions__item" aria-label="Carrinho">
+              <i class="far fa-shopping-bag"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </div>
         </nav>
       </div>
     </header>
@@ -344,23 +366,82 @@
 
     <footer class="footer">
       <div class="footer__content container">
-        <div class="social-links">
-          <a
-            href="https://instagram.com/secretszen"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Instagram</a
-          >
-          <a
-            href="https://wa.me/5516991626921"
-            target="_blank"
-            rel="noopener noreferrer"
-            >WhatsApp</a
-          >
+        <div class="footer__grid">
+          <!-- Instagram Section -->
+          <div class="footer__section">
+            <div class="instagram-section">
+              <i class="fab fa-instagram"></i>
+              <p>Siga-nos no Instagram</p>
+              <a
+                href="https://instagram.com/secretszen"
+                class="instagram-handle"
+                >@secretszen</a
+              >
+            </div>
+          </div>
+
+          <!-- Institutional Links -->
+          <div class="footer__section">
+            <h3>Institucional</h3>
+            <ul class="footer__links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/contato">Contato</a></li>
+              <li><a href="/trocas-e-devolucoes">Trocas e Devoluções</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="footer__section">
+            <h3>Entre em contato</h3>
+            <ul class="footer__contact">
+              <li>
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/5516991626921">(16) 99162-6921</a>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>(16) 99162-6921</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:secretszen888@gmail.com"
+                  >secretszen888@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        <p class="copyright">
-          &copy; 2024 Zen Secrets. Todos os direitos reservados.
-        </p>
+
+        <!-- Payment and Shipping Methods -->
+        <div class="footer__info">
+          <div class="payment-methods">
+            <h4>Formas de pagamento</h4>
+            <div class="payment-icons">
+              <img src="assets/imagens/visa.png" alt="Visa" />
+              <img src="assets/imagens/mastercard.png" alt="Mastercard" />
+              <img src="assets/imagens/elo.png" alt="Elo" />
+              <img src="assets/imagens/pix.png" alt="PIX" />
+            </div>
+          </div>
+
+          <div class="shipping-methods">
+            <h4>Meios de envio</h4>
+            <img src="assets/imagens/melhorenvio.png" alt="Melhor Envio" />
+          </div>
+        </div>
+
+        <!-- Copyright and Credits -->
+        <div class="footer__bottom">
+          <div class="credits">
+            <span>© 2024 Zen Secrets. Todos os direitos reservados.</span>
+            <span class="separator">|</span>
+            <span
+              >criado com <i class="fas fa-heart"></i> por
+              <a href="#">Picky Pixels Studio</a></span
+            >
+          </div>
+        </div>
       </div>
     </footer>
 
@@ -415,5 +496,10 @@
         });
       });
     </script>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/product-slider.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/search.js"></script>
   </body>
 </html>

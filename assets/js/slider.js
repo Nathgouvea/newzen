@@ -1,13 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Get all slider elements
+  // Get all slider elements with null checks
   const slider = document.querySelector(".hero-slider");
-  const slides = document.querySelectorAll(".slide");
-  const dots = document.querySelectorAll(".hero-slider-dot");
-  const prevButton = document.querySelector(".hero-slider-arrow.prev");
-  const nextButton = document.querySelector(".hero-slider-arrow.next");
+  if (!slider) return; // Exit if slider container not found
+
+  const slides = slider.querySelectorAll(".slide");
+  const dots = slider.querySelectorAll(".hero-slider-dot");
+  const prevButton = slider.querySelector(".hero-slider-arrow.prev");
+  const nextButton = slider.querySelector(".hero-slider-arrow.next");
+
+  // Exit if required elements are not found
+  if (!slides.length || !dots.length) return;
 
   let currentSlide = 0;
   let isAnimating = false;
+  let slideInterval;
 
   // Function to go to a specific slide
   function goToSlide(index) {
@@ -37,42 +43,58 @@ document.addEventListener("DOMContentLoaded", function () {
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       if (currentSlide !== index) {
+        stopAutoplay();
         goToSlide(index);
       }
     });
   });
 
   // Event listeners for arrows
-  prevButton.addEventListener("click", () => {
-    goToSlide(currentSlide - 1);
-  });
+  if (prevButton) {
+    prevButton.addEventListener("click", () => {
+      stopAutoplay();
+      goToSlide(currentSlide - 1);
+    });
+  }
 
-  nextButton.addEventListener("click", () => {
-    goToSlide(currentSlide + 1);
-  });
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      stopAutoplay();
+      goToSlide(currentSlide + 1);
+    });
+  }
 
   // Auto advance slides
-  let slideInterval = setInterval(() => {
-    goToSlide(currentSlide + 1);
-  }, 5000);
-
-  // Pause auto-advance on hover
-  slider.addEventListener("mouseenter", () => {
-    clearInterval(slideInterval);
-  });
-
-  // Resume auto-advance when mouse leaves
-  slider.addEventListener("mouseleave", () => {
+  function startAutoplay() {
+    if (slideInterval) return;
     slideInterval = setInterval(() => {
       goToSlide(currentSlide + 1);
     }, 5000);
-  });
+  }
+
+  function stopAutoplay() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+    }
+  }
+
+  // Start autoplay
+  startAutoplay();
+
+  // Pause auto-advance on hover
+  slider.addEventListener("mouseenter", stopAutoplay);
+
+  // Resume auto-advance when mouse leaves
+  slider.addEventListener("mouseleave", startAutoplay);
 
   // Keyboard navigation
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
+      stopAutoplay();
       goToSlide(currentSlide - 1);
     } else if (e.key === "ArrowRight") {
+      stopAutoplay();
       goToSlide(currentSlide + 1);
     }
   });

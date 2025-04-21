@@ -86,7 +86,7 @@
 
   /* Layout */
   --max-width: 1280px;
-  --header-height: 80px;
+  --header-height: 100px;
 
   /* Typography */
   --font-family: "Arimo", system-ui, sans-serif;
@@ -181,7 +181,7 @@ body {
 }
 
 .logo__image {
-  height: 80px;
+  height: 100px;
   width: auto;
   display: block;
   transition: transform 0.3s ease;
@@ -207,7 +207,9 @@ body {
 .nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
+  width: 100%;
 }
 
 .nav__list {
@@ -215,6 +217,8 @@ body {
   gap: 2rem;
   align-items: center;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav__item {
@@ -362,7 +366,7 @@ body {
 /* Search Bar */
 .search-bar {
   position: relative;
-  margin-right: 2rem;
+  margin: 0;
 }
 
 .search-form {
@@ -665,7 +669,7 @@ body {
 /* Image Mosaic */
 .image-mosaic {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   padding: 4rem var(--container-padding);
   max-width: var(--container-width);
@@ -678,11 +682,6 @@ body {
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 1;
-}
-
-.mosaic-item--large {
-  grid-row: span 2;
-  aspect-ratio: 0.75;
 }
 
 .mosaic-item img {
@@ -709,6 +708,25 @@ body {
 
 .mosaic-item:hover figcaption {
   transform: translateY(0);
+}
+
+/* Responsive adjustments for image mosaic */
+@media (max-width: 1200px) {
+  .image-mosaic {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .image-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .image-mosaic {
+    grid-template-columns: 1fr;
+  }
 }
 
 .quick-buy-link {
