@@ -222,4 +222,41 @@ document.addEventListener("DOMContentLoaded", () => {
         .scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+
+  // Category Tags Active State
+  const sections = document.querySelectorAll(".product-section");
+  const categoryTags = document.querySelectorAll(".category-tag");
+
+  // Update active tag on scroll
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    categoryTags.forEach((tag) => {
+      tag.classList.remove("active");
+      if (tag.getAttribute("href").slice(1) === current) {
+        tag.classList.add("active");
+      }
+    });
+  });
+
+  // Smooth scroll to section when clicking tags
+  categoryTags.forEach((tag) => {
+    tag.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
 });
