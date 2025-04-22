@@ -127,7 +127,7 @@
             <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/aroma-figo.jpg"
+                  src="assets/imagens/all-flordefigo.png"
                   alt="Flor de Figo"
                   class="aroma-image"
                   loading="lazy"
@@ -169,7 +169,7 @@
             <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/aroma-chabranco.jpg"
+                  src="assets/imagens/all-chabranco.png"
                   alt="Chá Branco"
                   class="aroma-image"
                   loading="lazy"
@@ -211,7 +211,7 @@
             <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/aroma-bamboo.jpg"
+                  src="assets/imagens/vala-bamboo.png"
                   alt="Bamboo"
                   class="aroma-image"
                   loading="lazy"
@@ -252,7 +252,7 @@
             <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/aroma-marinho.jpg"
+                  src="assets/imagens/marinho.png"
                   alt="Marinho"
                   class="aroma-image"
                   loading="lazy"
@@ -294,7 +294,7 @@
             <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/aroma-palosanto.jpg"
+                  src="assets/imagens/vela-palosanto.png"
                   alt="Palo Santo"
                   class="aroma-image"
                   loading="lazy"
@@ -417,50 +417,23 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const aromaSections = document.querySelectorAll(".aroma-section");
+        const details = document.querySelectorAll(".aroma-accordion details");
 
-        // Add intersection observer for animation on scroll
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-              }
-            });
-          },
-          {
-            threshold: 0.1,
-          }
-        );
+        details.forEach((detail) => {
+          detail.addEventListener("toggle", (e) => {
+            // Only run this if the detail is being opened
+            if (detail.open) {
+              // Close other details
+              details.forEach((d) => {
+                if (d !== detail && d.open) {
+                  d.open = false;
+                }
+              });
 
-        aromaSections.forEach((section) => {
-          // Add initial styles for animation
-          section.style.opacity = "0";
-          section.style.transform = "translateY(30px)";
-          section.style.transition = "all 0.6s ease-out";
-
-          // Observe section
-          observer.observe(section);
-
-          const header = section.querySelector(".aroma-header");
-          const content = section.querySelector(".aroma-content");
-          const toggleBtn = section.querySelector(".toggle-btn i");
-
-          header.addEventListener("click", (e) => {
-            e.preventDefault();
-            const isExpanded = section.classList.contains("expanded");
-
-            // Close all sections
-            aromaSections.forEach((s) => {
-              s.classList.remove("expanded");
-              s.querySelector(".toggle-btn i").className = "fas fa-plus";
-            });
-
-            // If clicking on a closed section, expand it
-            if (!isExpanded) {
-              section.classList.add("expanded");
-              toggleBtn.className = "fas fa-minus";
+              // Scroll the opened detail into view
+              setTimeout(() => {
+                detail.scrollIntoView({ behavior: "smooth", block: "start" });
+              }, 100);
             }
           });
         });
