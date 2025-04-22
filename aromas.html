@@ -418,7 +418,9 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const details = document.querySelectorAll(".aroma-accordion details");
+        const tabs = document.querySelectorAll(".aroma-tabs a");
 
+        // Handle accordion toggle behavior
         details.forEach((detail) => {
           detail.addEventListener("toggle", (e) => {
             // Only run this if the detail is being opened
@@ -437,6 +439,81 @@
             }
           });
         });
+
+        // Handle tab clicks
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = tab.getAttribute("href").substring(1); // Remove the # from href
+            const targetDetail = document.getElementById(targetId);
+
+            if (targetDetail) {
+              // Close all details first
+              details.forEach((d) => {
+                d.open = false;
+              });
+
+              // Open the target detail
+              targetDetail.open = true;
+
+              // Scroll to the target
+              setTimeout(() => {
+                targetDetail.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }, 100);
+            }
+          });
+        });
+
+        // Handle hash changes (when clicking on links with #)
+        window.addEventListener("hashchange", () => {
+          const hash = window.location.hash.substring(1);
+          const targetDetail = document.getElementById(hash);
+
+          if (targetDetail) {
+            // Close all details first
+            details.forEach((d) => {
+              d.open = false;
+            });
+
+            // Open the target detail
+            targetDetail.open = true;
+
+            // Scroll to the target
+            setTimeout(() => {
+              targetDetail.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }, 100);
+          }
+        });
+
+        // Check for hash on page load
+        if (window.location.hash) {
+          const hash = window.location.hash.substring(1);
+          const targetDetail = document.getElementById(hash);
+
+          if (targetDetail) {
+            // Close all details first
+            details.forEach((d) => {
+              d.open = false;
+            });
+
+            // Open the target detail
+            targetDetail.open = true;
+
+            // Scroll to the target
+            setTimeout(() => {
+              targetDetail.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }, 100);
+          }
+        }
       });
     </script>
 
