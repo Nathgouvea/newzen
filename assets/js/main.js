@@ -213,16 +213,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* lazy‑load map */
-  const btn = document.getElementById("loadMap");
-  if (btn) {
-    btn.addEventListener(
-      "click",
-      () => {
-        btn.innerHTML =
-          '<iframe src="https://www.google.com/maps/embed?...yourCoords..." loading="lazy" style="border:0;width:100%;height:450px;" allowfullscreen></iframe>';
-      },
-      { once: true }
-    );
-  }
+  // Aroma tabs smooth scrolling
+  document.querySelectorAll(".aroma-tabs a").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      document
+        .querySelector(a.getAttribute("href"))
+        .scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
 });

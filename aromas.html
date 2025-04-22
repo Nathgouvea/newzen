@@ -30,33 +30,48 @@
       .aromas-page {
         background: var(--color-background);
         color: var(--color-text);
+        padding-top: var(--header-height);
+        position: relative;
       }
 
-      .aromas-intro {
-        background: linear-gradient(
-          135deg,
-          var(--color-white) 0%,
-          var(--color-gray-100) 100%
-        );
-        padding: 8rem 2rem 4rem;
-        text-align: center;
+      /* Remove or comment out the ::before pseudo-element */
+      /* .aromas-page::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 400px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        z-index: 1;
+      } */
+
+      .container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
       }
 
       .page-title {
         color: var(--color-text);
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         margin-bottom: 1.5rem;
         font-weight: 500;
         line-height: 1.2;
-        letter-spacing: -0.02em;
+        text-align: center;
+        padding-top: 2rem;
       }
 
       .page-description {
         color: var(--color-text-soft);
         font-size: 1.25rem;
         line-height: 1.6;
-        max-width: 600px;
-        margin: 0 auto;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        text-align: center;
       }
 
       .aromas-accordion {
@@ -148,7 +163,6 @@
 
       .aroma-details {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
         margin-bottom: 2rem;
       }
@@ -166,7 +180,6 @@
 
       .aroma-description {
         display: grid;
-        grid-template-columns: 1fr 1fr;
         gap: 2rem;
       }
 
@@ -198,6 +211,114 @@
 
         .aroma-image-container {
           height: 250px;
+        }
+      }
+
+      .aroma-accordion details {
+        background: var(--color-white);
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .aroma-accordion summary {
+        padding: 1.5rem;
+        cursor: pointer;
+        position: relative;
+        font-size: 1.25rem;
+        font-weight: 500;
+        list-style: none;
+      }
+
+      .aroma-accordion summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .aroma-accordion summary::after {
+        content: "\f107";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease;
+      }
+
+      .aroma-accordion details[open] summary::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      .aroma-content {
+        padding: 0 1.5rem 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .aroma-image-container {
+        position: relative;
+        padding-top: 75%;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .aroma-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .aroma-content-right {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .aroma-details-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .aroma-info h3 {
+        font-size: 0.875rem;
+        color: var(--color-text-soft);
+        margin-bottom: 0.5rem;
+      }
+
+      .aroma-info p {
+        font-size: 1rem;
+        color: var(--color-text);
+      }
+
+      .aroma-notes h2 {
+        font-size: 1.25rem;
+        color: var(--color-text);
+        margin-bottom: 1rem;
+      }
+
+      .aroma-description p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--color-text-soft);
+      }
+
+      @media (max-width: 768px) {
+        .aroma-content {
+          grid-template-columns: 1fr;
+        }
+
+        .aroma-details-row {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .aroma-image-container {
+          padding-top: 66.67%;
         }
       }
     </style>
@@ -285,264 +406,232 @@
     </header>
 
     <main class="aromas-page">
-      <div class="aromas-intro">
-        <h1 class="page-title">Descubra Nossos Aromas</h1>
+      <div class="container">
+        <h1 class="page-title">Nossos Aromas</h1>
         <p class="page-description">
-          Cada fragrância foi cuidadosamente desenvolvida para criar
-          experiências únicas e memoráveis. Explore nossa coleção exclusiva de
-          aromas e descubra a perfeita harmonia para seu ambiente.
+          Descubra nossa seleção exclusiva de fragrâncias naturais,
+          cuidadosamente desenvolvidas para transformar seu ambiente em um
+          refúgio de bem-estar.
         </p>
-      </div>
 
-      <div class="aromas-accordion">
-        <div class="aroma-section" id="flor-de-figo">
-          <button class="aroma-header">
-            <h2>Flor de Figo</h2>
-            <span class="toggle-btn">
-              <i class="fas fa-plus"></i>
-            </span>
-          </button>
-          <div class="aroma-content">
-            <div class="aroma-inner">
+        <nav class="aroma-tabs">
+          <a href="#figo">Flor de Figo</a>
+          <a href="#chabranco">Chá Branco</a>
+          <a href="#bamboo">Bamboo</a>
+          <a href="#marinho">Marinho</a>
+          <a href="#palosanto">Palo Santo</a>
+        </nav>
+
+        <section class="aroma-accordion">
+          <details id="figo" open>
+            <summary>Flor de Figo</summary>
+            <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/all-flordefigo.png"
-                  alt="Fragrância Flor de Figo"
+                  src="assets/imagens/aroma-figo.jpg"
+                  alt="Flor de Figo"
                   class="aroma-image"
+                  loading="lazy"
                 />
               </div>
-              <div class="aroma-details">
-                <div class="aroma-info">
-                  <h3>Família Olfativa</h3>
-                  <p>Frutada Floral</p>
+              <div class="aroma-content-right">
+                <div class="aroma-details">
+                  <div class="aroma-details-row">
+                    <div class="aroma-info">
+                      <h3>Notas de Topo</h3>
+                      <p>Bergamota, Limão Siciliano</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Coração</h3>
+                      <p>Flor de Figo, Jasmim, Lírio</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Fundo</h3>
+                      <p>Âmbar, Almíscar, Madeira</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="aroma-info">
-                  <h3>Intensidade</h3>
-                  <p>Média</p>
-                </div>
-                <div class="aroma-info">
-                  <h3>Projeção</h3>
-                  <p>6-8 horas</p>
-                </div>
-              </div>
-              <div class="aroma-description">
                 <div class="aroma-notes">
-                  <h3>Notas</h3>
-                  <p>Topo: Folhas de Figo Verde</p>
-                  <p>Coração: Flor de Figo, Jasmim</p>
-                  <p>Base: Âmbar, Almíscar</p>
-                </div>
-                <div class="aroma-desc">
-                  <h3>Descrição</h3>
-                  <p>
-                    Uma fragrância sofisticada que combina a doçura cremosa do
-                    figo com notas florais delicadas, criando uma experiência
-                    olfativa única e memorável.
-                  </p>
+                  <h2>Características</h2>
+                  <div class="aroma-description">
+                    <p>
+                      Uma fragrância sofisticada que combina a doçura da flor de
+                      figo com notas cítricas e florais. Perfeita para criar um
+                      ambiente elegante e acolhedor.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </details>
 
-        <div class="aroma-section" id="cha-branco">
-          <button class="aroma-header">
-            <h2>Chá Branco</h2>
-            <span class="toggle-btn">
-              <i class="fas fa-plus"></i>
-            </span>
-          </button>
-          <div class="aroma-content">
-            <div class="aroma-inner">
+          <details id="chabranco">
+            <summary>Chá Branco</summary>
+            <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/all-chabranco.png"
-                  alt="Fragrância Chá Branco"
+                  src="assets/imagens/aroma-chabranco.jpg"
+                  alt="Chá Branco"
                   class="aroma-image"
+                  loading="lazy"
                 />
               </div>
-              <div class="aroma-details">
-                <div class="aroma-info">
-                  <h3>Família Olfativa</h3>
-                  <p>Oriental Suave</p>
+              <div class="aroma-content-right">
+                <div class="aroma-details">
+                  <div class="aroma-details-row">
+                    <div class="aroma-info">
+                      <h3>Notas de Topo</h3>
+                      <p>Bergamota, Limão Siciliano</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Coração</h3>
+                      <p>Chá Branco, Jasmim, Lírio</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Fundo</h3>
+                      <p>Âmbar, Almíscar, Madeira</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="aroma-info">
-                  <h3>Intensidade</h3>
-                  <p>Suave</p>
-                </div>
-                <div class="aroma-info">
-                  <h3>Projeção</h3>
-                  <p>4-6 horas</p>
-                </div>
-              </div>
-              <div class="aroma-description">
                 <div class="aroma-notes">
-                  <h3>Notas</h3>
-                  <p>Topo: Bergamota, Chá Branco</p>
-                  <p>Coração: Flor de Lótus, Magnólia</p>
-                  <p>Base: Almíscar Branco, Madeira de Cedro</p>
-                </div>
-                <div class="aroma-desc">
-                  <h3>Descrição</h3>
-                  <p>
-                    Uma fragrância delicada e relaxante que evoca a pureza do
-                    chá branco combinada com notas florais suaves e um toque
-                    amadeirado.
-                  </p>
+                  <h2>Características</h2>
+                  <div class="aroma-description">
+                    <p>
+                      Uma fragrância suave e relaxante inspirada no tradicional
+                      chá branco. Ideal para momentos de tranquilidade e
+                      meditação.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </details>
 
-        <div class="aroma-section" id="marinho">
-          <button class="aroma-header">
-            <h2>Marinho</h2>
-            <span class="toggle-btn">
-              <i class="fas fa-plus"></i>
-            </span>
-          </button>
-          <div class="aroma-content">
-            <div class="aroma-inner">
+          <details id="bamboo">
+            <summary>Bamboo</summary>
+            <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/marinho.png"
-                  alt="Fragrância Marinho"
+                  src="assets/imagens/aroma-bamboo.jpg"
+                  alt="Bamboo"
                   class="aroma-image"
+                  loading="lazy"
                 />
               </div>
-              <div class="aroma-details">
-                <div class="aroma-info">
-                  <h3>Família Olfativa</h3>
-                  <p>Aquática</p>
+              <div class="aroma-content-right">
+                <div class="aroma-details">
+                  <div class="aroma-details-row">
+                    <div class="aroma-info">
+                      <h3>Notas de Topo</h3>
+                      <p>Bergamota, Limão Siciliano</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Coração</h3>
+                      <p>Bamboo, Jasmim, Lírio</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Fundo</h3>
+                      <p>Âmbar, Almíscar, Madeira</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="aroma-info">
-                  <h3>Intensidade</h3>
-                  <p>Média-Alta</p>
-                </div>
-                <div class="aroma-info">
-                  <h3>Projeção</h3>
-                  <p>8-10 horas</p>
-                </div>
-              </div>
-              <div class="aroma-description">
                 <div class="aroma-notes">
-                  <h3>Notas</h3>
-                  <p>Topo: Brisa Marinha, Limão</p>
-                  <p>Coração: Algas Marinhas, Sal Marinho</p>
-                  <p>Base: Âmbar Cinzento, Madeiras Claras</p>
-                </div>
-                <div class="aroma-desc">
-                  <h3>Descrição</h3>
-                  <p>
-                    Uma fragrância refrescante que captura a essência do oceano,
-                    combinando notas aquáticas com um toque cítrico e salgado.
-                  </p>
+                  <h2>Características</h2>
+                  <div class="aroma-description">
+                    <p>
+                      Uma fragrância refrescante com notas verdes de bambu.
+                      Perfeita para trazer energia e vitalidade ao ambiente.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </details>
 
-        <div class="aroma-section" id="bamboo">
-          <button class="aroma-header">
-            <h2>Bamboo</h2>
-            <span class="toggle-btn">
-              <i class="fas fa-plus"></i>
-            </span>
-          </button>
-          <div class="aroma-content">
-            <div class="aroma-inner">
+          <details id="marinho">
+            <summary>Marinho</summary>
+            <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/vala-bamboo.png"
-                  alt="Fragrância Bamboo"
+                  src="assets/imagens/aroma-marinho.jpg"
+                  alt="Marinho"
                   class="aroma-image"
+                  loading="lazy"
                 />
               </div>
-              <div class="aroma-details">
-                <div class="aroma-info">
-                  <h3>Família Olfativa</h3>
-                  <p>Verde Amadeirado</p>
+              <div class="aroma-content-right">
+                <div class="aroma-details">
+                  <div class="aroma-details-row">
+                    <div class="aroma-info">
+                      <h3>Notas de Topo</h3>
+                      <p>Bergamota, Limão Siciliano</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Coração</h3>
+                      <p>Marinho, Jasmim, Lírio</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Fundo</h3>
+                      <p>Âmbar, Almíscar, Madeira</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="aroma-info">
-                  <h3>Intensidade</h3>
-                  <p>Média</p>
-                </div>
-                <div class="aroma-info">
-                  <h3>Projeção</h3>
-                  <p>5-7 horas</p>
-                </div>
-              </div>
-              <div class="aroma-description">
                 <div class="aroma-notes">
-                  <h3>Notas</h3>
-                  <p>Topo: Bamboo Fresco, Bergamota</p>
-                  <p>Coração: Folhas Verdes, Violeta</p>
-                  <p>Base: Madeira de Bamboo, Almíscar</p>
-                </div>
-                <div class="aroma-desc">
-                  <h3>Descrição</h3>
-                  <p>
-                    Uma fragrância que captura a essência pura e natural do
-                    bamboo, combinando frescor com notas verdes e um toque
-                    amadeirado suave.
-                  </p>
+                  <h2>Características</h2>
+                  <div class="aroma-description">
+                    <p>
+                      Uma fragrância fresca e revigorante com notas marinhas.
+                      Ideal para trazer a sensação de praia e verão para seu
+                      ambiente.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </details>
 
-        <div class="aroma-section" id="palo-santo">
-          <button class="aroma-header">
-            <h2>Palo Santo</h2>
-            <span class="toggle-btn">
-              <i class="fas fa-plus"></i>
-            </span>
-          </button>
-          <div class="aroma-content">
-            <div class="aroma-inner">
+          <details id="palosanto">
+            <summary>Palo Santo</summary>
+            <div class="aroma-content">
               <div class="aroma-image-container">
                 <img
-                  src="assets/imagens/vela-palosanto.png"
-                  alt="Fragrância Palo Santo"
+                  src="assets/imagens/aroma-palosanto.jpg"
+                  alt="Palo Santo"
                   class="aroma-image"
+                  loading="lazy"
                 />
               </div>
-              <div class="aroma-details">
-                <div class="aroma-info">
-                  <h3>Família Olfativa</h3>
-                  <p>Amadeirado Especiado</p>
+              <div class="aroma-content-right">
+                <div class="aroma-details">
+                  <div class="aroma-details-row">
+                    <div class="aroma-info">
+                      <h3>Notas de Topo</h3>
+                      <p>Bergamota, Limão Siciliano</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Coração</h3>
+                      <p>Palo Santo, Jasmim, Lírio</p>
+                    </div>
+                    <div class="aroma-info">
+                      <h3>Notas de Fundo</h3>
+                      <p>Âmbar, Almíscar, Madeira</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="aroma-info">
-                  <h3>Intensidade</h3>
-                  <p>Alta</p>
-                </div>
-                <div class="aroma-info">
-                  <h3>Projeção</h3>
-                  <p>8-10 horas</p>
-                </div>
-              </div>
-              <div class="aroma-description">
                 <div class="aroma-notes">
-                  <h3>Notas</h3>
-                  <p>Topo: Palo Santo, Limão Siciliano</p>
-                  <p>Coração: Incenso, Mirra</p>
-                  <p>Base: Cedro, Patchouli</p>
-                </div>
-                <div class="aroma-desc">
-                  <h3>Descrição</h3>
-                  <p>
-                    Uma fragrância sagrada e purificadora que combina o aroma
-                    característico do Palo Santo com notas de incenso e madeiras
-                    nobres, criando uma atmosfera espiritual e relaxante.
-                  </p>
+                  <h2>Características</h2>
+                  <div class="aroma-description">
+                    <p>
+                      Uma fragrância mística e amadeirada do Palo Santo.
+                      Perfeita para momentos de introspecção e conexão
+                      espiritual.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </details>
+        </section>
       </div>
     </main>
 
