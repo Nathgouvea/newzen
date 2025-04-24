@@ -1,0 +1,57 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Components Guide
+
+## Navigation
+The main navigation is consistent across all pages and includes:
+- Logo
+- Responsive menu toggle for mobile
+- Main navigation links with dropdowns
+- Search bar
+- User account and cart icons
+
+## Product Cards
+Product cards follow a consistent structure:
+```html
+<article class="product-card">
+  <div class="product-card__image-container">
+    <img class="product-card__image" />
+  </div>
+  <div class="product-card__content">
+    <h3 class="product-card__title">Product Name</h3>
+    <div class="product-card__footer">
+      <div class="product-card__price">Price</div>
+      <button class="product-card__button">Buy Now</button>
+    </div>
+  </div>
+</article>
+```
+
+## Product Slider
+The product slider component includes:
+- Multiple slides with product grids
+- Navigation arrows (prev/next)
+- Dot indicators
+- ARIA roles for accessibility
+
+## Footer
+The footer is divided into sections:
+- Instagram social section
+- Institutional links
+- Contact information
+- Payment methods
+- Shipping information
+- Copyright and credits
+
+## Category Tags
+Category tags are used for quick navigation:
+```html
+<section class="category-tags">
+  <div class="tags-container">
+    <a href="#category" class="category-tag">Category Name</a>
+  </div>
+</section>
+```

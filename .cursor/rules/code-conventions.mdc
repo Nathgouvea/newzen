@@ -1,0 +1,36 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Code Conventions
+
+## HTML Structure
+- HTML5 doctype is used across all pages
+- Language is set to Brazilian Portuguese (`lang="pt-BR"`)
+- UTF-8 character encoding
+- Responsive viewport meta tag
+- Semantic HTML elements (`header`, `main`, `footer`, `section`, `article`)
+
+## CSS Organization
+- BEM (Block Element Modifier) methodology for class naming
+- Example: `.product-card__image-container`, `.product-card__button`
+- Responsive design using media queries
+- CSS variables for consistent theming
+
+## Accessibility
+- ARIA labels and roles are used for better accessibility
+- Example: `role="search"`, `aria-label="Toggle menu"`
+- Semantic HTML structure
+- Alt text for images
+
+## External Dependencies
+- Font Awesome 6.5.1 for icons
+- Google Fonts (Arimo font family)
+- Custom JavaScript in `assets/js/main.js`
+
+## Component Structure
+- Header with navigation and search
+- Product cards with consistent structure
+- Footer with social media, institutional links, and contact information
+- Slider components with navigation controls
