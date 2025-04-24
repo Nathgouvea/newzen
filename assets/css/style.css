@@ -1045,6 +1045,11 @@ h3 {
   align-items: flex-start;
   width: 100%;
   max-width: 250px;
+  padding-bottom: 1.5rem;
+}
+
+.footer__section:last-child {
+  border-bottom: none;
 }
 
 .footer__title {
@@ -1095,43 +1100,24 @@ h3 {
 @media (max-width: 768px) {
   .footer__grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
     padding: 2rem 1rem;
   }
 
   .footer__section {
     align-items: center;
     max-width: 100%;
+    border-bottom: 2px solid var(--color-gray-300);
+    margin-bottom: 1rem;
   }
 
-  .footer__title {
-    text-align: center;
-  }
-
-  .footer__links,
-  .footer__contact {
-    align-items: center;
-  }
-
-  .footer__links a,
-  .footer__contact a,
-  .footer__contact li {
-    text-align: center;
-    justify-content: center;
+  .footer__section:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
   }
 }
 
 /* Instagram Section */
-.instagram-section {
-  padding: 2rem 0;
-  text-align: center;
-}
-
-.instagram-section h4 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: var(--color-text);
-}
 
 .instagram-handle {
   display: inline-flex;
@@ -1198,10 +1184,20 @@ h3 {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 2rem var(--container-padding);
-  border-top: 1px solid var(--color-gray-400);
-  border-bottom: 1px solid var(--color-gray-400);
+  border-top: 2px solid var(--color-gray-600);
+  border-bottom: 2px solid var(--color-gray-600);
   max-width: var(--max-width);
   margin: 0 auto;
+  position: relative;
+  background: transparent;
+}
+
+.footer__info::before {
+  display: none;
+}
+
+.footer__info::after {
+  display: none;
 }
 
 .footer__info h4 {
@@ -3588,13 +3584,73 @@ h3,
 }
 
 .shop-filters {
-  padding: 1.5rem;
+  padding: 0.75rem;
   background: var(--color-white);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: fit-content;
+  height: auto;
+  max-height: 50vh;
+  overflow-y: auto;
   position: sticky;
   top: 2rem;
+}
+
+.shop-filters > * {
+  padding: 0.5rem 0;
+  border-bottom: 3px solid var(--color-gray-400);
+  margin-bottom: 0.75rem;
+}
+
+.shop-filters > *:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.shop-filters .filter-section {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.shop-filters .filter-section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -0.75rem;
+  right: -0.75rem;
+  height: 2px;
+  background: var(--color-gray-400);
+}
+
+.shop-filters h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-gray-900);
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+.shop-filters label {
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.25rem;
+  padding: 0.25rem 0;
+}
+
+.shop-filters input[type="checkbox"],
+.shop-filters input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.shop-filters .filter-group {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-gray-300);
+}
+
+.shop-filters .filter-group:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
 .catalogue-grid {
