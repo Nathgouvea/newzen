@@ -113,21 +113,17 @@
         </div>
       </section>
 
+      <section class="category-tags wrapper">
+        <div class="tags-container">
+          <a href="#figo" class="category-tag">Flor de Figo</a>
+          <a href="#chabranco" class="category-tag">Chá Branco</a>
+          <a href="#bamboo" class="category-tag">Bamboo</a>
+          <a href="#marinho" class="category-tag">Marinho</a>
+          <a href="#palosanto" class="category-tag">Palo Santo</a>
+        </div>
+      </section>
+
       <div class="container">
-        <p class="page-description">
-          Descubra nossa seleção exclusiva de fragrâncias naturais,
-          cuidadosamente desenvolvidas para transformar seu ambiente em um
-          refúgio de bem-estar.
-        </p>
-
-        <nav class="aroma-tabs">
-          <a href="#figo">Flor de Figo</a>
-          <a href="#chabranco">Chá Branco</a>
-          <a href="#bamboo">Bamboo</a>
-          <a href="#marinho">Marinho</a>
-          <a href="#palosanto">Palo Santo</a>
-        </nav>
-
         <section class="aroma-accordion">
           <details id="figo" open>
             <summary>Flor de Figo</summary>
@@ -425,7 +421,6 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const details = document.querySelectorAll(".aroma-accordion details");
-        const tabs = document.querySelectorAll(".aroma-tabs a");
 
         // Handle accordion toggle behavior
         details.forEach((detail) => {

@@ -223,23 +223,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Category Tags Active State
-  const sections = document.querySelectorAll(".product-section");
-  const categoryTags = document.querySelectorAll(".category-tag");
+  // Category Tags Active State for Aromas page
+  const aromaDetails = document.querySelectorAll(".aroma-accordion details");
+  const aromaCategoryTags = document.querySelectorAll(".category-tag");
 
   // Update active tag on scroll
   window.addEventListener("scroll", () => {
     let current = "";
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= sectionTop - 200) {
-        current = section.getAttribute("id");
+    aromaDetails.forEach((detail) => {
+      const detailTop = detail.offsetTop;
+      const detailHeight = detail.clientHeight;
+      if (pageYOffset >= detailTop - 200) {
+        current = detail.getAttribute("id");
       }
     });
 
-    categoryTags.forEach((tag) => {
+    aromaCategoryTags.forEach((tag) => {
       tag.classList.remove("active");
       if (tag.getAttribute("href").slice(1) === current) {
         tag.classList.add("active");
@@ -248,14 +248,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Smooth scroll to section when clicking tags
-  categoryTags.forEach((tag) => {
+  aromaCategoryTags.forEach((tag) => {
     tag.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href");
-      const targetSection = document.querySelector(targetId);
+      const targetDetail = document.querySelector(targetId);
 
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth" });
+      if (targetDetail) {
+        targetDetail.scrollIntoView({ behavior: "smooth" });
+        targetDetail.setAttribute("open", true);
       }
     });
   });
