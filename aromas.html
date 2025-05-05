@@ -25,46 +25,46 @@
   <body>
     <header class="header">
       <div class="header__container container">
-        <div class="logo">
-          <img
-            src="assets/imagens/logo.svg"
-            alt="Zen Secrets Logo"
-            href="index.html"
-            class="logo__image"
-          />
+        <div class="header__logo">
+          <div class="logo">
+            <img
+              src="assets/imagens/logo.svg"
+              alt="Zen Secrets Logo"
+              href="index.html"
+              class="logo__image"
+            />
+          </div>
         </div>
 
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="index.html" class="nav__link">Início</a>
-            </li>
-            <li class="nav__item">
-              <a href="comprar.html" class="nav__link">Comprar</a>
-              <ul class="dropdown">
-                <li>
-                  <a href="aromatizadores.html">Aromatizadores</a>
-                </li>
-                <li><a href="home-spray.html">Home Spray</a></li>
-                <li><a href="velas-aromaticas.html">Velas Aromáticas</a></li>
-                <li><a href="kits-especiais.html">Kits Especiais</a></li>
-                <li><a href="lembrancinhas.html">Lembrancinhas</a></li>
-                <li><a href="acessorios.html">Acessórios</a></li>
-              </ul>
-            </li>
-            <li class="nav__item">
-              <a href="aromas.html" class="nav__link active">Sobre os Aromas</a>
-            </li>
-            <li class="nav__item">
-              <a href="contato.html" class="nav__link">Fale Conosco</a>
-            </li>
-          </ul>
+        <div class="header__nav-search">
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="index.html" class="nav__link">Início</a>
+              </li>
+              <li class="nav__item">
+                <a href="comprar.html" class="nav__link">Comprar</a>
+                <ul class="dropdown">
+                  <li>
+                    <a href="aromatizadores.html">Aromatizadores</a>
+                  </li>
+                  <li><a href="home-spray.html">Home Spray</a></li>
+                  <li><a href="velas-aromaticas.html">Velas Aromáticas</a></li>
+                  <li><a href="kits-especiais.html">Kits Especiais</a></li>
+                  <li><a href="lembrancinhas.html">Lembrancinhas</a></li>
+                  <li><a href="acessorios.html">Acessórios</a></li>
+                </ul>
+              </li>
+              <li class="nav__item">
+                <a href="aromas.html" class="nav__link active"
+                  >Sobre os Aromas</a
+                >
+              </li>
+              <li class="nav__item">
+                <a href="contato.html" class="nav__link">Fale Conosco</a>
+              </li>
+            </ul>
+          </nav>
 
           <div class="search-bar">
             <form class="search-form" role="search">
@@ -83,7 +83,9 @@
               </button>
             </form>
           </div>
+        </div>
 
+        <div class="header__actions">
           <div class="user-actions">
             <a href="#" class="user-actions__item" aria-label="Minha conta">
               <i class="fas fa-user"></i>
@@ -93,7 +95,13 @@
               <span class="cart-count">0</span>
             </a>
           </div>
-        </nav>
+        </div>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
