@@ -70,6 +70,25 @@
         </button>
         <div class="header__actions">
           <div class="user-actions">
+            <div class="header__nav-search">
+              <div class="search-bar">
+                <form class="search-form" role="search">
+                  <input
+                    type="search"
+                    placeholder="Buscar..."
+                    aria-label="Search"
+                    class="search-input"
+                  />
+                  <button
+                    type="button"
+                    class="search-icon"
+                    aria-label="Toggle search"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
             <a href="#" class="user-actions__item" aria-label="Minha conta">
               <i class="fas fa-user"></i>
             </a>
@@ -77,26 +96,6 @@
               <i class="far fa-shopping-bag"></i>
               <span class="cart-count">0</span>
             </a>
-          </div>
-        </div>
-
-        <div class="header__nav-search">
-          <div class="search-bar">
-            <form class="search-form" role="search">
-              <input
-                type="search"
-                placeholder="Buscar..."
-                aria-label="Search"
-                class="search-input"
-              />
-              <button
-                type="button"
-                class="search-icon"
-                aria-label="Toggle search"
-              >
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
           </div>
         </div>
       </div>
@@ -139,16 +138,18 @@
             <div class="trust-item">
               <i class="far fa-credit-card"></i>
               <div class="trust-item__content">
-                <h3 class="trust-item__title">Pague no cartão</h3>
-                <p class="trust-item__subtitle">ou ganhe 5% no PIX</p>
+                <h3 class="trust-item__title">Pagamento facilitado</h3>
+                <p class="trust-item__subtitle">
+                  Cartão, Pix e Boleto Bancário
+                </p>
               </div>
             </div>
 
             <div class="trust-item">
               <i class="far fa-truck"></i>
               <div class="trust-item__content">
-                <h3 class="trust-item__title">Para todo Brasil</h3>
-                <p class="trust-item__subtitle">Via Pac e SEDEX</p>
+                <h3 class="trust-item__title">Envio para todo Brasil</h3>
+                <p class="trust-item__subtitle">Rastreamento disponível</p>
               </div>
             </div>
 
@@ -750,7 +751,10 @@
 
           <div class="categories-grid">
             <!-- Velas Aromáticas Card -->
-            <article class="category-card">
+            <a
+              href="velas-aromaticas.html"
+              class="category-card category-card--link"
+            >
               <img
                 src="assets/imagens/vela-chabranco.png"
                 alt="Velas Aromáticas Zen Secrets"
@@ -765,13 +769,13 @@
                   ambiente
                 </p>
               </div>
-              <a href="/velas-aromaticas" class="category-card__link"
-                >Ver Velas Aromáticas</a
-              >
-            </article>
+            </a>
 
             <!-- Aromatizador Card -->
-            <article class="category-card">
+            <a
+              href="aromatizadores.html"
+              class="category-card category-card--link"
+            >
               <img
                 src="assets/imagens/homespray-chabranco.png"
                 alt="Aromatizadores Zen Secrets"
@@ -785,13 +789,10 @@
                   Perfume seu espaço com nossas essências naturais duradouras
                 </p>
               </div>
-              <a href="/aromatizadores" class="category-card__link"
-                >Ver Aromatizadores</a
-              >
-            </article>
+            </a>
 
             <!-- Home Spray Card -->
-            <article class="category-card">
+            <a href="home-spray.html" class="category-card category-card--link">
               <img
                 src="assets/imagens/homespray-flordefigo.png"
                 alt="Home Sprays Zen Secrets"
@@ -806,10 +807,7 @@
                   agradável
                 </p>
               </div>
-              <a href="/home-sprays" class="category-card__link"
-                >Ver Home Sprays</a
-              >
-            </article>
+            </a>
           </div>
         </div>
       </section>

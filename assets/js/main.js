@@ -160,6 +160,122 @@ document.addEventListener("DOMContentLoaded", () => {
         searchForm.classList.remove("active");
       }
     });
+
+    // Add search form submit handler
+    searchForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const query = searchInput.value.trim();
+      if (query) {
+        const normalized = query.toLowerCase();
+        // Category and product mapping
+        const redirects = [
+          // Categories
+          {
+            keywords: [
+              "velas",
+              "velas aromaticas",
+              "vela aromatica",
+              "vela aromáticas",
+              "velas aromáticas",
+            ],
+            url: "velas-aromaticas.html",
+          },
+          {
+            keywords: ["aromatizadores", "aromatizador"],
+            url: "aromatizadores.html",
+          },
+          {
+            keywords: ["home spray", "homespray", "home sprays"],
+            url: "home-spray.html",
+          },
+          {
+            keywords: ["kits", "kits especiais", "kit especial"],
+            url: "kits-especiais.html",
+          },
+          {
+            keywords: ["lembrancinhas", "lembrancinha"],
+            url: "lembrancinhas.html",
+          },
+          {
+            keywords: ["acessorios", "acessórios", "acessório", "acessorio"],
+            url: "acessorios.html",
+          },
+          // Aromas (redirect to aromas.html)
+          {
+            keywords: [
+              "aroma",
+              "aromas",
+              "bamboo",
+              "bambu",
+              "chá branco",
+              "cha branco",
+              "flor de figo",
+              "figo",
+              "palo santo",
+              "baunilha",
+              "lavanda",
+              "alecrim",
+              "jasmim",
+              "cedro",
+              "canela",
+              "rosa",
+              "sândalo",
+              "sandalo",
+              "limão siciliano",
+              "limao siciliano",
+              "frutas vermelhas",
+              "frutas",
+              "verbena",
+              "patchouli",
+              "patchoulli",
+              "amber",
+              "âmbar",
+              "ambar",
+              "madeira",
+              "madeiras",
+              "citrus",
+              "coco",
+              "musk",
+              "floral",
+              "oriental",
+              "gourmand",
+              "herbal",
+              "frutado",
+              "especiarias",
+            ],
+            url: "aromas.html",
+          },
+          // Products
+          { keywords: ["vela bamboo"], url: "velas-aromaticas.html" },
+          { keywords: ["vela palo santo"], url: "velas-aromaticas.html" },
+          {
+            keywords: ["vela chá branco", "vela cha branco"],
+            url: "velas-aromaticas.html",
+          },
+          { keywords: ["vela flor de figo"], url: "velas-aromaticas.html" },
+          {
+            keywords: ["home spray chá branco", "home spray cha branco"],
+            url: "home-spray.html",
+          },
+          { keywords: ["home spray flor de figo"], url: "home-spray.html" },
+        ];
+        let found = false;
+        for (const item of redirects) {
+          if (item.keywords.some((k) => normalized === k)) {
+            window.location.href = `${item.url}?search=${encodeURIComponent(
+              query
+            )}`;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          window.location.href = `comprar.html?search=${encodeURIComponent(
+            query
+          )}`;
+        }
+      }
+    });
   }
 
   // Initialize MicroModal only for product lightbox links
