@@ -4731,3 +4731,453 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Contact Page Two-Column Layout --- */
+.contact-main-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 3rem auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+}
+.contact-columns {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+  align-items: flex-start;
+}
+.contact-channels-wrapper,
+.contact-form-wrapper {
+  flex: 1 1 0;
+  min-width: 0;
+  background: none;
+}
+.contact-channels-wrapper {
+  max-width: 420px;
+}
+.contact-form-wrapper {
+  max-width: 600px;
+}
+@media (max-width: 900px) {
+  .contact-columns {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .contact-channels-wrapper,
+  .contact-form-wrapper {
+    max-width: 100%;
+  }
+}
+
+/* Optional: Make section headers align left in columns */
+.contact-channels-wrapper .section-header,
+.contact-form-wrapper .section-header {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+/* Optional: Add a little more space between the grid and the form */
+.contact-form-wrapper form {
+  margin-top: 0;
+}
+
+/* Contact Page Styles */
+.contact-main-section {
+  padding: 4rem 0;
+  background-color: #fafafa;
+}
+
+.contact-columns {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-channels-wrapper {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-channels__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.channel-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.channel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: #e0e0e0;
+}
+
+.channel-card__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 50%;
+  font-size: 1.125rem;
+  color: #666;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.channel-card:hover .channel-card__icon {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.channel-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.channel-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.channel-card__contact {
+  display: block;
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.channel-card__description {
+  font-size: 0.75rem;
+  color: #888;
+  margin: 0;
+}
+
+.contact-form-wrapper {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.form-row--full {
+  grid-column: 1 / -1;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-size: 0.875rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.25rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #333;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper textarea {
+  padding-top: 0.75rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.input-wrapper select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 0.875rem;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.input-wrapper textarea + .input-icon {
+  top: 1rem;
+  transform: none;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus,
+.input-wrapper textarea:focus {
+  outline: none;
+  border-color: #666;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.input-wrapper input:focus + .input-icon,
+.input-wrapper select:focus + .input-icon,
+.input-wrapper textarea:focus + .input-icon {
+  color: #666;
+}
+
+.error {
+  display: block;
+  color: #dc3545;
+  font-size: 0.75rem;
+  margin-top: 0.375rem;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: #444;
+  transform: translateY(-1px);
+}
+
+.form-success {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.875rem;
+  background: #e8f5e9;
+  border-radius: 0.5rem;
+  color: #2e7d32;
+  font-size: 0.875rem;
+}
+
+.form-success i {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 1024px) {
+  .contact-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-main-section {
+    padding: 3rem 0;
+  }
+
+  .contact-channels-wrapper,
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ Section Styles */
+.faq-section {
+  padding: 4rem 0;
+  background-color: #fff;
+}
+
+.faq-section .container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.faq-section .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item summary {
+  padding: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+  color: #333;
+  position: relative;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+  color: #333;
+}
+
+.faq-item summary:hover {
+  background: #fafafa;
+}
+
+.faq-item summary i {
+  font-size: 1.125rem;
+  color: #666;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #f8f8f8; */
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.faq-item summary:hover i {
+  /* background: #f0f0f0; */
+  color: #333;
+}
+
+.faq-content {
+  padding: 0 1.25rem;
+  color: #666;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.faq-content p {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.faq-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faq-content li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.faq-content li:last-child {
+  margin-bottom: 1rem;
+}
+
+.faq-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #999;
+}
+
+.faq-item[open] {
+  border-color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item[open] summary {
+  border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 3rem 0;
+  }
+
+  .faq-section .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .faq-item summary {
+    padding: 1rem;
+  }
+
+  .faq-content {
+    padding: 0 1rem 1rem;
+  }
+}

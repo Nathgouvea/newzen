@@ -1,28 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fale Conosco • ZenSecrets</title>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              bg: "#FAFAF7",
-              fg: "#1B1B1B",
-              accent: "#6B4FC4",
-              gray: { 100: "#F3F3F0", 900: "#2C2C2C" },
-            },
-          },
-        },
-      };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Zen Secrets - Harmonia e Bem-Estar Através do Aroma</title>
+    <link rel="icon" type="image/x-icon" href="assets/imagens/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -31,49 +22,47 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body class="gradient-light">
+  <body>
     <header class="header">
       <div class="header__container container">
-        <div class="logo">
-          <img
-            src="assets/imagens/logo.svg"
-            alt="Zen Secrets Logo"
-            href="index.html"
-            class="logo__image"
-          />
+        <div class="header__logo">
+          <div class="logo">
+            <img
+              src="assets/imagens/logo.svg"
+              alt="Zen Secrets Logo"
+              href="index.html"
+              class="logo__image"
+            />
+          </div>
         </div>
 
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="index.html" class="nav__link">Início</a>
-            </li>
-            <li class="nav__item">
-              <a href="comprar.html" class="nav__link">Comprar</a>
-              <ul class="dropdown">
-                <li>
-                  <a href="aromatizadores.html">Aromatizadores</a>
-                </li>
-                <li><a href="home-spray.html">Home Spray</a></li>
-                <li><a href="velas-aromaticas.html">Velas Aromáticas</a></li>
-                <li><a href="kits-especiais.html">Kits Especiais</a></li>
-                <li><a href="lembrancinhas.html">Lembrancinhas</a></li>
-                <li><a href="acessorios.html">Acessórios</a></li>
-              </ul>
-            </li>
-            <li class="nav__item">
-              <a href="aromas.html" class="nav__link">Sobre os Aromas</a>
-            </li>
-            <li class="nav__item">
-              <a href="contato.html" class="nav__link active">Fale Conosco</a>
-            </li>
-          </ul>
+        <div class="header__nav-search">
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="index.html" class="nav__link">Início</a>
+              </li>
+              <li class="nav__item">
+                <a href="comprar.html" class="nav__link">Comprar</a>
+                <ul class="dropdown">
+                  <li>
+                    <a href="aromatizadores.html">Aromatizadores</a>
+                  </li>
+                  <li><a href="home-spray.html">Home Spray</a></li>
+                  <li><a href="velas-aromaticas.html">Velas Aromáticas</a></li>
+                  <li><a href="kits-especiais.html">Kits Especiais</a></li>
+                  <li><a href="lembrancinhas.html">Lembrancinhas</a></li>
+                  <li><a href="acessorios.html">Acessórios</a></li>
+                </ul>
+              </li>
+              <li class="nav__item">
+                <a href="aromas.html" class="nav__link">Sobre os Aromas</a>
+              </li>
+              <li class="nav__item">
+                <a href="contato.html" class="nav__link active">Fale Conosco</a>
+              </li>
+            </ul>
+          </nav>
 
           <div class="search-bar">
             <form class="search-form" role="search">
@@ -92,7 +81,9 @@
               </button>
             </form>
           </div>
+        </div>
 
+        <div class="header__actions">
           <div class="user-actions">
             <a href="#" class="user-actions__item" aria-label="Minha conta">
               <i class="fas fa-user"></i>
@@ -102,7 +93,13 @@
               <span class="cart-count">0</span>
             </a>
           </div>
-        </nav>
+        </div>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
@@ -111,7 +108,7 @@
       <section class="hero hero--contact">
         <img
           src="assets/imagens/all-hero.png"
-          alt=""
+          alt="Ambiente Zen com produtos Zen Secrets"
           width="1920"
           height="640"
           fetchpriority="high"
@@ -119,110 +116,254 @@
         />
         <div class="hero__content" data-theme="dark">
           <h1 class="hero__title">Fale Conosco</h1>
-        </div>
-      </section>
-
-      <!-- CHANNELS -->
-      <section class="contact-channels wrapper">
-        <h2 class="section-title">Escolha seu canal favorito</h2>
-        <div class="contact-channels__grid">
-          <button class="channel-card" aria-label="Enviar um e‑mail">
-            <i class="lucide lucide-mail"></i>
-            <span>contato@zensecrets.com</span>
-          </button>
-          <a
-            href="https://wa.me/5511999999999"
-            class="channel-card"
-            aria-label="Abrir WhatsApp"
-          >
-            <i class="lucide lucide-smartphone"></i>
-            <span>WhatsApp</span>
-          </a>
-          <a
-            href="https://instagram.com/zensecrets"
-            class="channel-card"
-            aria-label="Abrir Instagram"
-          >
-            <i class="lucide lucide-instagram"></i>
-            <span>@zensecrets</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- FORM -->
-      <section class="contact-form-section wrapper">
-        <h2 class="section-title">Envie sua mensagem</h2>
-        <form id="contactForm" novalidate>
-          <div class="form-row">
-            <label for="nome">Nome*</label>
-            <input id="nome" name="nome" required />
-            <span class="error" id="err-nome" aria-live="polite"></span>
-          </div>
-          <div class="form-row">
-            <label for="email">E‑mail*</label>
-            <input id="email" name="email" type="email" required />
-            <span class="error" id="err-email" aria-live="polite"></span>
-          </div>
-          <div class="form-row">
-            <label for="tel">Telefone (opcional)</label>
-            <input id="tel" name="tel" type="tel" inputmode="tel" />
-          </div>
-          <div class="form-row">
-            <label for="assunto">Assunto</label>
-            <select id="assunto" name="assunto">
-              <option>Geral</option>
-              <option>Pedido</option>
-              <option>Parcerias</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="msg">Mensagem*</label>
-            <textarea id="msg" name="msg" rows="6" required></textarea>
-            <span class="error" id="err-msg" aria-live="polite"></span>
-          </div>
-          <button class="button btn-submit" type="submit">Enviar</button>
-          <p class="form-success" hidden role="alert">
-            Obrigado! Responderemos em breve.
+          <p class="hero__text">
+            Estamos aqui para ajudar você a encontrar o aroma perfeito para seu
+            ambiente
           </p>
-        </form>
+        </div>
+      </section>
+
+      <section class="contact-main-section">
+        <div class="container">
+          <div class="contact-columns">
+            <div class="contact-channels-wrapper">
+              <div class="section-header">
+                <h2 class="section-title">Escolha seu canal favorito</h2>
+                <p class="section-description">
+                  Estamos disponíveis em diversos canais para melhor atendê-lo
+                </p>
+              </div>
+              <div class="contact-channels__grid">
+                <a
+                  href="mailto:secretszen888@gmail.com"
+                  class="channel-card"
+                  aria-label="Enviar um e‑mail"
+                >
+                  <div class="channel-card__icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="channel-card__content">
+                    <h3>E-mail</h3>
+                    <span class="channel-card__contact"
+                      >secretszen888@gmail.com</span
+                    >
+                    <p class="channel-card__description">
+                      Resposta em até 24h úteis
+                    </p>
+                  </div>
+                </a>
+                <a
+                  href="https://wa.me/5516991626921"
+                  class="channel-card"
+                  aria-label="Abrir WhatsApp"
+                >
+                  <div class="channel-card__icon">
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                  <div class="channel-card__content">
+                    <h3>WhatsApp</h3>
+                    <span class="channel-card__contact">(16) 99162-6921</span>
+                    <p class="channel-card__description">
+                      Atendimento em horário comercial
+                    </p>
+                  </div>
+                </a>
+                <a
+                  href="https://instagram.com/secretszen"
+                  class="channel-card"
+                  aria-label="Abrir Instagram"
+                >
+                  <div class="channel-card__icon">
+                    <i class="fab fa-instagram"></i>
+                  </div>
+                  <div class="channel-card__content">
+                    <h3>Instagram</h3>
+                    <span class="channel-card__contact">@secretszen</span>
+                    <p class="channel-card__description">
+                      Siga-nos para novidades e dicas
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="contact-form-wrapper">
+              <div class="section-header">
+                <h2 class="section-title">Envie sua mensagem</h2>
+                <p class="section-description">
+                  Preencha o formulário abaixo e entraremos em contato o mais
+                  breve possível
+                </p>
+              </div>
+              <form id="contactForm" class="contact-form" novalidate>
+                <div class="form-grid">
+                  <div class="form-row">
+                    <label for="nome">Nome completo*</label>
+                    <div class="input-wrapper">
+                      <input
+                        id="nome"
+                        name="nome"
+                        type="text"
+                        placeholder="Digite seu nome"
+                        required
+                      />
+                      <i class="fas fa-user input-icon"></i>
+                    </div>
+                    <span class="error" id="err-nome" aria-live="polite"></span>
+                  </div>
+                  <div class="form-row">
+                    <label for="email">E‑mail*</label>
+                    <div class="input-wrapper">
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="seu@email.com"
+                        required
+                      />
+                      <i class="fas fa-envelope input-icon"></i>
+                    </div>
+                    <span
+                      class="error"
+                      id="err-email"
+                      aria-live="polite"
+                    ></span>
+                  </div>
+                  <div class="form-row">
+                    <label for="tel">Telefone (opcional)</label>
+                    <div class="input-wrapper">
+                      <input
+                        id="tel"
+                        name="tel"
+                        type="tel"
+                        inputmode="tel"
+                        placeholder="(00) 00000-0000"
+                      />
+                      <i class="fas fa-phone input-icon"></i>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label for="assunto">Assunto*</label>
+                    <div class="input-wrapper">
+                      <select id="assunto" name="assunto" required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="geral">Geral</option>
+                        <option value="pedido">Pedido</option>
+                        <option value="parcerias">Parcerias</option>
+                        <option value="outro">Outro</option>
+                      </select>
+                      <i class="fas fa-chevron-down input-icon"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row form-row--full">
+                  <label for="msg">Mensagem*</label>
+                  <div class="input-wrapper">
+                    <textarea
+                      id="msg"
+                      name="msg"
+                      rows="6"
+                      placeholder="Digite sua mensagem aqui..."
+                      required
+                    ></textarea>
+                    <i class="fas fa-comment-alt input-icon"></i>
+                  </div>
+                  <span class="error" id="err-msg" aria-live="polite"></span>
+                </div>
+                <div class="form-actions">
+                  <button
+                    class="button button--primary btn-submit"
+                    type="submit"
+                  >
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar mensagem
+                  </button>
+                </div>
+                <div class="form-success" hidden role="alert">
+                  <i class="fas fa-check-circle"></i>
+                  <p>Obrigado! Responderemos em breve.</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- FAQ teaser -->
-      <section class="faq-teaser wrapper">
-        <details>
-          <summary>Envio</summary>
-          <p>Enviamos para todo o Brasil em até 2 dias úteis.</p>
-        </details>
-        <details>
-          <summary>Devoluções</summary>
-          <p>30 dias sem complicações.</p>
-        </details>
-        <details>
-          <summary>Sustentabilidade</summary>
-          <p>Nossos frascos são 100 % recicláveis.</p>
-        </details>
+      <section class="faq-section wrapper">
+        <div class="section-header">
+          <h2 class="section-title">Perguntas Frequentes</h2>
+          <p class="section-description">
+            Tire suas dúvidas sobre nossos produtos e serviços
+          </p>
+        </div>
+        <div class="faq-grid">
+          <details class="faq-item">
+            <summary>
+              <i class="fas fa-truck"></i>
+              <span>Envio</span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Enviamos para todo o Brasil em até 2 dias úteis após a
+                confirmação do pagamento.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <i class="fas fa-undo"></i>
+              <span>Devoluções</span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Garantimos a satisfação total com nossos produtos. Caso não
+                fique satisfeito, entre em contato conosco pelo WhatsApp para
+                solicitar a devolução ou troca. Nossa equipe irá orientá-lo em
+                todo o processo.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <i class="fas fa-leaf"></i>
+              <span>Sustentabilidade</span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Comprometidos com o meio ambiente, nossos produtos são
+                desenvolvidos pensando na sustentabilidade.
+              </p>
+              <ul>
+                <li>Frascos 100% recicláveis</li>
+                <li>Embalagens eco-friendly</li>
+                <li>Ingredientes naturais</li>
+              </ul>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <i class="fas fa-clock"></i>
+              <span>Horário de Atendimento</span>
+            </summary>
+            <div class="faq-content">
+              <p>Nosso atendimento está disponível nos seguintes horários:</p>
+              <ul>
+                <li>Segunda a Sexta: 9h às 18h</li>
+                <li>Sábado: 9h às 13h</li>
+                <li>Domingo: Fechado</li>
+              </ul>
+            </div>
+          </details>
+        </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="footer__content container">
         <div class="footer__grid">
-          <!-- Instagram Section -->
-          <div class="footer__section">
-            <div class="instagram-section">
-              <i class="fab fa-instagram"></i>
-              <p>Siga-nos no Instagram</p>
-              <a
-                href="https://instagram.com/secretszen"
-                class="instagram-handle"
-                >@secretszen</a
-              >
-            </div>
-          </div>
-
           <!-- Institutional Links -->
           <div class="footer__section">
-            <h3>Institucional</h3>
+            <h3 class="footer__title">Institucional</h3>
             <ul class="footer__links">
               <li><a href="/">Home</a></li>
               <li><a href="/shop">Shop</a></li>
@@ -233,7 +374,7 @@
 
           <!-- Contact Information -->
           <div class="footer__section">
-            <h3>Entre em contato</h3>
+            <h3 class="footer__title">Entre em contato</h3>
             <ul class="footer__contact">
               <li>
                 <i class="fab fa-whatsapp"></i>
@@ -253,7 +394,7 @@
           </div>
         </div>
 
-        <!-- Payment and Shipping Methods -->
+        <!-- Payment, Shipping and Instagram -->
         <div class="footer__info">
           <div class="payment-methods">
             <h4>Formas de pagamento</h4>
@@ -269,22 +410,36 @@
             <h4>Meios de envio</h4>
             <img src="assets/imagens/melhorenvio.png" alt="Melhor Envio" />
           </div>
+
+          <!-- Instagram Section -->
+          <div class="instagram-section">
+            <h4>Siga-nos no Instagram</h4>
+            <a href="https://instagram.com/secretszen" class="instagram-handle">
+              <i class="fab fa-instagram"></i>
+              @secretszen
+            </a>
+          </div>
         </div>
 
         <!-- Copyright and Credits -->
         <div class="footer__bottom">
           <div class="credits">
-            <span>© 2024 Zen Secrets. Todos os direitos reservados.</span>
+            <span>© 2025 Zen Secrets. Todos os direitos reservados.</span>
             <span class="separator">|</span>
             <span
               >criado com <i class="fas fa-heart"></i> por
-              <a href="#">Picky Pixels Studio</a></span
+              <a href="https://pickypixels.studio" target="_blank"
+                >Picky Pixels Studio</a
+              ></span
             >
           </div>
         </div>
       </div>
     </footer>
 
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/product-slider.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/search.js"></script>
   </body>
 </html>

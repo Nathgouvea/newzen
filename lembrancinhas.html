@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lembrancinhas - Zen Secrets</title>
+    <title>Zen Secrets - Harmonia e Bem-Estar Através do Aroma</title>
     <link rel="icon" type="image/x-icon" href="assets/imagens/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,11 +16,6 @@
       href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      @font-face {
-        font-display: swap;
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -30,48 +25,48 @@
   <body>
     <header class="header">
       <div class="header__container container">
-        <div class="logo">
-          <img
-            src="assets/imagens/logo.svg"
-            alt="Zen Secrets Logo"
-            href="index.html"
-            class="logo__image"
-          />
+        <div class="header__logo">
+          <div class="logo">
+            <img
+              src="assets/imagens/logo.svg"
+              alt="Zen Secrets Logo"
+              href="index.html"
+              class="logo__image"
+            />
+          </div>
         </div>
 
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="index.html" class="nav__link">Início</a>
-            </li>
-            <li class="nav__item">
-              <a href="comprar.html" class="nav__link">Comprar</a>
-              <ul class="dropdown">
-                <li>
-                  <a href="aromatizadores.html">Aromatizadores</a>
-                </li>
-                <li><a href="home-spray.html">Home Spray</a></li>
-                <li><a href="velas-aromaticas.html">Velas Aromáticas</a></li>
-                <li><a href="kits-especiais.html">Kits Especiais</a></li>
-                <li>
-                  <a href="lembrancinhas.html" class="active">Lembrancinhas</a>
-                </li>
-                <li><a href="acessorios.html">Acessórios</a></li>
-              </ul>
-            </li>
-            <li class="nav__item">
-              <a href="aromas.html" class="nav__link">Sobre os Aromas</a>
-            </li>
-            <li class="nav__item">
-              <a href="contato.html" class="nav__link">Fale Conosco</a>
-            </li>
-          </ul>
+        <div class="header__nav-search">
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="index.html" class="nav__link">Início</a>
+              </li>
+              <li class="nav__item">
+                <a href="comprar.html" class="nav__link active">Comprar</a>
+                <ul class="dropdown">
+                  <li>
+                    <a href="aromatizadores.html">Aromatizadores</a>
+                  </li>
+                  <li><a href="home-spray.html">Home Spray</a></li>
+                  <li><a href="velas-aromaticas.html">Velas Aromáticas</a></li>
+                  <li><a href="kits-especiais.html">Kits Especiais</a></li>
+                  <li>
+                    <a href="lembrancinhas.html" class="active"
+                      >Lembrancinhas</a
+                    >
+                  </li>
+                  <li><a href="acessorios.html">Acessórios</a></li>
+                </ul>
+              </li>
+              <li class="nav__item">
+                <a href="aromas.html" class="nav__link">Sobre os Aromas</a>
+              </li>
+              <li class="nav__item">
+                <a href="contato.html" class="nav__link">Fale Conosco</a>
+              </li>
+            </ul>
+          </nav>
 
           <div class="search-bar">
             <form class="search-form" role="search">
@@ -90,7 +85,9 @@
               </button>
             </form>
           </div>
+        </div>
 
+        <div class="header__actions">
           <div class="user-actions">
             <a href="#" class="user-actions__item" aria-label="Minha conta">
               <i class="fas fa-user"></i>
@@ -100,7 +97,13 @@
               <span class="cart-count">0</span>
             </a>
           </div>
-        </nav>
+        </div>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
@@ -122,22 +125,9 @@
     <footer class="footer">
       <div class="footer__content container">
         <div class="footer__grid">
-          <!-- Instagram Section -->
-          <div class="footer__section">
-            <div class="instagram-section">
-              <i class="fab fa-instagram"></i>
-              <p>Siga-nos no Instagram</p>
-              <a
-                href="https://instagram.com/secretszen"
-                class="instagram-handle"
-                >@secretszen</a
-              >
-            </div>
-          </div>
-
           <!-- Institutional Links -->
           <div class="footer__section">
-            <h3>Institucional</h3>
+            <h3 class="footer__title">Institucional</h3>
             <ul class="footer__links">
               <li><a href="/">Home</a></li>
               <li><a href="/shop">Shop</a></li>
@@ -148,7 +138,7 @@
 
           <!-- Contact Information -->
           <div class="footer__section">
-            <h3>Entre em contato</h3>
+            <h3 class="footer__title">Entre em contato</h3>
             <ul class="footer__contact">
               <li>
                 <i class="fab fa-whatsapp"></i>
@@ -168,7 +158,7 @@
           </div>
         </div>
 
-        <!-- Payment and Shipping Methods -->
+        <!-- Payment, Shipping and Instagram -->
         <div class="footer__info">
           <div class="payment-methods">
             <h4>Formas de pagamento</h4>
@@ -184,16 +174,27 @@
             <h4>Meios de envio</h4>
             <img src="assets/imagens/melhorenvio.png" alt="Melhor Envio" />
           </div>
+
+          <!-- Instagram Section -->
+          <div class="instagram-section">
+            <h4>Siga-nos no Instagram</h4>
+            <a href="https://instagram.com/secretszen" class="instagram-handle">
+              <i class="fab fa-instagram"></i>
+              @secretszen
+            </a>
+          </div>
         </div>
 
         <!-- Copyright and Credits -->
         <div class="footer__bottom">
           <div class="credits">
-            <span>© 2024 Zen Secrets. Todos os direitos reservados.</span>
+            <span>© 2025 Zen Secrets. Todos os direitos reservados.</span>
             <span class="separator">|</span>
             <span
               >criado com <i class="fas fa-heart"></i> por
-              <a href="#">Picky Pixels Studio</a></span
+              <a href="https://pickypixels.studio" target="_blank"
+                >Picky Pixels Studio</a
+              ></span
             >
           </div>
         </div>
