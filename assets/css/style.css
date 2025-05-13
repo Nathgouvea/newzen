@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Brown Sugar";
+  src: url("../fonts/brown-sugar.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Variables */
 :root {
   /* Colors */
@@ -690,11 +697,12 @@ html {
 }
 
 .hero__title {
-  font-size: clamp(3.5rem, 7vw, 5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 2.25rem;
+  font-family: "Sacramento", cursive !important;
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
   color: var(--color-text);
+  line-height: 1.2;
 }
 
 .hero__text {
