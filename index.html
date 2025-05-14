@@ -32,7 +32,7 @@
         <div class="header__logo">
           <div class="logo">
             <img
-              src="assets/imagens/logo.svg"
+              src="assets/imagens/zen-logo.svg"
               alt="Zen Secrets Logo"
               href="index.html"
               class="logo__image"
@@ -55,6 +55,22 @@
               <span></span>
               <span></span>
             </button>
+            <div class="nav__mobile-actions">
+              <form class="search-form" role="search">
+                <input
+                  type="search"
+                  placeholder="Buscar..."
+                  aria-label="Search"
+                  class="search-input"
+                />
+                <button type="submit" class="search-icon" aria-label="Buscar">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+              <a href="#" class="user-actions__item" aria-label="Minha conta">
+                <i class="fas fa-user"></i>
+              </a>
+            </div>
             <ul class="nav__list">
               <li class="nav__item">
                 <a href="index.html" class="nav__link active">Início</a>
@@ -80,9 +96,6 @@
               </li>
             </ul>
             <!-- Mobile-only: Search and Account -->
-            <div class="nav__mobile-actions">
-              <!-- Removed search form and account icon for mobile -->
-            </div>
           </div>
         </nav>
 
