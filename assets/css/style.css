@@ -9,7 +9,7 @@
 :root {
   /* Colors */
   --color-primary: #1a1a1a;
-  --color-secondary: #6b4fc4; /* luxury purple */
+  --color-secondary: #6b4fc4;
   --color-secondary-light: #8c77d1;
   --color-secondary-dark: #4f3a96;
   --color-black: #1b1b1b;
@@ -198,22 +198,24 @@ h3 {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: 
-    linear-gradient(135deg, 
+  background: linear-gradient(
+      135deg,
       rgba(60, 60, 60, 0.98) 0%,
       rgba(90, 90, 90, 0.95) 30%,
       rgba(75, 75, 75, 0.95) 50%,
       rgba(90, 90, 90, 0.95) 70%,
       rgba(60, 60, 60, 0.98) 100%
     ),
-    linear-gradient(90deg,
+    linear-gradient(
+      90deg,
       rgba(107, 79, 196, 0.25) 0%,
       rgba(107, 79, 196, 0.15) 25%,
       rgba(107, 79, 196, 0.1) 50%,
       rgba(107, 79, 196, 0.15) 75%,
       rgba(107, 79, 196, 0.25) 100%
     ),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.25) 0%,
       rgba(255, 255, 255, 0.15) 25%,
       rgba(255, 255, 255, 0.1) 50%,
@@ -221,40 +223,38 @@ h3 {
       rgba(255, 255, 255, 0.25) 100%
     );
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.1),
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 .header.scrolled {
-  background: 
-    linear-gradient(135deg, 
+  background: linear-gradient(
+      135deg,
       rgba(50, 50, 50, 0.98) 0%,
       rgba(80, 80, 80, 0.95) 30%,
       rgba(65, 65, 65, 0.95) 50%,
       rgba(80, 80, 80, 0.95) 70%,
       rgba(50, 50, 50, 0.98) 100%
     ),
-    linear-gradient(90deg,
+    linear-gradient(
+      90deg,
       rgba(107, 79, 196, 0.3) 0%,
       rgba(107, 79, 196, 0.2) 25%,
       rgba(107, 79, 196, 0.15) 50%,
       rgba(107, 79, 196, 0.2) 75%,
       rgba(107, 79, 196, 0.3) 100%
     ),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.3) 0%,
       rgba(255, 255, 255, 0.2) 25%,
       rgba(255, 255, 255, 0.15) 50%,
       rgba(255, 255, 255, 0.2) 75%,
       rgba(255, 255, 255, 0.3) 100%
     );
-  box-shadow: 
-    0 4px 25px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.15),
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
@@ -417,17 +417,13 @@ html {
   padding: 0.5rem 0.75rem;
   border-radius: var(--border-radius-sm);
   position: relative;
-  text-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.2),
-    0 0 1px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 1px rgba(255, 255, 255, 0.1);
   letter-spacing: 0.3px;
 }
 
 .nav__link:hover {
   color: var(--color-white);
-  text-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.3),
-    0 0 2px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .nav__link:hover::after {
@@ -437,24 +433,21 @@ html {
   left: 0.75rem;
   right: 0.75rem;
   height: 2px;
-  background: linear-gradient(90deg, 
+  background: linear-gradient(
+    90deg,
     var(--color-secondary) 0%,
     var(--color-secondary-light) 50%,
     var(--color-secondary) 100%
   );
   border-radius: 2px;
-  box-shadow: 
-    0 0 12px rgba(107, 79, 196, 0.4),
-    0 0 2px rgba(107, 79, 196, 0.2),
+  box-shadow: 0 0 12px rgba(107, 79, 196, 0.4), 0 0 2px rgba(107, 79, 196, 0.2),
     inset 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .nav__link.active {
   color: var(--color-white);
   font-weight: 600;
-  text-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.3),
-    0 0 2px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .nav__link.active::after {
@@ -464,7 +457,8 @@ html {
   left: 0.75rem;
   right: 0.75rem;
   height: 2px;
-  background: linear-gradient(90deg, 
+  background: linear-gradient(
+    90deg,
     var(--color-secondary) 0%,
     var(--color-secondary-light) 50%,
     var(--color-secondary) 100%
@@ -473,9 +467,7 @@ html {
   transform-origin: left;
   transform: scaleX(1);
   transition: transform var(--transition-base);
-  box-shadow: 
-    0 0 12px rgba(107, 79, 196, 0.4),
-    0 0 2px rgba(107, 79, 196, 0.2),
+  box-shadow: 0 0 12px rgba(107, 79, 196, 0.4), 0 0 2px rgba(107, 79, 196, 0.2),
     inset 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
@@ -484,22 +476,24 @@ html {
   position: absolute;
   top: 100%;
   left: 0;
-  background: 
-    linear-gradient(135deg,
+  background: linear-gradient(
+      135deg,
       rgba(60, 60, 60, 0.98) 0%,
       rgba(90, 90, 90, 0.95) 30%,
       rgba(75, 75, 75, 0.95) 50%,
       rgba(90, 90, 90, 0.95) 70%,
       rgba(60, 60, 60, 0.98) 100%
     ),
-    linear-gradient(90deg,
+    linear-gradient(
+      90deg,
       rgba(107, 79, 196, 0.3) 0%,
       rgba(107, 79, 196, 0.2) 25%,
       rgba(107, 79, 196, 0.15) 50%,
       rgba(107, 79, 196, 0.2) 75%,
       rgba(107, 79, 196, 0.3) 100%
     ),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.3) 0%,
       rgba(255, 255, 255, 0.2) 25%,
       rgba(255, 255, 255, 0.15) 50%,
@@ -509,9 +503,7 @@ html {
   min-width: 200px;
   padding: 0.5rem 0;
   border-radius: var(--border-radius-sm);
-  box-shadow: 
-    0 4px 25px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.15),
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
   opacity: 0;
   visibility: hidden;
@@ -546,7 +538,7 @@ html {
 .dropdown a:hover {
   color: var(--color-white);
   background: rgba(107, 79, 196, 0.7); /* luxury purple, high contrast */
-  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   transition: color 0.3s, background 0.3s;
 }
 
@@ -943,7 +935,24 @@ html {
 /* Brand Promise Strip */
 .brand-strip {
   padding: 6rem var(--container-padding);
-  background: var(--color-background);
+  background: linear-gradient(
+    135deg,
+    var(--color-gray-200) 0%,
+    var(--color-taupe-grey) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-strip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236b4fc4' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
 }
 
 .brand-strip__content {
@@ -953,6 +962,8 @@ html {
   align-items: center;
   max-width: var(--container-width);
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .brand-strip__text {
@@ -963,12 +974,23 @@ html {
   font-size: clamp(2rem, 3vw, 2.5rem);
   margin-bottom: 1.5rem;
   color: var(--color-primary);
+  position: relative;
+}
+
+.brand-strip__text h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--color-secondary);
 }
 
 .brand-strip__text p {
   font-size: 1.125rem;
   line-height: 1.8;
-  color: var(--color-text);
+  color: var(--color-gray-800);
 }
 
 .brand-strip__image {
@@ -976,13 +998,38 @@ html {
   aspect-ratio: 4/3;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.brand-strip__image:hover {
+  transform: translateY(-5px);
 }
 
 .brand-strip__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.brand-strip__image:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .brand-strip {
+    padding: 4rem var(--container-padding);
+  }
+
+  .brand-strip__content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .brand-strip__text {
+    padding-right: 0;
+  }
 }
 
 /* Image Mosaic */
@@ -991,8 +1038,25 @@ html {
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   padding: 4rem var(--container-padding);
-  max-width: var(--container-width);
-  margin: 0 auto;
+  /* background removed to inherit from parent */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-mosaic::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236b4fc4' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.image-mosaic > * {
+  position: relative;
+  z-index: 1;
 }
 
 .mosaic-item {
@@ -1602,7 +1666,7 @@ html {
 
 /* Product Grid Section */
 .products-section {
-  padding: 6rem 0;
+  margin-top: 6rem;
   background: linear-gradient(
     to bottom,
     var(--color-white) 0%,
@@ -1880,6 +1944,10 @@ html {
 }
 
 /* Aromas Page */
+.aromas-section {
+  margin-top: 6rem;
+}
+
 .aroma-section {
   display: grid;
   grid-template-columns: 1fr 400px;
@@ -2168,7 +2236,7 @@ textarea.form-control {
 
 /* Featured Categories Section */
 .categories-section {
-  padding: 6rem 0;
+  margin-top: 6rem;
   background: var(--color-white);
 }
 
@@ -2503,11 +2571,8 @@ main {
   width: 100%;
 }
 
-.featured-products .container {
-  width: 100%;
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+.featured-products.container {
+  margin-top: 2rem;
 }
 
 .product-grid {
@@ -2680,6 +2745,7 @@ main {
   overflow: hidden;
   display: flex;
   align-items: center;
+  margin-top: 6rem;
 }
 
 .custom-order__container {
@@ -2951,7 +3017,7 @@ main {
 
 /* Featured Collections */
 .featured-collections {
-  padding: 3rem 0;
+  margin-top: 6rem;
   background: var(--color-white);
 }
 
@@ -5352,6 +5418,7 @@ html {
 
 /* FAQ Section Styles */
 .faq-section {
+  margin-top: 6rem;
   padding: 4rem 0;
   background-color: #fff;
 }
@@ -6178,13 +6245,9 @@ html {
     transform: rotate(-45deg) !important;
   }
 }
-
-    opacity: 0 !important;
-  }
-  .menu-toggle--close span:nth-child(3) {
-    top: 18px !important;
-    transform: rotate(-45deg) !important;
-  }
+.menu-toggle--close span:nth-child(3) {
+  top: 18px !important;
+  transform: rotate(-45deg) !important;
 }
 
 @media (max-width: 768px) {
@@ -6207,19 +6270,21 @@ html {
 
 @media (max-width: 768px) {
   .nav {
-    background: 
-      linear-gradient(135deg, 
+    background: linear-gradient(
+        135deg,
         rgba(45, 45, 45, 0.99) 0%,
         rgba(70, 70, 70, 0.98) 50%,
         rgba(45, 45, 45, 0.99) 100%
       ),
-      linear-gradient(90deg,
+      linear-gradient(
+        90deg,
         rgba(107, 79, 196, 0.18) 0%,
         rgba(107, 79, 196, 0.08) 50%,
         rgba(107, 79, 196, 0.18) 100%
       ),
-      linear-gradient(180deg,
-        rgba(255, 255, 255, 0.10) 0%,
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.1) 0%,
         rgba(255, 255, 255, 0.03) 100%
       ) !important;
     box-shadow: none !important;
