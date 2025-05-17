@@ -1,9 +1,19 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
 # Code Conventions
+
+## WordPress Development
+- Follow WordPress Coding Standards (PHPCS) — 4-space indent, no tabs
+- Prefix every custom PHP function/class with `zs_`
+- Escape all outputs (esc_html, esc_attr, wp_kses_post)
+- Sanitize all inputs (sanitize_text_field, absint, etc.)
+- Use core APIs & hooks instead of editing plugin/core files
+- Prefer actions/filters over template hacks
+- Ensure PHP 8.1 compatibility
+- Declare strict types when useful
 
 ## HTML Structure
 - HTML5 doctype is used across all pages
@@ -11,23 +21,46 @@ alwaysApply: false
 - UTF-8 character encoding
 - Responsive viewport meta tag
 - Semantic HTML elements (`header`, `main`, `footer`, `section`, `article`)
+- Gutenberg-compatible markup
+- Add theme support for align-wide
 
 ## CSS Organization
 - BEM (Block Element Modifier) methodology for class naming
 - Example: `.product-card__image-container`, `.product-card__button`
 - Responsive design using media queries
 - CSS variables for consistent theming
+- No inline <style> blocks
+- Migrate all styles to SCSS/JS files
+- Preserve existing CSS structure unless necessary to change
+
+## Asset Management
+- Register & version assets with wp_enqueue_*
+- Supply dependency arrays for all assets
+- Use filemtime() for cache-busting
+- Place block patterns in /patterns/ with block.json
+
+## JavaScript & Internationalization
+- Localize scripts via wp_set_script_translations / wp.i18n
+- Make all strings translation-ready
+- Use __() or _x() for all text strings
+- Implement WordPress search in main.js (final step)
+- Verify nonce with check_ajax_referer() for AJAX
+- Die with wp_send_json_* for AJAX responses
+- Never output debug code in production
 
 ## Accessibility
 - ARIA labels and roles are used for better accessibility
 - Example: `role="search"`, `aria-label="Toggle menu"`
 - Semantic HTML structure
 - Alt text for images
+- Adhere to WCAG 2.1 AA standards
 
 ## External Dependencies
 - Font Awesome 6.5.1 for icons
 - Google Fonts (Arimo font family)
 - Custom JavaScript in `assets/js/main.js`
+- WooCommerce 9.x
+- Contact Form 7
 
 ## Component Structure
 - Header with navigation and search

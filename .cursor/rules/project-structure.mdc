@@ -1,5 +1,58 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
+# Project Structure
+
+```
+zensecrets/
+├── assets/
+│   ├── fonts/
+│   ├── images/
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── product-slider.js
+│   │   └── slider.js
+│   └── css/
+│       └── style.css
+├── inc/
+│   ├── template-functions.php
+│   └── template-tags.php
+├── patterns/
+│   └── block.json
+├── src/
+│   ├── scss/
+│   │   ├── legacy.scss
+│   │   ├── _variables.scss
+│   │   ├── _mixins.scss
+│   │   ├── components/
+│   │   │   ├── _header.scss
+│   │   │   ├── _footer.scss
+│   │   │   └── _woocommerce.scss
+│   │   └── layout/
+│   │       ├── _grid.scss
+│   │       └── _responsive.scss
+│   └── js/
+│       ├── main.js
+│       ├── product-slider.js
+│       └── slider.js
+├── template-parts/
+│   ├── content.php
+│   ├── content-page.php
+│   └── content-product.php
+├── woocommerce/
+│   ├── archive-product.php
+│   ├── single-product.php
+│   └── content-product.php
+├── functions.php
+├── header.php
+├── footer.php
+├── index.php
+├── front-page.php
+├── page.php
+├── single.php
+├── archive.php
+├── 404.php
+├── style.css
+└── package.json

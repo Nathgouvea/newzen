@@ -1,9 +1,27 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
 # Components Guide
+
+## WordPress Theme Structure
+- `header.php` - Main header with navigation
+- `footer.php` - Site footer
+- `functions.php` - Theme setup and functionality
+- `index.php` - Main template file
+- `front-page.php` - Homepage template
+- `page.php` - Default page template
+- `single.php` - Single post template
+- `archive.php` - Archive template
+- `404.php` - Error page template
+
+## WooCommerce Templates
+- `woocommerce/archive-product.php` - Shop page
+- `woocommerce/single-product.php` - Single product
+- `woocommerce/content-product.php` - Product loop item
+- `woocommerce/cart/cart.php` - Cart page
+- `woocommerce/checkout/form-checkout.php` - Checkout page
 
 ## Navigation
 The main navigation is consistent across all pages and includes:
@@ -12,19 +30,26 @@ The main navigation is consistent across all pages and includes:
 - Main navigation links with dropdowns
 - Search bar
 - User account and cart icons
+- WordPress menu registration:
+```php
+register_nav_menus([
+  'primary' => __('Primary Menu', 'zensecrets'),
+  'footer' => __('Footer Menu', 'zensecrets')
+]);
+```
 
 ## Product Cards
 Product cards follow a consistent structure:
-```html
-<article class="product-card">
+```php
+<article <?php wc_product_class('product-card'); ?>>
   <div class="product-card__image-container">
-    <img class="product-card__image" />
+    <?php woocommerce_template_loop_product_thumbnail(); ?>
   </div>
   <div class="product-card__content">
-    <h3 class="product-card__title">Product Name</h3>
+    <h3 class="product-card__title"><?php the_title(); ?></h3>
     <div class="product-card__footer">
-      <div class="product-card__price">Price</div>
-      <button class="product-card__button">Buy Now</button>
+      <div class="product-card__price"><?php woocommerce_template_loop_price(); ?></div>
+      <?php woocommerce_template_loop_add_to_cart(); ?>
     </div>
   </div>
 </article>
@@ -36,6 +61,7 @@ The product slider component includes:
 - Navigation arrows (prev/next)
 - Dot indicators
 - ARIA roles for accessibility
+- WooCommerce product query integration
 
 ## Footer
 The footer is divided into sections:
@@ -45,13 +71,30 @@ The footer is divided into sections:
 - Payment methods
 - Shipping information
 - Copyright and credits
+- WordPress widget areas:
+```php
+register_sidebar([
+  'name' => __('Footer Widget Area', 'zensecrets'),
+  'id' => 'footer-widget-area',
+  'description' => __('Add widgets here to appear in footer', 'zensecrets')
+]);
+```
 
 ## Category Tags
 Category tags are used for quick navigation:
-```html
+```php
 <section class="category-tags">
   <div class="tags-container">
-    <a href="#category" class="category-tag">Category Name</a>
+    <?php
+    $product_categories = get_terms('product_cat');
+    foreach ($product_categories as $category) {
+      printf(
+        '<a href="%s" class="category-tag">%s</a>',
+        esc_url(get_term_link($category)),
+        esc_html($category->name)
+      );
+    }
+    ?>
   </div>
 </section>
 ```
