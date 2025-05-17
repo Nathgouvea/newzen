@@ -1705,7 +1705,7 @@ html {
 
 .section-description {
   font-size: clamp(1rem, 2vw, 1.125rem);
-  color: var(--color-text-soft);
+  color: var(--color-gray-800);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -3248,7 +3248,7 @@ h3,
 }
 
 .section-description {
-  color: var(--color-text-soft);
+  color: var(--color-gray-800);
   font-size: 1.1rem;
   max-width: 500px;
   margin: 0 auto;
