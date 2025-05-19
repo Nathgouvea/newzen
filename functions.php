@@ -7,6 +7,10 @@ if (!defined('ABSPATH')) {
 function zensecrets_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+    // Register the primary menu location
+    register_nav_menus([
+        'primary' => __('Primary Menu', 'zensecrets'),
+    ]);
 }
 add_action('after_setup_theme', 'zensecrets_setup');
 

@@ -15,7 +15,8 @@
         'velas-aromaticas' => 'velas-aromaticas.html',
         'lembrancinhas' => 'lembrancinhas.html',
         'kits-especiais' => 'kits-especiais.html',
-        'home-spray' => 'home-spray.html'
+        'home-spray' => 'home-spray.html',
+        'inicio' => 'index.html'
     );
 
     // If we have a mapping for this page, include the original HTML file
