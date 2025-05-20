@@ -11,6 +11,12 @@ function zensecrets_setup() {
     register_nav_menus([
         'primary' => __('Primary Menu', 'zensecrets'),
     ]);
+    
+    // Add WooCommerce support
+    add_theme_support('woocommerce');
+    add_theme_support('wc-product-gallery-zoom');
+    add_theme_support('wc-product-gallery-lightbox');
+    add_theme_support('wc-product-gallery-slider');
 }
 add_action('after_setup_theme', 'zensecrets_setup');
 
@@ -29,4 +35,26 @@ function zensecrets_scripts() {
     // Enqueue original scripts
     wp_enqueue_script('zensecrets-main', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
 }
-add_action('wp_enqueue_scripts', 'zensecrets_scripts'); 
+add_action('wp_enqueue_scripts', 'zensecrets_scripts');
+
+// Modify WooCommerce product image sizes
+function zensecrets_woocommerce_image_sizes() {
+    // Set the main product image size
+    update_option('woocommerce_thumbnail_image_width', 400);
+    update_option('woocommerce_thumbnail_image_height', 533);
+    update_option('woocommerce_thumbnail_crop', 1);
+    
+    // Set the single product image size
+    update_option('woocommerce_single_image_width', 800);
+    update_option('woocommerce_single_image_height', 1066);
+    update_option('woocommerce_single_image_crop', 1);
+}
+add_action('after_switch_theme', 'zensecrets_woocommerce_image_sizes');
+
+// Add custom classes to WooCommerce product cards
+function zensecrets_woocommerce_product_class($classes) {
+    $classes[] = 'product-card';
+    $classes[] = 'fade-in';
+    return $classes;
+}
+add_filter('woocommerce_post_class', 'zensecrets_woocommerce_product_class', 10, 1); 
