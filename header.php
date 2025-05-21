@@ -135,9 +135,9 @@
                     <a href="#" class="user-actions__item" aria-label="Minha conta">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a href="#" class="user-actions__item" aria-label="Carrinho">
+                    <a href="<?php echo wc_get_cart_url(); ?>" class="user-actions__item" aria-label="Carrinho">
                         <i class="far fa-shopping-bag"></i>
-                        <span class="cart-count">0</span>
+                        <span class="cart-count"><?php echo WC()->cart ? WC()->cart->get_cart_contents_count() : 0; ?></span>
                     </a>
                 </div>
             </div>
