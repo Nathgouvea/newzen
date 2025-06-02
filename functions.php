@@ -20,7 +20,7 @@ function zensecrets_setup() {
 }
 add_action('after_setup_theme', 'zensecrets_setup');
 
-// Enqueue original styles and scripts
+// Enqueue styles and scripts
 function zensecrets_scripts() {
     // Enqueue the original stylesheet
     wp_enqueue_style('zensecrets-style', get_stylesheet_uri());
@@ -131,4 +131,21 @@ function zensecrets_add_custom_order_status_to_order_statuses($order_statuses) {
     }
     return $new_order_statuses;
 }
-add_filter('wc_order_statuses', 'zensecrets_add_custom_order_status_to_order_statuses'); 
+add_filter('wc_order_statuses', 'zensecrets_add_custom_order_status_to_order_statuses');
+
+// Add AJAX cart fragments support
+function zensecrets_cart_fragments($fragments) {
+    ob_start();
+    ?>
+    <span class="cart-count"><?php echo WC()->cart ? WC()->cart->get_cart_contents_count() : 0; ?></span>
+    <?php
+    $fragments['.cart-count'] = ob_get_clean();
+    return $fragments;
+}
+add_filter('woocommerce_add_to_cart_fragments', 'zensecrets_cart_fragments');
+
+// Add AJAX support for cart updates
+function zensecrets_enqueue_scripts() {
+    wp_enqueue_script('wc-cart-fragments');
+}
+add_action('wp_enqueue_scripts', 'zensecrets_enqueue_scripts', 99); 

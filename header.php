@@ -79,7 +79,7 @@
                                 <i class="fas fa-search"></i>
                             </button>
                         </form>
-                        <a href="#" class="user-actions__item" aria-label="Minha conta">
+                        <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="user-actions__item" aria-label="Minha conta">
                             <i class="fas fa-user"></i>
                         </a>
                     </div>
@@ -132,7 +132,7 @@
                             </form>
                         </div>
                     </div>
-                    <a href="#" class="user-actions__item" aria-label="Minha conta">
+                    <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="user-actions__item" aria-label="Minha conta">
                         <i class="fas fa-user"></i>
                     </a>
                     <a href="<?php echo wc_get_cart_url(); ?>" class="user-actions__item" aria-label="Carrinho">
