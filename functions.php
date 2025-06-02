@@ -57,4 +57,78 @@ function zensecrets_woocommerce_product_class($classes) {
     $classes[] = 'fade-in';
     return $classes;
 }
-add_filter('woocommerce_post_class', 'zensecrets_woocommerce_product_class', 10, 1); 
+add_filter('woocommerce_post_class', 'zensecrets_woocommerce_product_class', 10, 1);
+
+// Add WooCommerce specific styles
+function zensecrets_woocommerce_styles() {
+    wp_enqueue_style('zensecrets-woocommerce', get_template_directory_uri() . '/assets/css/woocommerce.css');
+}
+add_action('wp_enqueue_scripts', 'zensecrets_woocommerce_styles');
+
+// Customize WooCommerce breadcrumbs
+function zensecrets_woocommerce_breadcrumbs() {
+    return array(
+        'delimiter'   => ' &gt; ',
+        'wrap_before' => '<nav class="woocommerce-breadcrumb">',
+        'wrap_after'  => '</nav>',
+        'before'      => '',
+        'after'       => '',
+        'home'        => _x('Home', 'breadcrumb', 'zensecrets'),
+    );
+}
+add_filter('woocommerce_breadcrumb_defaults', 'zensecrets_woocommerce_breadcrumbs');
+
+// Add support for Mercado Pago and Melhor Envio
+function zensecrets_payment_shipping_support() {
+    // Add custom classes to payment and shipping sections
+    add_filter('woocommerce_payment_gateways', function($gateways) {
+        if (class_exists('WC_MercadoPago_Gateway')) {
+            $gateways[] = 'WC_MercadoPago_Gateway';
+        }
+        return $gateways;
+    });
+
+    // Add support for Melhor Envio
+    if (class_exists('MelhorEnvio')) {
+        add_filter('woocommerce_shipping_methods', function($methods) {
+            $methods['melhorenvio'] = 'WC_Melhor_Envio_Shipping';
+            return $methods;
+        });
+    }
+}
+add_action('init', 'zensecrets_payment_shipping_support');
+
+// Customize WooCommerce checkout fields
+function zensecrets_customize_checkout_fields($fields) {
+    // Add custom classes to checkout fields
+    foreach ($fields as $key => $field) {
+        $fields[$key]['class'][] = 'form-group';
+        $fields[$key]['input_class'][] = 'form-control';
+    }
+    return $fields;
+}
+add_filter('woocommerce_checkout_fields', 'zensecrets_customize_checkout_fields');
+
+// Add custom order status for Melhor Envio
+function zensecrets_add_custom_order_status() {
+    register_post_status('wc-melhorenvio', array(
+        'label'                     => 'Melhor Envio',
+        'public'                    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop('Melhor Envio <span class="count">(%s)</span>', 'Melhor Envio <span class="count">(%s)</span>')
+    ));
+}
+add_action('init', 'zensecrets_add_custom_order_status');
+
+// Add custom order status to WooCommerce order statuses
+function zensecrets_add_custom_order_status_to_order_statuses($order_statuses) {
+    $new_order_statuses = array();
+    foreach ($order_statuses as $key => $status) {
+        $new_order_statuses[$key] = $status;
+        if ($key === 'wc-processing') {
+            $new_order_statuses['wc-melhorenvio'] = 'Melhor Envio';
+        }
+    }
+    return $new_order_statuses;
+}
+add_filter('wc_order_statuses', 'zensecrets_add_custom_order_status_to_order_statuses'); 

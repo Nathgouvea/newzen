@@ -2,6 +2,18 @@
 /**
  * Template part for displaying the cart page dynamically from WooCommerce
  */
+// Handle cart update action
+if (isset($_POST['update_cart']) && isset($_POST['cart']) && wp_verify_nonce($_POST['woocommerce-cart-nonce'], 'woocommerce-cart')) {
+    error_log('Cart update logic triggered');
+    echo '<div style="color:red; font-weight:bold;">Cart update logic triggered</div>';
+    foreach ($_POST['cart'] as $cart_item_key => $values) {
+        $qty = isset($values['qty']) ? (int) $values['qty'] : 0;
+        WC()->cart->set_quantity($cart_item_key, $qty, false);
+    }
+    WC()->cart->calculate_totals();
+    wp_safe_redirect(wc_get_cart_url());
+    exit;
+}
 if (!function_exists('WC') || !WC()->cart) {
     echo '<p>Carrinho está vazio ou WooCommerce não está ativo.</p>';
     return;
@@ -15,6 +27,7 @@ $total_items = $cart->get_cart_contents_count();
     <div class="cart-container">
         <h1 class="cart-title">Seu Carrinho <span class="cart-count">(<?php echo $total_items; ?> item<?php echo $total_items == 1 ? '' : 's'; ?>)</span></h1>
         <form class="woocommerce-cart-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
+            <?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce'); ?>
             <!-- Cart Items -->
             <div class="cart-items">
                 <?php if (empty($cart_items)) : ?>
@@ -61,7 +74,7 @@ $total_items = $cart->get_cart_contents_count();
                                 <button type="button" class="quantity-btn plus" aria-label="Aumentar">+</button>
                             </div>
                         </div>
-                        <button type="submit" name="remove_cart_item" value="<?php echo esc_attr($cart_item_key); ?>" class="remove-item" aria-label="Remover">×</button>
+                        <a href="<?php echo esc_url(wc_get_cart_remove_url($cart_item_key)); ?>" class="remove-item" aria-label="Remover">×</a>
                     </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
@@ -69,7 +82,7 @@ $total_items = $cart->get_cart_contents_count();
             <!-- Cart Actions -->
             <?php if (!empty($cart_items)) : ?>
             <div class="actions">
-                <button type="submit" class="button" name="update_cart" value="Atualizar Carrinho"><?php esc_html_e('Atualizar Carrinho', 'woocommerce'); ?></button>
+                <button type="submit" class="button" name="update_cart" value="<?php esc_attr_e('Atualizar Carrinho', 'woocommerce'); ?>"><?php esc_html_e('Atualizar Carrinho', 'woocommerce'); ?></button>
             </div>
             <?php endif; ?>
         </form>
@@ -347,20 +360,40 @@ $total_items = $cart->get_cart_contents_count();
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle quantity changes (do NOT auto-submit)
     document.querySelectorAll('.enhanced-quantity').forEach(function(qtyBox) {
         var minus = qtyBox.querySelector('.quantity-btn.minus');
         var plus = qtyBox.querySelector('.quantity-btn.plus');
         var input = qtyBox.querySelector('input[type="number"]');
+        
         if (!input) return;
+        
         minus.addEventListener('click', function() {
             var min = parseInt(input.getAttribute('min')) || 1;
             var val = parseInt(input.value) || min;
-            if (val > min) input.value = val - 1;
+            if (val > min) {
+                input.value = val - 1;
+                // No form submission here
+            }
         });
+        
         plus.addEventListener('click', function() {
             var max = parseInt(input.getAttribute('max')) || 9999;
             var val = parseInt(input.value) || 1;
-            if (val < max) input.value = val + 1;
+            if (val < max) {
+                input.value = val + 1;
+                // No form submission here
+            }
+        });
+    });
+
+    // Handle remove item clicks
+    document.querySelectorAll('.remove-item').forEach(function(removeBtn) {
+        removeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (confirm('Tem certeza que deseja remover este item do carrinho?')) {
+                window.location.href = this.href;
+            }
         });
     });
 });

@@ -1,0 +1,127 @@
+/* WooCommerce General Styles */
+.woocommerce {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Product Grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product Images */
+.woocommerce-product-gallery {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.woocommerce-product-gallery__image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Product Details */
+.woocommerce-product-details__short-description {
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+/* Price Styles */
+.woocommerce-Price-amount {
+  font-weight: bold;
+  color: #333;
+}
+
+.woocommerce-Price-currencySymbol {
+  margin-right: 2px;
+}
+
+/* Buttons */
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+  background-color: #357abd;
+}
+
+/* Checkout Styles */
+.woocommerce-checkout .form-group {
+  margin-bottom: 20px;
+}
+
+.woocommerce-checkout .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Mercado Pago Styles */
+.mercadopago-payment-form {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Melhor Envio Styles */
+.melhorenvio-shipping-method {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* Order Status */
+.order-status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.order-status-wc-melhorenvio {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .woocommerce {
+    padding: 10px;
+  }
+}
