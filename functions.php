@@ -62,6 +62,7 @@ add_filter('woocommerce_post_class', 'zensecrets_woocommerce_product_class', 10,
 // Add WooCommerce specific styles
 function zensecrets_woocommerce_styles() {
     wp_enqueue_style('zensecrets-woocommerce', get_template_directory_uri() . '/assets/css/woocommerce.css');
+    wp_enqueue_style('zensecrets-single-product', get_template_directory_uri() . '/assets/css/woocommerce/single-product.css');
 }
 add_action('wp_enqueue_scripts', 'zensecrets_woocommerce_styles');
 
@@ -148,4 +149,9 @@ add_filter('woocommerce_add_to_cart_fragments', 'zensecrets_cart_fragments');
 function zensecrets_enqueue_scripts() {
     wp_enqueue_script('wc-cart-fragments');
 }
-add_action('wp_enqueue_scripts', 'zensecrets_enqueue_scripts', 99); 
+add_action('wp_enqueue_scripts', 'zensecrets_enqueue_scripts', 99);
+
+// Set WooCommerce products per page globally
+add_filter('loop_shop_per_page', function($cols) {
+    return 8; // Change this number to your desired amount
+}, 20); 

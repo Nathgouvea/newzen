@@ -12,7 +12,7 @@ get_header();
       style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/imagens/all-hero.png')"
     ></div>
     <div class="hero__content">
-      <h1 class="hero__title"><?php woocommerce_page_title(); ?></h1>
+      <h1 class="hero__title">Todos os Produtos</h1>
     </div>
   </section>
 
@@ -27,30 +27,32 @@ get_header();
     </div>
   </section>
 
-  <section class="featured-products container" id="todos-produtos" role="region" aria-label="Todos Produtos">
-    <?php
-      /**
-       * WooCommerce hooks for notices, result count, ordering, etc.
-       */
-      do_action( 'woocommerce_before_main_content' );
-      do_action( 'woocommerce_before_shop_loop' );
+  <div class="container">
+    <section class="featured-products" id="todos-produtos" role="region" aria-label="Todos Produtos">
+      <?php
+        /**
+         * WooCommerce hooks for notices, result count, ordering, etc.
+         */
+        do_action( 'woocommerce_before_main_content' );
+        do_action( 'woocommerce_before_shop_loop' );
 
-      if ( woocommerce_product_loop() ) {
-        woocommerce_product_loop_start();
-        if ( wc_get_loop_prop( 'total' ) ) {
-          while ( have_posts() ) {
-            the_post();
-            wc_get_template_part( 'content', 'product' );
+        if ( woocommerce_product_loop() ) {
+          woocommerce_product_loop_start();
+          if ( wc_get_loop_prop( 'total' ) ) {
+            while ( have_posts() ) {
+              the_post();
+              wc_get_template_part( 'content', 'product' );
+            }
           }
+          woocommerce_product_loop_end();
+        } else {
+          do_action( 'woocommerce_no_products_found' );
         }
-        woocommerce_product_loop_end();
-      } else {
-        do_action( 'woocommerce_no_products_found' );
-      }
 
-      do_action( 'woocommerce_after_shop_loop' );
-      do_action( 'woocommerce_after_main_content' );
-    ?>
-  </section>
+        do_action( 'woocommerce_after_shop_loop' );
+        do_action( 'woocommerce_after_main_content' );
+      ?>
+    </section>
+  </div>
 </main>
 <?php get_footer(); ?> 
