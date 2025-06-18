@@ -1,12 +1,22 @@
 <?php
 /**
- * The Template for displaying all single products (custom two-column layout)
+ * The Template for displaying all single products
  *
- * @package WooCommerce/Templates
- * @version 1.0.0
+ * This template can be overridden by copying it to yourtheme/single-product.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you (the theme developer) will
+ * need to copy the new files to your theme to maintain compatibility. We try to do this as little as possible,
+ * but it does happen. When this occurs the version of the template file will be bumped and the readme will list
+ * any important changes.
+ *
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 1.6.4
  */
 
-defined( 'ABSPATH' ) || exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 get_header( 'shop' );
 ?>
@@ -29,17 +39,15 @@ get_header( 'shop' );
          * Two-column layout: Gallery (left), Summary (right)
          */
         ?>
-        <div class="woocommerce-product-gallery">
-          <?php
-          /**
-           * woocommerce_before_single_product_summary hook.
-           *
-           * @hooked woocommerce_show_product_sale_flash - 10
-           * @hooked woocommerce_show_product_images - 20
-           */
-          do_action( 'woocommerce_before_single_product_summary' );
-          ?>
-        </div>
+        <?php
+        /**
+         * woocommerce_before_single_product_summary hook.
+         *
+         * @hooked woocommerce_show_product_sale_flash - 10
+         * @hooked woocommerce_show_product_images - 20
+         */
+        do_action( 'woocommerce_before_single_product_summary' );
+        ?>
         <div class="summary entry-summary">
           <?php
           /**

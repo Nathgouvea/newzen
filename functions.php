@@ -34,6 +34,11 @@ function zensecrets_scripts() {
     
     // Enqueue original scripts
     wp_enqueue_script('zensecrets-main', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
+    
+    // Enqueue checkout enhancements script
+    if (is_checkout()) {
+        wp_enqueue_script('zensecrets-checkout', get_template_directory_uri() . '/assets/js/checkout.js', array('jquery'), '1.0.0', true);
+    }
 }
 add_action('wp_enqueue_scripts', 'zensecrets_scripts');
 
@@ -63,6 +68,7 @@ add_filter('woocommerce_post_class', 'zensecrets_woocommerce_product_class', 10,
 function zensecrets_woocommerce_styles() {
     wp_enqueue_style('zensecrets-woocommerce', get_template_directory_uri() . '/assets/css/woocommerce.css');
     wp_enqueue_style('zensecrets-single-product', get_template_directory_uri() . '/assets/css/woocommerce/single-product.css');
+    wp_enqueue_style('zensecrets-checkout', get_template_directory_uri() . '/assets/css/woocommerce/checkout.css');
 }
 add_action('wp_enqueue_scripts', 'zensecrets_woocommerce_styles');
 
@@ -154,4 +160,27 @@ add_action('wp_enqueue_scripts', 'zensecrets_enqueue_scripts', 99);
 // Set WooCommerce products per page globally
 add_filter('loop_shop_per_page', function($cols) {
     return 8; // Change this number to your desired amount
-}, 20); 
+}, 20);
+
+// Remove stock quantity display from single product pages
+add_filter('woocommerce_get_stock_html', '__return_empty_string');
+
+// Change coupon button text to 'Aplicar' on checkout
+add_filter('woocommerce_coupon_button_text', function($text) {
+    if (is_checkout()) {
+        return 'Aplicar';
+    }
+    return $text;
+});
+
+// Always show the coupon form on checkout (no click required)
+add_action('wp_head', function() {
+    if (is_checkout()) {
+        echo '<style>.woocommerce-form-coupon-toggle { display: none !important; } .woocommerce-form-coupon { display: flex !important; }</style>';
+    }
+});
+
+// Remove the default coupon form placement
+remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
+// Add the coupon form after billing details
+add_action('woocommerce_after_checkout_billing_form', 'woocommerce_checkout_coupon_form', 5); 
