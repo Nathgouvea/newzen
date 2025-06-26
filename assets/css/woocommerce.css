@@ -5,7 +5,13 @@
   padding: 20px;
 }
 
-/* Cart Page Styles */
+/* 
+ * Cart Page Styles
+ *
+ * These styles were for a div-based cart layout that is no longer in use.
+ * Commenting them out to allow the table-based layout in `assets/css/woocommerce/cart.css` to be styled correctly.
+ */
+/*
 .woocommerce-cart-form {
   margin-bottom: 2rem;
 }
@@ -94,7 +100,7 @@
 .product-remove a:hover {
   color: #ff4444;
 }
-
+*/
 /* Cart Actions */
 .actions {
   display: flex;

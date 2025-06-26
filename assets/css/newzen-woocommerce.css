@@ -1,0 +1,33 @@
+/*
+Theme    : ZenSecrets – WooCommerce Overrides
+Namespace: .wc-newzen
+Purpose  : Centralised, conflict-free styling for all WooCommerce templates.
+Author   : ZenSecrets Theme
+*/
+
+/* =====================
+   1. Variables / Tokens
+   ===================== */
+.wc-newzen {
+  --nz-primary: #6b4fc4;
+  --nz-primary-dark: #4f3a96;
+  --nz-bg: #ffffff;
+  --nz-bg-soft: #f8f9ff;
+  --nz-border: #e4e4ef;
+  --nz-radius: 8px;
+  --nz-radius-lg: 16px;
+  --nz-gap: 2.5rem;
+  --nz-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Typography helpers */
+.wc-newzen h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: #333;
+}
+
+/*
+All checkout-specific styles (.wc-newzen--checkout and its children) have been removed as requested.
+*/

@@ -20,6 +20,18 @@ function zensecrets_setup() {
 }
 add_action('after_setup_theme', 'zensecrets_setup');
 
+// Show product images in WooCommerce order review (checkout summary)
+add_filter('woocommerce_cart_item_name', function($product_name, $cart_item, $cart_item_key) {
+    if (is_checkout()) {
+        $product = $cart_item['data'];
+        if ($product && $product->get_image()) {
+            $thumbnail = $product->get_image(array(48,48), array('class' => 'product-thumbnail'));
+            $product_name = $thumbnail . '<span>' . $product_name . '</span>';
+        }
+    }
+    return $product_name;
+}, 10, 3);
+
 // Enqueue styles and scripts
 function zensecrets_scripts() {
     // Enqueue the original stylesheet
@@ -66,11 +78,40 @@ add_filter('woocommerce_post_class', 'zensecrets_woocommerce_product_class', 10,
 
 // Add WooCommerce specific styles
 function zensecrets_woocommerce_styles() {
+    // Base WooCommerce styles
     wp_enqueue_style('zensecrets-woocommerce', get_template_directory_uri() . '/assets/css/woocommerce.css');
-    wp_enqueue_style('zensecrets-single-product', get_template_directory_uri() . '/assets/css/woocommerce/single-product.css');
-    wp_enqueue_style('zensecrets-checkout', get_template_directory_uri() . '/assets/css/woocommerce/checkout.css');
+    
+    // Page-specific styles with proper dependencies
+    if (is_product()) {
+        wp_enqueue_style('zensecrets-single-product', get_template_directory_uri() . '/assets/css/woocommerce/single-product.css', array('woocommerce-general'));
+    }
+    
+    if (is_checkout()) {
+        wp_dequeue_style('zensecrets-checkout'); // Remove old checkout styles
+        wp_enqueue_style('zensecrets-checkout', get_template_directory_uri() . '/assets/css/woocommerce/checkout.css', array('woocommerce-general'));
+    }
+    
+    if (is_cart()) {
+        wp_enqueue_style('zensecrets-cart', get_template_directory_uri() . '/assets/css/woocommerce/cart.css', array('woocommerce-general', 'newzen-woocommerce'));
+    }
 }
-add_action('wp_enqueue_scripts', 'zensecrets_woocommerce_styles');
+add_action('wp_enqueue_scripts', 'zensecrets_woocommerce_styles', 15); // Priority 15 to load after WooCommerce core but before overrides
+
+// Enqueue central WooCommerce overrides (namespaced under .wc-newzen)
+function zensecrets_enqueue_wc_overrides() {
+    if (class_exists('WooCommerce')) {
+        // Path to new central stylesheet
+        $style_path = get_template_directory() . '/assets/css/newzen-woocommerce.css';
+        
+        wp_enqueue_style(
+            'newzen-woocommerce',
+            get_template_directory_uri() . '/assets/css/newzen-woocommerce.css',
+            array('woocommerce-layout', 'woocommerce-general', 'woocommerce-smallscreen'),
+            file_exists($style_path) ? filemtime($style_path) : '1.0.0'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'zensecrets_enqueue_wc_overrides', 20); // Priority 20 to load after page-specific styles
 
 // Customize WooCommerce breadcrumbs
 function zensecrets_woocommerce_breadcrumbs() {
@@ -104,17 +145,6 @@ function zensecrets_payment_shipping_support() {
     }
 }
 add_action('init', 'zensecrets_payment_shipping_support');
-
-// Customize WooCommerce checkout fields
-function zensecrets_customize_checkout_fields($fields) {
-    // Add custom classes to checkout fields
-    foreach ($fields as $key => $field) {
-        $fields[$key]['class'][] = 'form-group';
-        $fields[$key]['input_class'][] = 'form-control';
-    }
-    return $fields;
-}
-add_filter('woocommerce_checkout_fields', 'zensecrets_customize_checkout_fields');
 
 // Add custom order status for Melhor Envio
 function zensecrets_add_custom_order_status() {
@@ -183,4 +213,61 @@ add_action('wp_head', function() {
 // Remove the default coupon form placement
 remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
 // Add the coupon form after billing details
-add_action('woocommerce_after_checkout_billing_form', 'woocommerce_checkout_coupon_form', 5); 
+add_action('woocommerce_after_checkout_billing_form', 'woocommerce_checkout_coupon_form', 5);
+
+// Enqueue cart scripts
+function newzen_enqueue_cart_scripts() {
+    if (is_cart()) {
+        wp_enqueue_script('newzen-cart', get_template_directory_uri() . '/assets/js/cart.js', array('jquery'), '1.0.0', true);
+    }
+}
+add_action('wp_enqueue_scripts', 'newzen_enqueue_cart_scripts');
+
+// AJAX cart quantity update
+function newzen_update_cart_item_quantity() {
+    check_ajax_referer('update-cart', 'security');
+
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    $quantity = absint($_POST['quantity']);
+
+    if ($cart_item_key && isset(WC()->cart->get_cart()[$cart_item_key])) {
+        WC()->cart->set_quantity($cart_item_key, $quantity);
+        WC_AJAX::get_refreshed_fragments();
+    }
+
+    wp_send_json_success();
+}
+add_action('wp_ajax_update_cart_item_quantity', 'newzen_update_cart_item_quantity');
+add_action('wp_ajax_nopriv_update_cart_item_quantity', 'newzen_update_cart_item_quantity');
+
+// AJAX get cart totals
+function newzen_get_cart_totals() {
+    ob_start();
+    woocommerce_cart_totals();
+    $cart_totals_html = ob_get_clean();
+
+    wp_send_json_success(array(
+        'html' => $cart_totals_html
+    ));
+}
+add_action('wp_ajax_get_cart_totals', 'newzen_get_cart_totals');
+add_action('wp_ajax_nopriv_get_cart_totals', 'newzen_get_cart_totals');
+
+// Add cart item key to remove link
+function newzen_cart_item_remove_link($link, $cart_item_key) {
+    return str_replace('class="remove"', 'class="remove" data-cart-item-key="' . esc_attr($cart_item_key) . '"', $link);
+}
+add_filter('woocommerce_cart_item_remove_link', 'newzen_cart_item_remove_link', 10, 2);
+
+// Remove the 'informações adicionais' (order comments) field and its title from checkout
+add_filter('woocommerce_checkout_fields', function($fields) {
+    unset($fields['order']['order_comments']);
+    return $fields;
+});
+add_filter('woocommerce_checkout_fields', function($fields) {
+    if (isset($fields['order'])) {
+        $fields['order'] = array(); // Remove all additional fields, including heading
+    }
+    return $fields;
+}, 20);
+add_filter('woocommerce_enable_order_notes_field', '__return_false'); 
