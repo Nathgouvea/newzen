@@ -1,11 +1,9 @@
-Perfect — let’s do this right from the ground up.
-Here’s your clean, clear, and complete requirements document (in natural language, ideal for Cursor) for building the static HTML/CSS/JS version of the Zen Secrets website first — no PHP, no WordPress yet.
-
-You can copy and paste this directly into your requirements.md file, or give it to Cursor as a prompt.
+Perfect — let's do this right from the ground up.
+Here's your clean, clear, and complete requirements document (in natural language, ideal for Cursor) for building the static HTML/CSS/JS version of the Zen Secrets website first — no PHP, no WordPress yet.
 
 ⸻
 
-🌿 Zen Secrets – Static Website Requirements (for Cursor)
+🌿 Zen Secrets – Static Website Requirements
 
 🧘 Objetivo
 
@@ -58,9 +56,9 @@ zen-secrets/
    • Sobre os Aromas (com dropdown)
    • Fale Conosco
    • Hero section:
-   • Título: “Harmonia e Bem-Estar Através do Aroma”
+   • Título: "Harmonia e Bem-Estar Através do Aroma"
    • Texto descritivo
-   • Botão CTA: “Conheça nossos Produtos”
+   • Botão CTA: "Conheça nossos Produtos"
    • Imagem de destaque (vela ou ambiente sensorial)
    • Rodapé com redes sociais e direitos autorais
 
@@ -78,7 +76,7 @@ zen-secrets/
    • Nome
    • Imagem
    • Descrição curta
-   • Botão (ex: “Ver Produto” ou “Comprar”)
+   • Botão (ex: "Ver Produto" ou "Comprar")
    • Filtro ou barra de busca (estático)
 
 ⸻
@@ -125,3 +123,26 @@ zen-secrets/
 ⸻
 
 Quer que eu agora gere para você os arquivos index.html e style.css iniciais com o header + hero + estrutura de navegação prontos?
+
+## CSS Refactor Proposal for WooCommerce & Theme
+
+### Recommended Structure
+
+- `assets/css/woocommerce/cart.css` – Cart page styles only
+- `assets/css/woocommerce/checkout.css` – Checkout page styles only
+- `assets/css/woocommerce/single-product.css` – Single product page styles only
+- `assets/css/woocommerce.css` – General WooCommerce/shop/product grid styles
+- `assets/css/newzen-woocommerce.css` – Variables and utility classes (imported by all others)
+
+### Import Strategy
+
+- At the top of each WooCommerce CSS file, import `newzen-woocommerce.css` (using `@import` or via build process if using SCSS/PostCSS).
+- In your theme, enqueue only the CSS files needed for each page (e.g., only load `cart.css` on the cart page).
+
+### Best Practices
+
+- **Remove legacy/commented code** from all CSS files.
+- **Namespace** WooCommerce styles (e.g., with `.wc-newzen` or `body.woocommerce-cart`) to avoid conflicts.
+- **Centralize variables/utilities** in `newzen-woocommerce.css`.
+- **Delete unused/backup files** (done: `cart.css.bak`).
+- **Keep files modular** for easier maintenance, unless your site is very small (then you may merge all into `woocommerce.css`).

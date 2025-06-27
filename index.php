@@ -191,9 +191,9 @@ get_header();
       <!-- Hero Section -->
       <section class="hero">
         <picture>
-          <source srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/hero-test.webp" type="image/webp" />
+          <source srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/Foto-tela-inicial-.webp" type="image/webp" />
           <img
-            src="<?php echo get_template_directory_uri(); ?>/assets/imagens/hero-test.png"
+            src="<?php echo get_template_directory_uri(); ?>/assets/imagens/Foto-tela-inicial-.webp"
             width="1920"
             height="1080"
             alt="ZenSecrets candle trio"

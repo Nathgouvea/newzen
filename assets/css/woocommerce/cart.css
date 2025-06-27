@@ -1,3 +1,5 @@
+@import url("../newzen-woocommerce.css");
+
 /* WooCommerce Cart Page - Clean Slate Redesign
    Author: [Your Name or Team]
    Date: [Today]
@@ -237,7 +239,6 @@ td.product-subtotal {
 }
 .button[name="update_cart"] {
   margin-left: auto;
-  /* min-width: 200px; */
 }
 
 /* ========== Cart Totals ========== */
