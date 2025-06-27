@@ -270,4 +270,40 @@ add_filter('woocommerce_checkout_fields', function($fields) {
     }
     return $fields;
 }, 20);
-add_filter('woocommerce_enable_order_notes_field', '__return_false'); 
+add_filter('woocommerce_enable_order_notes_field', '__return_false');
+
+add_filter('woocommerce_checkout_fields', function($fields) {
+    // Remove company name, CNPJ, and country fields
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_cnpj']);
+    unset($fields['billing']['billing_country']);
+    // Add custom class to 'bairro' and 'cidade' fields for row alignment
+    if (isset($fields['billing']['billing_neighborhood'])) {
+        $fields['billing']['billing_neighborhood']['class'][] = 'form-row-bairro-cidade';
+    }
+    if (isset($fields['billing']['billing_city'])) {
+        $fields['billing']['billing_city']['class'][] = 'form-row-bairro-cidade';
+    }
+    // Add custom class to 'telefone' and 'email' fields for row alignment
+    if (isset($fields['billing']['billing_phone'])) {
+        $fields['billing']['billing_phone']['class'][] = 'form-row-phone-email';
+    }
+    if (isset($fields['billing']['billing_email'])) {
+        $fields['billing']['billing_email']['class'][] = 'form-row-phone-email';
+    }
+    // Remove 'Tipo de Pessoa' field if present
+    unset($fields['billing']['billing_persontype']);
+    return $fields;
+}, 30);
+
+// Remove validation for 'Tipo de Pessoa' if any plugin is still requiring it
+add_filter('woocommerce_checkout_posted_data', function($data) {
+    unset($data['billing_persontype']);
+    return $data;
+}, 10, 1);
+add_filter('woocommerce_checkout_fields', function($fields) {
+    if (isset($fields['billing']['billing_persontype'])) {
+        $fields['billing']['billing_persontype']['required'] = false;
+    }
+    return $fields;
+}, 40); 

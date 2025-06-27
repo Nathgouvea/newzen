@@ -422,3 +422,39 @@
 .woocommerce-checkout .woocommerce-form-coupon button:hover {
   background: #8c7457;
 }
+
+/* Bairro + Cidade same row alignment */
+.woocommerce-billing-fields__field-wrapper .form-row-bairro-cidade {
+  flex: 1 1 45%;
+  min-width: 220px;
+  margin-right: 0;
+}
+
+/* Ensure they are on the same row */
+.woocommerce-billing-fields__field-wrapper
+  .form-row-bairro-cidade:first-of-type {
+  margin-right: 16px;
+}
+
+@media (max-width: 900px) {
+  .woocommerce-billing-fields__field-wrapper .form-row-bairro-cidade {
+    min-width: 100%;
+    margin-right: 0;
+  }
+}
+
+/* Telefone + Email same row alignment */
+.woocommerce-billing-fields__field-wrapper .form-row-phone-email {
+  flex: 1 1 45%;
+  min-width: 220px;
+  margin-right: 0;
+}
+.woocommerce-billing-fields__field-wrapper .form-row-phone-email:first-of-type {
+  margin-right: 16px;
+}
+@media (max-width: 900px) {
+  .woocommerce-billing-fields__field-wrapper .form-row-phone-email {
+    min-width: 100%;
+    margin-right: 0;
+  }
+}
