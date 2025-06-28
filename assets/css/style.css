@@ -1287,7 +1287,7 @@ html {
 .footer {
   background: var(--color-gray-100);
   padding: 1.5rem 0;
-  margin-top: 4rem;
+  margin-top: 0 !important;
   position: relative;
   color: var(--color-gray-800);
   border-top: 1px solid var(--color-gray-200);

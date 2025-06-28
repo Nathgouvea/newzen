@@ -146,3 +146,36 @@ Quer que eu agora gere para você os arquivos index.html e style.css iniciais co
 - **Centralize variables/utilities** in `newzen-woocommerce.css`.
 - **Delete unused/backup files** (done: `cart.css.bak`).
 - **Keep files modular** for easier maintenance, unless your site is very small (then you may merge all into `woocommerce.css`).
+
+## Website Improvement Checklist (Excluding Blog/Posts)
+
+- [ ] **Search Results Page**
+  - Create `search.php` for displaying search results
+  - Optionally, add a `no-results.php` for empty searches
+- [ ] **WooCommerce Account Pages**
+  - Ensure all WooCommerce account endpoints (orders, downloads, addresses, account details) are styled and supported
+  - Check and complete templates in `woocommerce/myaccount/` if needed
+- [ ] **WooCommerce Cart Page**
+  - Confirm `page-cart.php` is mapped and styled correctly
+  - Optionally, add/override `woocommerce/cart/cart.php` for more control
+- [ ] **WooCommerce Templates**
+  - Add/override templates for:
+    - Thank You / Order Received (`woocommerce/checkout/thankyou.php`)
+    - Order Pay (`woocommerce/checkout/order-pay.php`)
+    - My Account endpoints (as needed)
+    - WooCommerce emails (if custom email templates are desired)
+- [ ] **Legal/Informational Pages**
+  - Create and link to Privacy Policy, Terms & Conditions, Shipping & Returns pages (as WordPress pages)
+- [ ] **Contact/Custom Forms**
+  - Ensure `page-contato.php` includes a working contact form (plugin or custom)
+- [ ] **Sidebar/Widgets**
+  - Add `sidebar.php` and register widget areas if you want sidebars (e.g., for shop or custom pages)
+- [ ] **Navigation Menus**
+  - Consider adding a footer menu or additional navigation areas
+- [ ] **Accessibility & SEO**
+  - Review templates for accessibility best practices (ARIA, alt text, etc.)
+  - Add meta tags, schema, and other SEO improvements as needed
+
+---
+
+_Update this checklist as you add features or identify new needs!_
