@@ -30,12 +30,6 @@ get_header();
                             </a>
                         </li>
                         <li class="account-nav__item">
-                            <a href="<?php echo esc_url( wc_get_account_endpoint_url('downloads') ); ?>" class="account-nav__link<?php if ( is_wc_endpoint_url('downloads') ) echo ' active'; ?>">
-                                <i class="fas fa-download"></i>
-                                <span>Downloads</span>
-                            </a>
-                        </li>
-                        <li class="account-nav__item">
                             <a href="<?php echo esc_url( wc_get_account_endpoint_url('edit-address') ); ?>" class="account-nav__link<?php if ( is_wc_endpoint_url('edit-address') ) echo ' active'; ?>">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span>Endereços</span>

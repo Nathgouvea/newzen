@@ -291,8 +291,6 @@ add_filter('woocommerce_checkout_fields', function($fields) {
     if (isset($fields['billing']['billing_email'])) {
         $fields['billing']['billing_email']['class'][] = 'form-row-phone-email';
     }
-    // Remove 'Tipo de Pessoa' field if present
-    unset($fields['billing']['billing_persontype']);
     return $fields;
 }, 30);
 
@@ -306,4 +304,54 @@ add_filter('woocommerce_checkout_fields', function($fields) {
         $fields['billing']['billing_persontype']['required'] = false;
     }
     return $fields;
-}, 40); 
+}, 40);
+
+// Zen Secrets Search Results Shortcode
+function zen_search_results_shortcode() {
+    if (!is_search()) return '';
+    $query = get_search_query();
+    ob_start();
+    ?>
+    <section class="zen-search-results">
+        <h1 class="zen-search-title">Resultados para: <span><?php echo esc_html($query); ?></span></h1>
+        <?php if (have_posts()) : ?>
+            <ul class="zen-search-list">
+                <?php while (have_posts()) : the_post(); ?>
+                    <li class="zen-search-item">
+                        <a href="<?php the_permalink(); ?>" class="zen-search-link">
+                            <h2 class="zen-search-item-title"><?php the_title(); ?></h2>
+                            <p class="zen-search-excerpt"><?php echo get_the_excerpt(); ?></p>
+                        </a>
+                    </li>
+                <?php endwhile; ?>
+            </ul>
+        <?php else : ?>
+            <div class="zen-search-no-results">
+                <p>Nenhum resultado encontrado para "<?php echo esc_html($query); ?>".</p>
+                <a href="<?php echo home_url(); ?>" class="zen-search-back">Voltar para a página inicial</a>
+            </div>
+        <?php endif; ?>
+    </section>
+    <?php
+    wp_reset_postdata();
+    return ob_get_clean();
+}
+add_shortcode('zen_search_results', 'zen_search_results_shortcode');
+
+// Remove WooCommerce Downloads endpoint from My Account
+add_filter('woocommerce_account_menu_items', function($items) {
+    unset($items['downloads']);
+    return $items;
+}, 99);
+
+add_filter('woocommerce_get_query_vars', function($vars) {
+    unset($vars['downloads']);
+    return $vars;
+}, 99);
+
+add_filter('woocommerce_get_order_item_totals', function($totals, $order, $tax_display) {
+    if (isset($totals['order_total'])) {
+        unset($totals['order_total']);
+    }
+    return $totals;
+}, 10, 3); 

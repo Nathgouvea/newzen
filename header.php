@@ -68,12 +68,14 @@
                         <span></span>
                     </button>
                     <div class="nav__mobile-actions">
-                        <form class="search-form" role="search">
+                        <form class="search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                             <input
                                 type="search"
+                                name="s"
                                 placeholder="Buscar..."
                                 aria-label="Search"
                                 class="search-input"
+                                value="<?php echo get_search_query(); ?>"
                             />
                             <button type="submit" class="search-icon" aria-label="Buscar">
                                 <i class="fas fa-search"></i>
@@ -115,18 +117,16 @@
                 <div class="user-actions">
                     <div class="header__nav-search">
                         <div class="search-bar">
-                            <form class="search-form" role="search">
+                            <form class="search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                                 <input
                                     type="search"
+                                    name="s"
                                     placeholder="Buscar..."
                                     aria-label="Search"
                                     class="search-input"
+                                    value="<?php echo get_search_query(); ?>"
                                 />
-                                <button
-                                    type="button"
-                                    class="search-icon"
-                                    aria-label="Toggle search"
-                                >
+                                <button type="submit" class="search-icon" aria-label="Buscar">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>

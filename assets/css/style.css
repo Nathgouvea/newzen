@@ -6380,3 +6380,282 @@ html {
   margin: 0;
   max-width: none;
 }
+
+/* Zen Secrets Search Results Styles */
+.zen-search-results {
+  max-width: var(--container-width);
+  margin: var(--spacing-xl) auto var(--spacing-2xl) auto;
+  padding: var(--spacing-lg) var(--container-padding);
+  background: var(--color-background-soft);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  animation: fadeInUp 0.7s;
+}
+.zen-search-title {
+  font-size: var(--fs-700);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-secondary-dark);
+}
+.zen-search-title span {
+  color: var(--color-primary);
+  background: var(--color-gray-200);
+  padding: 0.1em 0.5em;
+  border-radius: var(--border-radius-sm);
+}
+.zen-search-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+@media (max-width: 768px) {
+  .zen-search-list {
+    grid-template-columns: 1fr;
+  }
+}
+.zen-search-item {
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.zen-search-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: var(--transition-base);
+}
+.zen-search-link:hover .zen-search-item-title {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+.zen-search-item-title {
+  font-size: var(--fs-600);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary);
+  transition: color 0.2s;
+}
+.zen-search-excerpt {
+  color: var(--color-text-soft);
+  font-size: var(--fs-400);
+  margin-bottom: 0;
+}
+.zen-search-no-results {
+  text-align: center;
+  padding: var(--spacing-lg);
+  color: var(--color-gray-700);
+}
+.zen-search-back {
+  display: inline-block;
+  margin-top: var(--spacing-md);
+  padding: 0.5em 1.5em;
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.zen-search-back:hover {
+  background: var(--color-secondary-dark);
+}
+
+/* WooCommerce Account Content Enhancements */
+.account-main,
+.woocommerce-MyAccount-content {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+.account-main table,
+.woocommerce-MyAccount-content table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-background-soft);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+.account-main th,
+.woocommerce-MyAccount-content th {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border: none;
+}
+.account-main td,
+.woocommerce-MyAccount-content td {
+  padding: 1rem;
+  border-top: 1px solid var(--color-gray-200);
+  background: var(--color-background);
+}
+.account-main tr:last-child td,
+.woocommerce-MyAccount-content tr:last-child td {
+  border-bottom: none;
+}
+.account-main .woocommerce-message,
+.account-main .woocommerce-error,
+.account-main .woocommerce-info,
+.woocommerce-MyAccount-content .woocommerce-message,
+.woocommerce-MyAccount-content .woocommerce-error,
+.woocommerce-MyAccount-content .woocommerce-info {
+  border-radius: var(--border-radius-md);
+  padding: 1rem 1.5rem;
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  background: var(--color-gray-100);
+  color: var(--color-secondary-dark);
+  border-left: 4px solid var(--color-secondary);
+}
+.account-main .woocommerce-Button,
+.woocommerce-MyAccount-content .woocommerce-Button {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius-md);
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: var(--spacing-sm);
+}
+.account-main .woocommerce-Button:hover,
+.woocommerce-MyAccount-content .woocommerce-Button:hover {
+  background: var(--color-secondary-dark);
+}
+.account-main input[type="text"],
+.account-main input[type="email"],
+.account-main input[type="password"],
+.account-main input[type="tel"],
+.account-main input[type="number"],
+.account-main textarea,
+.woocommerce-MyAccount-content input[type="text"],
+.woocommerce-MyAccount-content input[type="email"],
+.woocommerce-MyAccount-content input[type="password"],
+.woocommerce-MyAccount-content input[type="tel"],
+.woocommerce-MyAccount-content input[type="number"],
+.woocommerce-MyAccount-content textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-sm);
+  background: var(--color-background);
+  transition: border-color 0.2s;
+}
+.account-main input:focus,
+.account-main textarea:focus,
+.woocommerce-MyAccount-content input:focus,
+.woocommerce-MyAccount-content textarea:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+}
+.account-main label,
+.woocommerce-MyAccount-content label {
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+.account-main .form-row,
+.woocommerce-MyAccount-content .form-row {
+  margin-bottom: var(--spacing-md);
+}
+.account-main .woocommerce-MyAccount-content .button,
+.woocommerce-MyAccount-content .button {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.account-main .woocommerce-MyAccount-content .button:hover,
+.woocommerce-MyAccount-content .button:hover {
+  background: var(--color-secondary-dark);
+}
+.account-main .woocommerce-form-row--wide,
+.woocommerce-MyAccount-content .woocommerce-form-row--wide {
+  width: 100%;
+}
+.account-main .woocommerce-MyAccount-content .form-row input[type="checkbox"],
+.woocommerce-MyAccount-content .form-row input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+.account-main .woocommerce-MyAccount-content .form-row label.inline,
+.woocommerce-MyAccount-content .form-row label.inline {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+/* Force remove blue border/line from WooCommerce notices */
+.account-main .woocommerce-info,
+.woocommerce-MyAccount-content .woocommerce-info,
+.account-main .woocommerce-message,
+.woocommerce-MyAccount-content .woocommerce-message,
+.account-main .woocommerce-error,
+.woocommerce-MyAccount-content .woocommerce-error {
+  border: none !important;
+  border-left: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.account-main .woocommerce-info::before,
+.woocommerce-MyAccount-content .woocommerce-info::before,
+.account-main .woocommerce-message::before,
+.woocommerce-MyAccount-content .woocommerce-message::before,
+.account-main .woocommerce-error::before,
+.woocommerce-MyAccount-content .woocommerce-error::before {
+  display: none !important;
+  content: none !important;
+}
+
+.account-main .woocommerce-Button,
+.account-main .button,
+.account-main .wc-forward,
+.woocommerce-MyAccount-content .woocommerce-Button,
+.woocommerce-MyAccount-content .button,
+.woocommerce-MyAccount-content .wc-forward {
+  border-radius: 100px !important;
+}
+
+/* WooCommerce Thank You Page Custom Styles */
+.zen-thankyou-page .zen-thankyou-wrapper {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem 1.5rem;
+  max-width: 600px;
+  margin: 3rem auto;
+  text-align: center;
+}
+.zen-thankyou-page .woocommerce-order {
+  margin: 0 auto;
+}
+.zen-thankyou-page .woocommerce-order h2,
+.zen-thankyou-page .woocommerce-order p {
+  color: #000;
+}
+.zen-thankyou-page .woocommerce-order-overview {
+  margin: 2rem 0;
+}
+.zen-thankyou-page .woocommerce-order-details {
+  margin-top: 2rem;
+}
