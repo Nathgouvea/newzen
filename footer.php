@@ -17,7 +17,7 @@
             <ul class="footer__contact">
               <li>
                 <i class="fab fa-whatsapp"></i>
-                <a href="https://wa.me/5516991626921">(16) 99162-6921</a>
+                <a href="https://wa.me/5516991626921" target="_blank" rel="noopener">(16) 99162-6921</a>
               </li>
               <li>
                 <i class="fas fa-envelope"></i>
@@ -83,7 +83,7 @@
           <!-- Instagram Section -->
           <div class="instagram-section">
             <h4>Siga-nos no Instagram</h4>
-            <a href="https://instagram.com/secretszen" class="instagram-handle">
+            <a href="https://instagram.com/secretszen" class="instagram-handle" target="_blank" rel="noopener">
               <i class="fab fa-instagram"></i>
               @secretszen
             </a>

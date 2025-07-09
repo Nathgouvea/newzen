@@ -63,6 +63,12 @@ get_header( 'shop' );
            */
           do_action( 'woocommerce_single_product_summary' );
           ?>
+          <?php
+          // Output the shipping calculator below the cart form
+          echo '<div class="shipping-calculator-row">';
+          do_action('woocommerce_after_add_to_cart_form');
+          echo '</div>';
+          ?>
         </div>
       </div>
       <?php

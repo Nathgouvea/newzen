@@ -12,37 +12,37 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastScroll = 0;
   const scrollThreshold = 100; // Minimum scroll amount before showing/hiding header
 
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
+  // window.addEventListener("scroll", () => {
+  //   const currentScroll = window.pageYOffset;
 
-    // Always show header at the top of the page
-    if (currentScroll <= 0) {
-      header.classList.remove("scroll-up");
-      header.classList.remove("scroll-down");
-      header.classList.remove("scrolled");
-      return;
-    }
+  //   // Always show header at the top of the page
+  //   if (currentScroll <= 0) {
+  //     header.classList.remove("scroll-up");
+  //     header.classList.remove("scroll-down");
+  //     header.classList.remove("scrolled");
+  //     return;
+  //   }
 
-    // Add scrolled class for background when scrolling down
-    if (currentScroll > 50) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
+  //   // Add scrolled class for background when scrolling down
+  //   if (currentScroll > 50) {
+  //     header.classList.add("scrolled");
+  //   } else {
+  //     header.classList.remove("scrolled");
+  //   }
 
-    // Handle header show/hide based on scroll direction
-    if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
-      // Scrolling down
-      header.classList.remove("scroll-up");
-      header.classList.add("scroll-down");
-    } else if (currentScroll < lastScroll) {
-      // Scrolling up
-      header.classList.remove("scroll-down");
-      header.classList.add("scroll-up");
-    }
+  //   // Handle header show/hide based on scroll direction
+  //   if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+  //     // Scrolling down
+  //     header.classList.remove("scroll-up");
+  //     header.classList.add("scroll-down");
+  //   } else if (currentScroll < lastScroll) {
+  //     // Scrolling up
+  //     header.classList.remove("scroll-down");
+  //     header.classList.add("scroll-up");
+  //   }
 
-    lastScroll = currentScroll;
-  });
+  //   lastScroll = currentScroll;
+  // });
 
   // Initialize Alpine.js for mobile navigation
   document.addEventListener("alpine:init", () => {
@@ -310,4 +310,16 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMenu();
     }
   });
+});
+
+// Ensure progress bar is correct on thank you page
+window.addEventListener("DOMContentLoaded", function () {
+  var progressBar = document.querySelector(".cart-progress-bar");
+  if (progressBar && window.location.href.indexOf("order-received") !== -1) {
+    var steps = progressBar.querySelectorAll(".progress-step");
+    steps.forEach(function (step) {
+      step.classList.remove("active");
+    });
+    if (steps[2]) steps[2].classList.add("active");
+  }
 });

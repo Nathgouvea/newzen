@@ -20,6 +20,12 @@ function zensecrets_setup() {
 }
 add_action('after_setup_theme', 'zensecrets_setup');
 
+// Remove "Avaliações" (Reviews) tab from single product page
+add_filter('woocommerce_product_tabs', function($tabs) {
+    unset($tabs['reviews']);
+    return $tabs;
+}, 98);
+
 // Show product images in WooCommerce order review (checkout summary)
 add_filter('woocommerce_cart_item_name', function($product_name, $cart_item, $cart_item_key) {
     if (is_checkout()) {
@@ -355,3 +361,53 @@ add_filter('woocommerce_get_order_item_totals', function($totals, $order, $tax_d
     }
     return $totals;
 }, 10, 3); 
+
+// --- WooCommerce Cart Progress Bar on Cart, Checkout, and Thank You Pages ---
+function zen_cart_progress_bar($active = 0) {
+    ?>
+    <div class="cart-progress-bar">
+        <div class="progress-step<?php if ($active === 1) echo ' active'; ?>">
+            <span class="step-number">1</span>
+            <span class="step-label">Carrinho</span>
+        </div>
+        <div class="progress-step<?php if ($active === 2) echo ' active'; ?>">
+            <span class="step-number">2</span>
+            <span class="step-label">Checkout</span>
+        </div>
+        <div class="progress-step<?php if ($active === 3) echo ' active'; ?>">
+            <span class="step-number">3</span>
+            <span class="step-label">Confirmação</span>
+        </div>
+    </div>
+    <?php
+}
+
+add_action('woocommerce_before_main_content', function() {
+    global $wp;
+    if (is_cart()) {
+        zen_cart_progress_bar(1);
+    } elseif (is_checkout() && !isset($wp->query_vars['order-received'])) {
+        zen_cart_progress_bar(2);
+    } elseif (isset($wp->query_vars['order-received'])) {
+        zen_cart_progress_bar(3);
+    }
+}, 5); 
+
+// Remove Melhor Envio shipping calculator from all product page hooks (try common function names)
+add_action('init', function() {
+    remove_action('woocommerce_before_add_to_cart_button', 'me_calc_shipping', 10);
+    remove_action('woocommerce_after_add_to_cart_form', 'me_calc_shipping', 10);
+    remove_action('woocommerce_before_add_to_cart_button', 'me_calc_shipping_product', 10);
+    remove_action('woocommerce_after_add_to_cart_form', 'me_calc_shipping_product', 10);
+    remove_action('woocommerce_before_add_to_cart_button', 'mefrete_simulador', 10);
+    remove_action('woocommerce_after_add_to_cart_form', 'mefrete_simulador', 10);
+});
+// Fallback: Hide by CSS in case any HTML remains
+add_action('wp_head', function() {
+    echo '<style>.shipping-calculator-row, #woocommerce-correios-calculo-de-frete-na-pagina-do-produto { display: none !important; }</style>';
+}); 
+
+// Change single product page add to cart button text to 'Comprar'
+add_filter('woocommerce_product_single_add_to_cart_text', function($text) {
+    return 'Comprar';
+}); 

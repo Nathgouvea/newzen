@@ -179,3 +179,68 @@ Quer que eu agora gere para você os arquivos index.html e style.css iniciais co
 ---
 
 _Update this checklist as you add features or identify new needs!_
+
+## 📝 Expanded Website Checklist
+
+### 1. Static HTML/CSS/JS Version
+
+- [ ] All static pages (`index.html`, `comprar.html`, `aromas.html`, `contato.html`) are present and fully implemented
+- [ ] All navigation links work and connect pages as described
+- [ ] Dropdown menus work on desktop (hover) and mobile (toggle)
+- [ ] Hero section on home page matches requirements (title, text, CTA, image)
+- [ ] Product grid/cards on Comprar page with all required info and buttons
+- [ ] Aromas page includes all required aroma blocks with correct info
+- [ ] Contact page includes WhatsApp, Instagram, and a working suggestion form (with validation)
+- [x] All images use descriptive alt attributes
+- [ ] All pages are responsive (mobile-first, tablet, desktop)
+- [ ] Minimal, elegant, and consistent visual style (fonts, colors, spacing)
+- [ ] Vanilla JS only (no frameworks)
+- [ ] Smooth scroll for internal links
+- [ ] Light fade-in animation for hero and product blocks
+- [ ] All static assets (images, fonts, CSS, JS) are in the correct folders
+- [ ] 404 page is styled and user-friendly
+
+### 2. WordPress Theme Conversion
+
+- [ ] All static pages are converted to WordPress templates (`front-page.php`, `page-comprar.php`, etc.)
+- [ ] Navigation menus are dynamic (use `wp_nav_menu`)
+- [ ] All content is editable via WordPress admin (pages, products, aromas, contact info)
+- [ ] WooCommerce is fully integrated and styled (cart, checkout, account, product, shop, thank you, etc.)
+- [ ] All WooCommerce templates are overridden as needed for custom design
+- [ ] WooCommerce account endpoints are styled and supported
+- [ ] Contact form is functional (plugin or custom, with validation and success/error messages)
+- [ ] Search results page (`search.php`) and no-results page (`no-results.php`) are implemented and styled
+- [ ] Sidebar/widget areas are registered if needed
+- [ ] Footer menu or additional navigation areas are added if required
+- [ ] Legal/informational pages (Privacy Policy, Terms, Shipping & Returns) are created and linked
+- [ ] Accessibility best practices are followed (ARIA, keyboard navigation, color contrast, etc.)
+- [ ] SEO best practices are followed (meta tags, schema, alt text, etc.)
+- [ ] All images and assets are optimized for web
+- [ ] Theme is translation-ready (use `__()` and `_e()` functions)
+- [ ] Theme passes WordPress theme check (if planning to distribute)
+
+### 3. General/Best Practices
+
+- [ ] Remove all unused/commented code from CSS/JS
+- [ ] Centralize variables/utilities in a single CSS file and import as needed
+- [ ] Namespace all custom styles to avoid conflicts
+- [ ] Modularize CSS for easier maintenance (as described in requirements)
+- [ ] Test on all major browsers and devices
+- [ ] All forms have client-side and server-side validation
+- [ ] Custom error/success messages for forms and actions
+- [ ] Animations are accessible (respect `prefers-reduced-motion`)
+- [ ] All interactive elements are keyboard accessible
+- [ ] Google Fonts are loaded efficiently (swap, display options)
+- [ ] Font Awesome or icon set is loaded only where needed
+
+### 4. Extras/Polish
+
+- [x] Social media links in the footer are present and open in new tabs
+- [x] All pages are connected and navigation is intuitive
+- [x] 404 page is styled and user-friendly
+- [x] Accessibility and SEO audits are performed
+- [x] All content is proofread and free of typos
+
+---
+
+_Update this checklist as you add features or identify new needs!_

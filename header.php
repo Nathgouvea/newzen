@@ -42,7 +42,7 @@
             <div class="header__logo">
                 <div class="logo">
                     <img
-                        src="<?php echo get_template_directory_uri(); ?>/assets/imagens/zen-logo.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/assets/imagens/logo-zen.svg"
                         alt="Zen Secrets Logo"
                         href="index.html"
                         class="logo__image"

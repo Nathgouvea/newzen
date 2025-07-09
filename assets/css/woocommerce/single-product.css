@@ -413,6 +413,21 @@ ol.flex-control-nav.flex-control-thumbs {
   color: var(--color-gray-900);
 }
 
+/* Shipping Calculator Row (Frete Simulation) */
+.shipping-calculator-row {
+  margin-top: 1.5rem;
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+}
+
+@media (max-width: 600px) {
+  .shipping-calculator-row {
+    margin-top: 1rem;
+    padding: 1rem 0.5rem;
+  }
+}
+
 /* --- Universal max-width for single product page wrappers --- */
 .single-product > .container,
 .single-product #primary.content-area,
@@ -424,4 +439,9 @@ ol.flex-control-nav.flex-control-thumbs {
   margin-right: auto !important;
   width: 100%;
   box-sizing: border-box;
+}
+
+.product-quantity,
+.cart .quantity {
+  width: auto !important;
 }
