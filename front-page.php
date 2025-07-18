@@ -138,592 +138,102 @@ get_header();
           <h2 class="section-title">Mais Vendidos</h2>
         </div>
         <div class="product-slider">
-          <!-- Slide 1 -->
-          <div
-            class="product-slide active"
-            role="tabpanel"
-            aria-labelledby="slide-1"
-          >
-            <div class="product-grid">
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/vala-bamboo.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vala-bamboo.png"
-                      alt="Vela Bamboo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Bamboo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
+          <?php
+          // Query products from the Mais Vendidos category
+          $args = array(
+              'post_type' => 'product',
+              'posts_per_page' => -1,
+              'tax_query' => array(
+                  array(
+                      'taxonomy' => 'product_cat',
+                      'field' => 'slug',
+                      'terms' => 'mais-vendidos'
+                  )
+              )
+          );
+          $products = new WP_Query($args);
 
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.png"
-                      alt="Home Spray Chá Branco"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Chá Branco</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.png"
-                      alt="Home Spray Flor de Figo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Flor de Figo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-palosanto.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-palosanto.png"
-                      alt="Vela Palo Santo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Palo Santo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="product-slide" role="tabpanel" aria-labelledby="slide-2">
-            <div class="product-grid">
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-chabranco.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-chabranco.png"
-                      alt="Vela Chá Branco"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Chá Branco</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-flordefigo.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-flordefigo.png"
-                      alt="Vela Flor de Figo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Flor de Figo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.png"
-                      alt="Home Spray Chá Branco"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Chá Branco</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.png"
-                      alt="Home Spray Flor de Figo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Flor de Figo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-
+          if ($products->have_posts()) {
+              $product_cards = [];
+              while ($products->have_posts()) {
+                  $products->the_post();
+                  ob_start();
+                  get_template_part('template-parts/content', 'product');
+                  $product_cards[] = ob_get_clean();
+              }
+              $chunks = array_chunk($product_cards, 4);
+              foreach ($chunks as $i => $chunk) {
+                  echo '<div class="product-slide' . ($i === 0 ? ' active' : '') . '" role="tabpanel" aria-labelledby="slide-' . ($i+1) . '">';
+                  echo '<div class="product-grid">';
+                  foreach ($chunk as $card) {
+                      echo $card;
+                  }
+                  echo '</div></div>';
+              }
+          } else {
+              echo '<p class="no-products">Nenhum produto encontrado na categoria Mais Vendidos.</p>';
+          }
+          wp_reset_postdata();
+          ?>
           <!-- Product Slider Navigation -->
           <div class="product-slider-nav" role="tablist">
-            <button
-              class="product-slider-arrow prev"
-              aria-label="Previous products"
-            >
-              ←
-            </button>
+            <button class="product-slider-arrow prev" aria-label="Previous products">←</button>
             <div class="product-slider-dots">
-              <button
-                class="product-slider-dot active"
-                data-slide="0"
-                role="tab"
-                aria-controls="slide-1"
-                aria-selected="true"
-                aria-label="Ir para slide 1"
-              ></button>
-              <button
-                class="product-slider-dot"
-                data-slide="1"
-                role="tab"
-                aria-controls="slide-2"
-                aria-label="Ir para slide 2"
-              ></button>
+              <?php
+              if (!empty($chunks)) {
+                for ($j = 0; $j < count($chunks); $j++) {
+                  echo '<button class="product-slider-dot' . ($j === 0 ? ' active' : '') . '" data-slide="' . $j . '" role="tab" aria-controls="slide-' . ($j+1) . '"' . ($j === 0 ? ' aria-selected="true"' : '') . ' aria-label="Ir para slide ' . ($j+1) . '"></button>';
+                }
+              }
+              ?>
             </div>
-            <button
-              class="product-slider-arrow next"
-              aria-label="Next products"
-            >
-              →
-            </button>
+            <button class="product-slider-arrow next" aria-label="Next products">→</button>
           </div>
         </div>
       </section>
 
-      <!-- Novidades Section -->
+      <!-- Velas Aromáticas Section -->
       <section
         class="featured-products container"
-        id="novidades"
+        id="velas-aromaticas"
         role="region"
-        aria-label="Novidades"
+        aria-label="Velas Aromáticas"
       >
         <div class="section-header">
-          <h2 class="section-title">Novidades</h2>
+          <h2 class="section-title">Velas Aromáticas</h2>
         </div>
-        <div class="product-slider">
-          <!-- Slide 1 -->
-          <div
-            class="product-slide active"
-            role="tabpanel"
-            aria-labelledby="slide-1"
-          >
-            <div class="product-grid">
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/vala-bamboo.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vala-bamboo.png"
-                      alt="Vela Bamboo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Bamboo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
+        <div class="products-grid">
+          <?php
+          // Query products from the Velas Aromáticas category
+          $args = array(
+              'post_type' => 'product',
+              'posts_per_page' => -1,
+              'tax_query' => array(
+                  array(
+                      'taxonomy' => 'product_cat',
+                      'field' => 'slug',
+                      'terms' => 'velas-aromaticas'
+                  )
+              )
+          );
 
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.png"
-                      alt="Home Spray Chá Branco"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Chá Branco</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
+          $products = new WP_Query($args);
 
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.png"
-                      alt="Home Spray Flor de Figo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Flor de Figo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
+          if ($products->have_posts()) {
+              while ($products->have_posts()) {
+                  $products->the_post();
+                  global $product;
+                  
+                  // Include our custom product card template
+                  get_template_part('template-parts/content', 'product');
+              }
+          } else {
+              echo '<p class="no-products">Nenhum produto encontrado na categoria Velas Aromáticas.</p>';
+          }
 
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-palosanto.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-palosanto.png"
-                      alt="Vela Palo Santo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Palo Santo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="product-slide" role="tabpanel" aria-labelledby="slide-2">
-            <div class="product-grid">
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-chabranco.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-chabranco.png"
-                      alt="Vela Chá Branco"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Chá Branco</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-flordefigo.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-flordefigo.png"
-                      alt="Vela Flor de Figo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Vela Flor de Figo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$69,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.png"
-                      alt="Home Spray Chá Branco"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Chá Branco</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article class="product-card fade-in">
-                <div class="product-card__image-container">
-                  <picture>
-                    <source
-                      srcset="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.png"
-                      alt="Home Spray Flor de Figo"
-                      class="product-card__image"
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="533"
-                    />
-                  </picture>
-                </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Home Spray Flor de Figo</h3>
-                  <div class="product-card__footer">
-                    <div class="product-card__price">R$75,90</div>
-                    <button class="product-card__button">
-                      <i class="far fa-bag-shopping"></i>
-                      Comprar Agora
-                    </button>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <!-- Product Slider Navigation -->
-          <div class="product-slider-nav" role="tablist">
-            <button
-              class="product-slider-arrow prev"
-              aria-label="Previous products"
-            >
-              ←
-            </button>
-            <div class="product-slider-dots">
-              <button
-                class="product-slider-dot active"
-                data-slide="0"
-                role="tab"
-                aria-controls="slide-1"
-                aria-selected="true"
-                aria-label="Ir para slide 1"
-              ></button>
-              <button
-                class="product-slider-dot"
-                data-slide="1"
-                role="tab"
-                aria-controls="slide-2"
-                aria-label="Ir para slide 2"
-              ></button>
-            </div>
-            <button
-              class="product-slider-arrow next"
-              aria-label="Next products"
-            >
-              →
-            </button>
-          </div>
+          // Reset post data
+          wp_reset_postdata();
+          ?>
         </div>
       </section>
 
@@ -884,7 +394,7 @@ get_header();
             <!-- Home Spray Card -->
             <a href="home-spray.html" class="category-card category-card--link">
               <img
-                src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.png"
+                src="<?php echo get_template_directory_uri(); ?>/assets/imagens/all-homespray.webp"
                 alt="Home Sprays Zen Secrets"
                 class="category-card__image"
                 loading="lazy"

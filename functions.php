@@ -87,11 +87,6 @@ function zensecrets_woocommerce_styles() {
     // Base WooCommerce styles
     wp_enqueue_style('zensecrets-woocommerce', get_template_directory_uri() . '/assets/css/woocommerce.css');
     
-    // Page-specific styles with proper dependencies
-    if (is_product()) {
-        wp_enqueue_style('zensecrets-single-product', get_template_directory_uri() . '/assets/css/woocommerce/single-product.css', array('woocommerce-general'));
-    }
-    
     if (is_checkout()) {
         wp_dequeue_style('zensecrets-checkout'); // Remove old checkout styles
         wp_enqueue_style('zensecrets-checkout', get_template_directory_uri() . '/assets/css/woocommerce/checkout.css', array('woocommerce-general'));
@@ -102,6 +97,136 @@ function zensecrets_woocommerce_styles() {
     }
 }
 add_action('wp_enqueue_scripts', 'zensecrets_woocommerce_styles', 15); // Priority 15 to load after WooCommerce core but before overrides
+
+// Add single product styles with higher priority to override base styles
+function zensecrets_single_product_styles() {
+    if (is_product()) {
+        wp_enqueue_style('zensecrets-single-product', get_template_directory_uri() . '/assets/css/woocommerce/single-product.css', array('zensecrets-woocommerce'));
+    }
+}
+add_action('wp_enqueue_scripts', 'zensecrets_single_product_styles', 16); // Priority 16 to load after base WooCommerce styles
+
+// Add inline CSS to force related products grid layout
+function zensecrets_force_related_products_grid() {
+    if (is_product()) {
+        echo '<style>
+        /* Force grid layout for related products */
+        .related.products ul.products {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+            gap: 2rem !important;
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            margin-top: 0 !important;
+        }
+        .related.products ul.products li.product {
+            margin: 0 !important;
+            width: auto !important;
+            float: none !important;
+            clear: none !important;
+        }
+        
+        /* Override any WooCommerce default styles */
+        .woocommerce .related.products ul.products {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+            gap: 2rem !important;
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            margin-top: 0 !important;
+        }
+        .woocommerce .related.products ul.products li.product {
+            margin: 0 !important;
+            width: auto !important;
+            float: none !important;
+            clear: none !important;
+        }
+        
+        /* Override columns-4 class */
+        .related.products ul.products.columns-4 {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+            gap: 2rem !important;
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            margin-top: 0 !important;
+        }
+        </style>';
+    }
+}
+add_action('wp_head', 'zensecrets_force_related_products_grid', 999);
+
+// Temporarily disable custom override to restore related products
+// function zensecrets_override_related_products() {
+//     // Remove the default related products output
+//     remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+//     
+//     // Add our custom related products output
+//     add_action('woocommerce_after_single_product_summary', 'zensecrets_custom_related_products', 20);
+// }
+// add_action('init', 'zensecrets_override_related_products', 5);
+
+// Custom related products function
+function zensecrets_custom_related_products() {
+    global $product;
+    
+    if (!$product) {
+        error_log('Debug: No product found in zensecrets_custom_related_products');
+        return;
+    }
+    
+    $related_products = wc_get_related_product_ids($product->get_id());
+    
+    if (empty($related_products)) {
+        error_log('Debug: No related products found for product ' . $product->get_id());
+        return;
+    }
+    
+    error_log('Debug: Found ' . count($related_products) . ' related products');
+    
+    echo '<section class="related products">';
+    echo '<h2>Produtos relacionados</h2>';
+    echo '<ul class="products" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; list-style: none; padding: 0; margin: 0;">';
+    
+    foreach ($related_products as $related_product_id) {
+        $related_product = wc_get_product($related_product_id);
+        if ($related_product && $related_product->is_visible()) {
+            echo '<li class="product" style="margin: 0;">';
+            
+            // Set up the global product variable for the template
+            global $product;
+            $original_product = $product;
+            $product = $related_product;
+            
+            // Include the product card template
+            get_template_part('template-parts/content', 'product');
+            
+            // Restore the original product
+            $product = $original_product;
+            
+            echo '</li>';
+        }
+    }
+    
+    echo '</ul>';
+    echo '</section>';
+}
+
+// Fallback: If our custom function doesn't work, restore the default
+function zensecrets_fallback_related_products() {
+    if (is_product()) {
+        // Check if related products section exists
+        $related_section = ob_get_contents();
+        if (strpos($related_section, 'related products') === false) {
+            // If no related products section found, add the default one
+            add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+        }
+    }
+}
+add_action('wp_footer', 'zensecrets_fallback_related_products');
 
 // Enqueue central WooCommerce overrides (namespaced under .wc-newzen)
 function zensecrets_enqueue_wc_overrides() {

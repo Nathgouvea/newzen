@@ -13,93 +13,37 @@ get_header();
   </div>
 
   <div class="products-grid">
-    <article class="product-card fade-in">
-      <div class="product-card__image-container">
-        <img
-          src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vala-bamboo.png"
-          alt="Vela Bamboo"
-          class="product-card__image"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      <div class="product-card__content">
-        <h3 class="product-card__title">Vela Bamboo</h3>
-        <div class="product-card__footer">
-          <div class="product-card__price">R$69,90</div>
-          <button class="product-card__button">
-            <i class="far fa-bag-shopping"></i>
-            Comprar Agora
-          </button>
-        </div>
-      </div>
-    </article>
+    <?php
+    // Query products from the Home Spray category
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => 'home-spray'
+            )
+        )
+    );
 
-    <article class="product-card fade-in">
-      <div class="product-card__image-container">
-        <img
-          src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.png"
-          alt="Home Spray Chá Branco"
-          class="product-card__image"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      <div class="product-card__content">
-        <h3 class="product-card__title">Home Spray Chá Branco</h3>
-        <div class="product-card__footer">
-          <div class="product-card__price">R$75,90</div>
-          <button class="product-card__button">
-            <i class="far fa-bag-shopping"></i>
-            Comprar Agora
-          </button>
-        </div>
-      </div>
-    </article>
+    $products = new WP_Query($args);
 
-    <article class="product-card fade-in">
-      <div class="product-card__image-container">
-        <img
-          src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-flordefigo.png"
-          alt="Home Spray Flor de Figo"
-          class="product-card__image"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      <div class="product-card__content">
-        <h3 class="product-card__title">Home Spray Flor de Figo</h3>
-        <div class="product-card__footer">
-          <div class="product-card__price">R$75,90</div>
-          <button class="product-card__button">
-            <i class="far fa-bag-shopping"></i>
-            Comprar Agora
-          </button>
-        </div>
-      </div>
-    </article>
+    if ($products->have_posts()) {
+        while ($products->have_posts()) {
+            $products->the_post();
+            global $product;
+            
+            // Include our custom product card template
+            get_template_part('template-parts/content', 'product');
+        }
+    } else {
+        echo '<p class="no-products">Nenhum produto encontrado na categoria Home Spray.</p>';
+    }
 
-    <article class="product-card fade-in">
-      <div class="product-card__image-container">
-        <img
-          src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-palosanto.png"
-          alt="Vela Palo Santo"
-          class="product-card__image"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      <div class="product-card__content">
-        <h3 class="product-card__title">Vela Palo Santo</h3>
-        <div class="product-card__footer">
-          <div class="product-card__price">R$69,90</div>
-          <button class="product-card__button">
-            <i class="far fa-bag-shopping"></i>
-            Comprar Agora
-          </button>
-        </div>
-      </div>
-    </article>
+    // Reset post data
+    wp_reset_postdata();
+    ?>
   </div>
 </main>
 <?php get_footer(); ?> 

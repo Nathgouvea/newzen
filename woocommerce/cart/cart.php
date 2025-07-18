@@ -17,6 +17,18 @@ do_action('woocommerce_before_cart'); ?>
     <?php do_action('woocommerce_before_cart_table'); ?>
 
     <div class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+        <!-- Cart Header Row -->
+        <div class="cart-header">
+            <div class="header-thumbnail"></div>
+            <div class="header-details">
+                <div class="header-name">Produto</div>
+                <div class="header-price">Preço</div>
+                <div class="header-quantity">Quantidade</div>
+                <div class="header-subtotal">Subtotal</div>
+                <div class="header-remove">Remover</div>
+            </div>
+        </div>
+
         <?php do_action('woocommerce_before_cart_contents'); ?>
 
         <?php
@@ -84,6 +96,12 @@ do_action('woocommerce_before_cart'); ?>
                             }
 
                             echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item);
+                            ?>
+                        </div>
+
+                        <div class="product-subtotal">
+                            <?php
+                            echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key);
                             ?>
                         </div>
 

@@ -22,6 +22,7 @@ get_header( 'shop' );
 ?>
 <main class="single-product">
   <div class="container">
+    <?php wc_print_notices(); ?>
     <?php
     /**
      * woocommerce_before_main_content hook.

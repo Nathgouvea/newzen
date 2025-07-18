@@ -789,3 +789,17 @@ body.zen-thankyou-page .shop_table.woocommerce-table--order-details td {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Remove quantity selector styles for product cards */
+.product-card .quantity,
+.product-card input[type="number"] {
+  display: none !important;
+}
+
+/* Ensure divider and card improvements are not overridden */
+.product-card__divider {
+  border: none;
+  border-top: 1px solid var(--color-gray-300);
+  margin: 0.5rem 1.5rem 1.5rem 1.5rem;
+  opacity: 0.5;
+}

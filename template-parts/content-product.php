@@ -32,18 +32,13 @@ if (empty($product) || !$product->is_visible()) {
         <div class="product-card__content">
             <h3 class="product-card__title"><?php echo esc_html($product->get_name()); ?></h3>
         </div>
+        <hr class="product-card__divider" />
     </a>
     <div class="product-card__footer">
         <div class="product-card__price"><?php echo $product->get_price_html(); ?></div>
         <?php if ( $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() ) : ?>
             <form class="cart" action="<?php echo esc_url( $product->add_to_cart_url() ); ?>" method="post" enctype="multipart/form-data">
-                <?php
-                woocommerce_quantity_input( array(
-                    'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
-                    'max_value'   => 10,
-                    'input_value' => 1,
-                ), $product );
-                ?>
+                <!-- Quantity selector removed -->
                 <button type="submit" class="product-card__button add_to_cart_button ajax_add_to_cart">
                     <i class="far fa-bag-shopping"></i>
                     Comprar Agora
