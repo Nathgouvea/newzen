@@ -536,3 +536,11 @@ add_action('wp_head', function() {
 add_filter('woocommerce_product_single_add_to_cart_text', function($text) {
     return 'Comprar';
 }); 
+
+// --- Force quantity input on single product page ---
+add_filter('woocommerce_is_sold_individually', function($return, $product) {
+    if (is_product()) {
+        return false; // Always allow quantity selection on single product page
+    }
+    return $return;
+}, 10, 2); 

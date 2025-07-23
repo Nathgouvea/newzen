@@ -790,12 +790,6 @@ body.zen-thankyou-page .shop_table.woocommerce-table--order-details td {
   margin-right: auto;
 }
 
-/* Remove quantity selector styles for product cards */
-.product-card .quantity,
-.product-card input[type="number"] {
-  display: none !important;
-}
-
 /* Ensure divider and card improvements are not overridden */
 .product-card__divider {
   border: none;

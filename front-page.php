@@ -124,6 +124,11 @@ get_header();
               </div>
             </a>
           </div>
+          <span class="trust-slider-arrow">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M12 8L20 16L12 24" stroke="#A18A6B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
         </div>
       </section>
 
