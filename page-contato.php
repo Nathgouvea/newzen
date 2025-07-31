@@ -7,7 +7,7 @@ get_header();
   <section class="hero hero--unified">
     <div
       class="hero__bg"
-      style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/imagens/all-hero.png')"
+      style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/imagens/Foto-tela-inicial-.webp'), url('<?php echo get_template_directory_uri(); ?>/assets/imagens/all-hero.png')"
     ></div>
     <div class="hero__content">
       <h1 class="hero__title">Fale Conosco</h1>
