@@ -425,6 +425,59 @@ add_filter('woocommerce_checkout_fields', function($fields) {
     return $fields;
 }, 30);
 
+// Completely disable shipping address section - force billing address for shipping
+add_filter('woocommerce_cart_needs_shipping_address', '__return_false');
+add_filter('woocommerce_cart_needs_shipping', '__return_true');
+add_filter('woocommerce_enable_order_notes_field', '__return_false');
+
+// Remove shipping fields from checkout
+add_filter('woocommerce_checkout_fields', function($fields) {
+    // Remove all shipping fields
+    if (isset($fields['shipping'])) {
+        unset($fields['shipping']);
+    }
+    return $fields;
+}, 99);
+
+// Force shipping address to be same as billing
+add_filter('woocommerce_checkout_posted_data', function($data) {
+    // Always copy billing to shipping
+    $billing_fields = array(
+        'first_name', 'last_name', 'company', 'address_1', 'address_2', 
+        'city', 'state', 'postcode', 'country', 'phone', 'email'
+    );
+    
+    foreach ($billing_fields as $field) {
+        if (isset($data['billing_' . $field])) {
+            $data['shipping_' . $field] = $data['billing_' . $field];
+        }
+    }
+    
+    // Force ship_to_different_address to false
+    $data['ship_to_different_address'] = false;
+    
+    return $data;
+}, 10);
+
+// Auto-copy billing address to shipping when "ship to different address" is not selected
+add_filter('woocommerce_checkout_posted_data', function($data) {
+    // If ship to different address is not selected, copy billing to shipping
+    if (!isset($data['ship_to_different_address']) || !$data['ship_to_different_address']) {
+        $billing_fields = array(
+            'first_name', 'last_name', 'company', 'address_1', 'address_2', 
+            'city', 'state', 'postcode', 'country', 'phone', 'email'
+        );
+        
+        foreach ($billing_fields as $field) {
+            if (isset($data['billing_' . $field])) {
+                $data['shipping_' . $field] = $data['billing_' . $field];
+            }
+        }
+    }
+    
+    return $data;
+}, 20);
+
 // Remove validation for 'Tipo de Pessoa' if any plugin is still requiring it
 add_filter('woocommerce_checkout_posted_data', function($data) {
     unset($data['billing_persontype']);

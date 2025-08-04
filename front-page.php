@@ -313,7 +313,7 @@ get_header();
           class="category-card category-card--link"
         >
           <img
-            src="<?php echo get_template_directory_uri(); ?>/assets/imagens/vela-chabranco.png"
+            src="<?php echo get_template_directory_uri(); ?>/assets/imagens/all-candles.webp"
             alt="Velas Aromáticas Zen Secrets"
             class="category-card__image"
             loading="lazy"
@@ -336,7 +336,7 @@ get_header();
           class="category-card category-card--link"
         >
           <img
-            src="<?php echo get_template_directory_uri(); ?>/assets/imagens/homespray-chabranco.png"
+            src="<?php echo get_template_directory_uri(); ?>/assets/imagens/all-aromatizadores.webp"
             alt="Aromatizadores Zen Secrets"
             class="category-card__image"
             loading="lazy"
