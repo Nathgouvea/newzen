@@ -109,6 +109,5 @@
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/product-slider.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/slider.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/search.js"></script>
 </body>
 </html> 

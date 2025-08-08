@@ -1116,124 +1116,7 @@ html {
   }
 }
 
-/* Button Styles - Updated */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 3rem;
-  background: var(--color-gray-100);
-  color: var(--color-text);
-  text-decoration: none;
-  border-radius: 100px;
-  font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  box-shadow: none;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  border: none;
-  cursor: pointer;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.button:hover {
-  transform: translateY(-2px);
-  background: var(--color-gray-200);
-  box-shadow: var(--shadow-sm);
-}
-
-.button:active {
-  transform: translateY(0);
-}
-
-/* Hero section specific button styles */
-.hero .button {
-  background: var(--color-white);
-  color: var(--color-text);
-  z-index: 3;
-  min-width: 180px;
-  font-weight: 500;
-}
-
-.hero .button:hover {
-  background: var(--color-secondary);
-  color: var(--color-white);
-  box-shadow: 0 4px 12px rgba(107, 79, 196, 0.2);
-}
-
-.hero__cta-primary {
-  background: var(--color-secondary) !important;
-  color: var(--color-white) !important;
-}
-
-.hero__cta-primary:hover {
-  background: var(--color-secondary-dark) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(107, 79, 196, 0.3) !important;
-}
-
-.hero__cta-secondary {
-  background: transparent !important;
-  color: var(--color-white) !important;
-  border: 2px solid var(--color-white) !important;
-}
-
-.hero__cta-secondary:hover {
-  background: var(--color-white) !important;
-  color: var(--color-text) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
-}
-
-/* Product section specific button styles */
-.product-card__button {
-  width: 100%;
-  background: transparent;
-  border: 1px solid var(--color-secondary);
-  color: var(--color-secondary);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: var(--transition-base);
-  cursor: pointer;
-}
-
-.product-card__button:hover {
-  background: var(--color-secondary);
-  color: var(--color-white);
-}
-
-.product-card__button:active {
-  transform: translateY(1px);
-}
-
-.product-card__button.secondary {
-  background: transparent;
-  color: var(--color-secondary);
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-}
-
-.product-card__button.secondary:hover {
-  color: var(--color-secondary-dark);
-  text-decoration: underline;
-}
-
-/* Responsive button styles */
-@media (max-width: 576px) {
-  .button {
-    width: auto;
-    min-width: 200px;
-  }
-}
+/* Button styles are now handled by the unified button system above */
 
 /* Footer Styles */
 .footer {
@@ -2575,6 +2458,24 @@ main {
   padding: 3rem 0;
   position: relative;
   width: 100%;
+}
+
+/* Product filter sections */
+.featured-products[id] {
+  display: none !important;
+}
+
+.featured-products[id="todos-produtos"] {
+  display: block !important;
+}
+
+/* Ensure sections can be shown/hidden by JavaScript */
+.featured-products.show-section {
+  display: block !important;
+}
+
+.featured-products.hide-section {
+  display: none !important;
 }
 
 .featured-products.container {
@@ -4998,86 +4899,7 @@ html {
   text-decoration: none;
 }
 
-/* Base Button Styles */
-.button,
-.product-card__button,
-.btn-collection,
-.custom-order__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-/* Primary Button */
-.button--primary,
-.hero__cta-primary,
-.product-card__button:hover,
-.btn-collection:hover {
-  background: var(--color-secondary);
-  color: var(--color-white);
-  border: none;
-}
-
-.button--primary:hover,
-.hero__cta-primary:hover {
-  background: var(--color-secondary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(107, 79, 196, 0.3);
-}
-
-/* Secondary Button */
-.button--secondary,
-.hero__cta-secondary,
-.product-card__button,
-.btn-collection {
-  background: transparent;
-  border: 1px solid var(--color-secondary);
-  color: var(--color-secondary);
-}
-
-.button--secondary:hover,
-.hero__cta-secondary:hover {
-  background: var(--color-white);
-  color: var(--color-text);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-}
-
-/* Focus styles for accessibility */
-.button:focus-visible,
-.product-card__button:focus-visible,
-.btn-collection:focus-visible,
-.custom-order__cta:focus-visible {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 2px;
-}
-
-/* Dark theme focus styles */
-[data-theme="dark"] .button:focus-visible,
-[data-theme="dark"] .product-card__button:focus-visible,
-[data-theme="dark"] .btn-collection:focus-visible,
-[data-theme="dark"] .custom-order__cta:focus-visible {
-  outline: 2px solid var(--color-white);
-}
-
-/* Responsive adjustments */
-@media (max-width: 576px) {
-  .button,
-  .product-card__button,
-  .btn-collection,
-  .custom-order__cta {
-    width: 100%;
-    min-width: 200px;
-  }
-}
+/* Button styles are now handled by the unified button system above */
 
 /* Product Slider Grid */
 .product-slider .product-grid {
@@ -5393,7 +5215,8 @@ html {
   text-align: center;
 }
 
-.btn-submit {
+.btn-submit,
+.button.button--primary.btn-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -5401,17 +5224,19 @@ html {
   padding: 0.875rem 2rem;
   font-size: 0.875rem;
   font-weight: 500;
-  background: var(--color-secondary);
-  color: #fff;
-  border: none;
-  border-radius: 100px;
+  background: var(--color-secondary) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 100px !important;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.btn-submit:hover {
-  background: var(--color-secondary-dark);
+.btn-submit:hover,
+.button.button--primary.btn-submit:hover {
+  background: var(--color-secondary-dark) !important;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 79, 196, 0.3);
 }
 
 .form-success {
@@ -5430,6 +5255,66 @@ html {
 
 .form-success i {
   font-size: 1.125rem;
+}
+
+/* Form Messages */
+.form-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  animation: slideInDown 0.3s ease-out;
+}
+
+.form-message i {
+  font-size: 1.25rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.form-message__content h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.form-message__content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.form-message--success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.form-message--success i {
+  color: #2e7d32;
+}
+
+.form-message--error {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.form-message--error i {
+  color: #c62828;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -7121,3 +7006,380 @@ html {
     pointer-events: none;
   }
 }
+
+/* ===== UNIFIED BUTTON SYSTEM ===== */
+
+/* Base Button Styles - Unified System */
+.button,
+.btn,
+button,
+input[type="submit"],
+input[type="button"],
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  /* Sizing */
+  padding: 0.75rem 1.5rem;
+  min-height: 44px;
+  min-width: 120px;
+  
+  /* Typography */
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.02em;
+  
+  /* Visual */
+  border-radius: 100px;
+  border: 2px solid transparent;
+  background: var(--color-secondary);
+  color: var(--color-white);
+  
+  /* Interactions */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Accessibility */
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Hover States */
+.button:hover,
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+  background: var(--color-secondary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 79, 196, 0.25);
+  border-color: var(--color-secondary-dark);
+}
+
+/* Button Active States */
+.button:active,
+.btn:active,
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+.woocommerce #respond input#submit:active,
+.woocommerce a.button:active,
+.woocommerce button.button:active,
+.woocommerce input.button:active,
+.woocommerce #respond input#submit.alt:active,
+.woocommerce a.button.alt:active,
+.woocommerce button.button.alt:active,
+.woocommerce input.button.alt:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(107, 79, 196, 0.2);
+}
+
+/* Button Focus States */
+.button:focus-visible,
+.btn:focus-visible,
+button:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="button"]:focus-visible,
+.woocommerce #respond input#submit:focus-visible,
+.woocommerce a.button:focus-visible,
+.woocommerce button.button:focus-visible,
+.woocommerce input.button:focus-visible,
+.woocommerce #respond input#submit.alt:focus-visible,
+.woocommerce a.button.alt:focus-visible,
+.woocommerce button.button.alt:focus-visible,
+.woocommerce input.button.alt:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(107, 79, 196, 0.1);
+}
+
+/* Button Disabled States */
+.button:disabled,
+.btn:disabled,
+button:disabled,
+input[type="submit"]:disabled,
+input[type="button"]:disabled,
+.woocommerce #respond input#submit:disabled,
+.woocommerce a.button:disabled,
+.woocommerce button.button:disabled,
+.woocommerce input.button:disabled,
+.woocommerce #respond input#submit.alt:disabled,
+.woocommerce a.button.alt:disabled,
+.woocommerce button.button.alt:disabled,
+.woocommerce input.button.alt:disabled,
+.button[disabled],
+.btn[disabled],
+button[disabled],
+input[type="submit"][disabled],
+input[type="button"][disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--color-gray-400);
+  color: var(--color-gray-600);
+  border-color: var(--color-gray-400);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Button Variants */
+
+/* Primary Button (Default) */
+.button--primary,
+.btn--primary,
+.hero__cta-primary,
+.product-card__button:hover,
+.btn-collection:hover,
+.custom-order__cta,
+.btn-submit,
+.checkout-button,
+#place_order,
+.single_add_to_cart_button {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border-color: var(--color-secondary);
+}
+
+.button--primary:hover,
+.btn--primary:hover,
+.hero__cta-primary:hover,
+.product-card__button:hover,
+.btn-collection:hover,
+.custom-order__cta:hover,
+.btn-submit:hover,
+.checkout-button:hover,
+#place_order:hover,
+.single_add_to_cart_button:hover {
+  background: var(--color-secondary-dark);
+  color: var(--color-white);
+  border-color: var(--color-secondary-dark);
+}
+
+/* Secondary Button (Outline) */
+.button--secondary,
+.btn--secondary,
+.hero__cta-secondary,
+.product-card__button,
+.btn-collection {
+  background: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.button--secondary:hover,
+.btn--secondary:hover,
+.hero__cta-secondary:hover,
+.product-card__button:hover,
+.btn-collection:hover {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border-color: var(--color-secondary);
+}
+
+/* Ghost Button (Minimal) */
+.button--ghost,
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: transparent;
+}
+
+.button--ghost:hover,
+.btn--ghost:hover {
+  background: var(--color-gray-100);
+  color: var(--color-text);
+  border-color: var(--color-gray-200);
+}
+
+/* Button Sizes */
+
+/* Small */
+.button--small,
+.btn--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  min-height: 36px;
+  min-width: 100px;
+}
+
+/* Large */
+.button--large,
+.btn--large,
+.hero .button,
+.hero__cta-primary,
+.hero__cta-secondary {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  min-height: 52px;
+  min-width: 160px;
+}
+
+/* Extra Large */
+.button--xl,
+.btn--xl {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  min-height: 60px;
+  min-width: 200px;
+}
+
+/* Full Width */
+.button--full,
+.btn--full,
+.product-card__button,
+.btn-submit {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Button with Icons */
+.button--icon,
+.btn--icon {
+  gap: 0.75rem;
+}
+
+.button--icon-only,
+.btn--icon-only {
+  padding: 0.75rem;
+  min-width: 44px;
+  width: 44px;
+  height: 44px;
+}
+
+/* Special Button Styles */
+
+/* Remove Button (Cart) */
+.remove,
+.product-remove a {
+  background: var(--color-gray-100);
+  color: #d32f2f;
+  border-color: var(--color-gray-200);
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.2rem;
+}
+
+.remove:hover,
+.product-remove a:hover {
+  background: #ffeaea;
+  color: #b71c1c;
+  border-color: #ffcdd2;
+  transform: scale(1.1);
+}
+
+/* Search Button */
+.search-icon,
+.search-submit {
+  background: transparent;
+  color: var(--color-text);
+  border: none;
+  padding: 0.5rem;
+  min-width: auto;
+  width: auto;
+  height: auto;
+}
+
+.search-icon:hover,
+.search-submit:hover {
+  background: transparent;
+  color: var(--color-secondary);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Menu Toggle */
+.menu-toggle {
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  padding: 0.5rem;
+  min-width: auto;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+}
+
+.menu-toggle:hover {
+  background: transparent;
+  color: var(--color-secondary);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .button,
+  .btn,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  .woocommerce #respond input#submit,
+  .woocommerce a.button,
+  .woocommerce button.button,
+  .woocommerce input.button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8rem;
+    min-height: 40px;
+  }
+  
+  .button--large,
+  .btn--large,
+  .hero .button,
+  .hero__cta-primary,
+  .hero__cta-secondary {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.9rem;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button,
+  .btn,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  .woocommerce #respond input#submit,
+  .woocommerce a.button,
+  .woocommerce button.button,
+  .woocommerce input.button {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    min-height: 36px;
+  }
+  
+  .button--full,
+  .btn--full,
+  .product-card__button,
+  .btn-submit {
+    width: 100%;
+  }
+}
+
+/* ===== END UNIFIED BUTTON SYSTEM ===== */

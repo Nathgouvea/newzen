@@ -53,6 +53,11 @@ function zensecrets_scripts() {
     // Enqueue original scripts
     wp_enqueue_script('zensecrets-main', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
     
+    // Enqueue product filter script for comprar page and WooCommerce archive
+    if (is_page_template('page-comprar.php') || is_page('comprar') || is_page('produtos') || is_shop() || is_product_category()) {
+        wp_enqueue_script('zensecrets-product-filter', get_template_directory_uri() . '/assets/js/product-filter.js', array('jquery'), '1.0.0', true);
+    }
+    
     // Enqueue checkout enhancements script
     if (is_checkout()) {
         wp_enqueue_script('zensecrets-checkout', get_template_directory_uri() . '/assets/js/checkout.js', array('jquery'), '1.0.0', true);
@@ -596,4 +601,61 @@ add_filter('woocommerce_is_sold_individually', function($return, $product) {
         return false; // Always allow quantity selection on single product page
     }
     return $return;
-}, 10, 2); 
+}, 10, 2);
+
+// Shortcode for dynamic category tags
+function zen_category_tags_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'exclude' => '',
+        'include' => '',
+        'orderby' => 'name',
+        'order' => 'ASC'
+    ), $atts);
+    
+    // Get product categories
+    $args = array(
+        'taxonomy' => 'product_cat',
+        'hide_empty' => true,
+        'orderby' => $atts['orderby'],
+        'order' => $atts['order']
+    );
+    
+    // Handle include/exclude
+    if (!empty($atts['exclude'])) {
+        $args['exclude'] = explode(',', $atts['exclude']);
+    }
+    if (!empty($atts['include'])) {
+        $args['include'] = explode(',', $atts['include']);
+    }
+    
+    $categories = get_terms($args);
+    
+    if (empty($categories) || is_wp_error($categories)) {
+        return '';
+    }
+    
+    $output = '<section class="category-tags wrapper">';
+    $output .= '<div class="tags-container">';
+    
+    // Add "Todos" (All) option
+    $output .= '<a href="#todos-produtos" class="category-tag active">Todos</a>';
+    
+    // Add category tags
+    foreach ($categories as $category) {
+        $category_id = $category->term_id;
+        $category_name = $category->name;
+        $category_slug = $category->slug;
+        
+        $output .= sprintf(
+            '<a href="#%s" class="category-tag">%s</a>',
+            esc_attr($category_slug),
+            esc_html($category_name)
+        );
+    }
+    
+    $output .= '</div>';
+    $output .= '</section>';
+    
+    return $output;
+}
+add_shortcode('zen_category_tags', 'zen_category_tags_shortcode'); 

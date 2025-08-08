@@ -93,25 +93,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
+  // Smooth scroll for anchor links (excluding category tags)
+  document
+    .querySelectorAll('a[href^="#"]:not(.category-tag)')
+    .forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
 
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-        // Close mobile menu after clicking
-        const nav = document.querySelector(".nav");
-        const menuToggle = document.querySelector(".menu-toggle");
-        nav?.classList.remove("active");
-        menuToggle?.classList.remove("active");
-      }
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+          // Close mobile menu after clicking
+          const nav = document.querySelector(".nav");
+          const menuToggle = document.querySelector(".menu-toggle");
+          nav?.classList.remove("active");
+          menuToggle?.classList.remove("active");
+        }
+      });
     });
-  });
 
   // Fade in animations on scroll
   const fadeElements = document.querySelectorAll(".fade-in");
@@ -205,26 +207,137 @@ document.addEventListener("DOMContentLoaded", () => {
       el.addEventListener("mouseenter", () => clearInterval(window.novTimer))
     );
 
-  /* contact form inline validation */
-  const f = document.getElementById("contactForm");
-  if (f) {
-    f.addEventListener("submit", (e) => {
-      e.preventDefault();
+  /* contact form handling with Formspree */
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    const successMessage = document.getElementById("formSuccess");
+    const errorMessage = document.getElementById("formError");
+    const submitButton = contactForm.querySelector(".btn-submit");
+    const originalButtonText = submitButton.innerHTML;
+
+    // Hide any existing messages
+    function hideMessages() {
+      if (successMessage) successMessage.style.display = "none";
+      if (errorMessage) errorMessage.style.display = "none";
+    }
+
+    // Show loading state
+    function showLoading() {
+      submitButton.disabled = true;
+      submitButton.innerHTML =
+        '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    }
+
+    // Reset button state
+    function resetButton() {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalButtonText;
+    }
+
+    // Show success message
+    function showSuccess() {
+      hideMessages();
+      if (successMessage) {
+        successMessage.style.display = "flex";
+        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      contactForm.reset();
+    }
+
+    // Show error message
+    function showError() {
+      hideMessages();
+      if (errorMessage) {
+        errorMessage.style.display = "flex";
+        errorMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+
+    // Form validation
+    function validateForm() {
       let valid = true;
-      ["nome", "email", "msg"].forEach((id) => {
-        const field = f[id];
-        const err = document.getElementById("err-" + id);
-        if (!field.checkValidity()) {
-          err.textContent = "Campo obrigatório";
-          valid = false;
-        } else {
-          err.textContent = "";
+      const requiredFields = ["name", "email", "subject", "message"];
+
+      requiredFields.forEach((fieldName) => {
+        const field = contactForm.querySelector(`[name="${fieldName}"]`);
+        const errorElement = document.getElementById(
+          `err-${
+            fieldName === "name"
+              ? "nome"
+              : fieldName === "message"
+              ? "msg"
+              : fieldName
+          }`
+        );
+
+        if (field && errorElement) {
+          if (!field.checkValidity()) {
+            errorElement.textContent = "Campo obrigatório";
+            valid = false;
+          } else {
+            errorElement.textContent = "";
+          }
         }
       });
-      if (valid) {
-        f.reset();
-        f.querySelector(".form-success").hidden = false;
+
+      return valid;
+    }
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Hide any existing messages
+      hideMessages();
+
+      // Validate form
+      if (!validateForm()) {
+        return;
       }
+
+      // Show loading state
+      showLoading();
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          showSuccess();
+        } else {
+          showError();
+        }
+      } catch (error) {
+        console.error("Form submission error:", error);
+        showError();
+      } finally {
+        resetButton();
+      }
+    });
+
+    // Clear error messages when user starts typing
+    const inputs = contactForm.querySelectorAll("input, textarea, select");
+    inputs.forEach((input) => {
+      input.addEventListener("input", () => {
+        const fieldName = input.name;
+        const errorElement = document.getElementById(
+          `err-${
+            fieldName === "name"
+              ? "nome"
+              : fieldName === "message"
+              ? "msg"
+              : fieldName
+          }`
+        );
+        if (errorElement) {
+          errorElement.textContent = "";
+        }
+      });
     });
   }
 
@@ -238,43 +351,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Category Tags Active State for Aromas page
+  // Category Tags Active State for Aromas page only
   const aromaDetails = document.querySelectorAll(".aroma-accordion details");
-  const aromaCategoryTags = document.querySelectorAll(".category-tag");
+  const aromaCategoryTags = document.querySelectorAll(
+    ".aroma-accordion .category-tag"
+  );
 
-  // Update active tag on scroll
-  window.addEventListener("scroll", () => {
-    let current = "";
+  // Only run aroma-specific code if we're on the aromas page
+  if (aromaDetails.length > 0 && aromaCategoryTags.length > 0) {
+    // Update active tag on scroll
+    window.addEventListener("scroll", () => {
+      let current = "";
 
-    aromaDetails.forEach((detail) => {
-      const detailTop = detail.offsetTop;
-      const detailHeight = detail.clientHeight;
-      if (pageYOffset >= detailTop - 200) {
-        current = detail.getAttribute("id");
-      }
+      aromaDetails.forEach((detail) => {
+        const detailTop = detail.offsetTop;
+        const detailHeight = detail.clientHeight;
+        if (pageYOffset >= detailTop - 200) {
+          current = detail.getAttribute("id");
+        }
+      });
+
+      aromaCategoryTags.forEach((tag) => {
+        tag.classList.remove("active");
+        if (tag.getAttribute("href").slice(1) === current) {
+          tag.classList.add("active");
+        }
+      });
     });
 
+    // Smooth scroll to section when clicking tags
     aromaCategoryTags.forEach((tag) => {
-      tag.classList.remove("active");
-      if (tag.getAttribute("href").slice(1) === current) {
-        tag.classList.add("active");
-      }
-    });
-  });
+      tag.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        const targetDetail = document.querySelector(targetId);
 
-  // Smooth scroll to section when clicking tags
-  aromaCategoryTags.forEach((tag) => {
-    tag.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-      const targetDetail = document.querySelector(targetId);
-
-      if (targetDetail) {
-        targetDetail.scrollIntoView({ behavior: "smooth" });
-        targetDetail.setAttribute("open", true);
-      }
+        if (targetDetail) {
+          targetDetail.scrollIntoView({ behavior: "smooth" });
+          targetDetail.setAttribute("open", true);
+        }
+      });
     });
-  });
+  }
 
   // Mobile Menu Toggle
   const nav = document.querySelector(".nav");

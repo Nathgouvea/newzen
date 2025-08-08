@@ -128,20 +128,9 @@
   margin-right: 0.7rem;
   background: #fff;
 }
+/* Coupon button now uses the unified button system */
 .woocommerce-form-coupon button {
-  padding: 0.9rem 1.7rem;
-  border-radius: 100px;
-  background: #4f3a96;
-  color: #fff;
-  border: none;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: background 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(107, 79, 196, 0.08);
-}
-.woocommerce-form-coupon button:hover {
-  background: #6b4fc4;
+  /* Uses unified button system from style.css */
 }
 
 /* Order Review Table */

@@ -195,44 +195,11 @@ td.product-subtotal {
   outline: none;
   box-shadow: 0 0 0 3px rgba(107, 79, 196, 0.1);
 }
+/* Cart buttons now use the unified button system */
 .coupon .button,
 .button[name="apply_coupon"],
 .button[name="update_cart"] {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  background: var(--color-secondary);
-  color: var(--color-white);
-  box-shadow: none;
-  opacity: 1;
-  transform: translateY(0);
-}
-.coupon .button:hover,
-.button[name="apply_coupon"]:hover,
-.button[name="update_cart"]:hover {
-  background: var(--color-secondary-dark);
-  color: var(--color-white);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(107, 79, 196, 0.2);
-}
-.button:disabled,
-.button[disabled],
-.button:disabled:hover {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background: var(--color-secondary);
-  color: var(--color-white);
-  box-shadow: none;
-  transform: none;
+  /* Uses unified button system from style.css */
 }
 .button[name="update_cart"] {
   flex-shrink: 0;

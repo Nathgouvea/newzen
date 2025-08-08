@@ -36,18 +36,18 @@ if (empty($product) || !$product->is_visible()) {
     </a>
     <div class="product-card__footer">
         <div class="product-card__price"><?php echo $product->get_price_html(); ?></div>
-        <?php if ( $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() ) : ?>
+        <?php if ( $product->is_type( 'simple' ) && $product->is_purchasable() ) : ?>
             <form class="cart" action="<?php echo esc_url( $product->add_to_cart_url() ); ?>" method="post" enctype="multipart/form-data">
                 <!-- Quantity selector removed -->
-                <button type="submit" class="product-card__button add_to_cart_button ajax_add_to_cart">
+                <button type="submit" class="product-card__button add_to_cart_button ajax_add_to_cart" <?php echo !$product->is_in_stock() ? 'disabled' : ''; ?>>
                     <i class="far fa-bag-shopping"></i>
-                    Comprar Agora
+                    <?php echo $product->is_in_stock() ? 'Comprar Agora' : 'Indisponível'; ?>
                 </button>
             </form>
         <?php else : ?>
             <a href="<?php echo esc_url( get_permalink( $product->get_id() ) ); ?>" class="product-card__button">
                 <i class="far fa-bag-shopping"></i>
-                Comprar Agora
+                Ver Produto
             </a>
         <?php endif; ?>
     </div>

@@ -7,7 +7,7 @@ get_header();
   <section class="hero hero--unified">
     <div
       class="hero__bg"
-      style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/imagens/Foto-tela-inicial-.webp'), url('<?php echo get_template_directory_uri(); ?>/assets/imagens/all-hero.png')"
+      style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/imagens/Foto-tela-inicial-.webp'), url('<?php echo get_template_directory_uri(); ?>/assets/imagens/hero-zen.webp')"
     ></div>
     <div class="hero__content">
       <h1 class="hero__title">Fale Conosco</h1>
@@ -89,14 +89,20 @@ get_header();
               breve possível
             </p>
           </div>
-          <form id="contactForm" class="contact-form" novalidate>
+          <form 
+            id="contactForm" 
+            class="contact-form" 
+            action="https://formspree.io/f/xovlkqqz"
+            method="POST"
+            novalidate
+          >
             <div class="form-grid">
               <div class="form-row">
                 <label for="nome">Nome completo*</label>
                 <div class="input-wrapper">
                   <input
                     id="nome"
-                    name="nome"
+                    name="name"
                     type="text"
                     placeholder="Digite seu nome"
                     required
@@ -128,7 +134,7 @@ get_header();
                 <div class="input-wrapper">
                   <input
                     id="tel"
-                    name="tel"
+                    name="phone"
                     type="tel"
                     inputmode="tel"
                     placeholder="(00) 00000-0000"
@@ -139,7 +145,7 @@ get_header();
               <div class="form-row">
                 <label for="assunto">Assunto*</label>
                 <div class="input-wrapper">
-                  <select id="assunto" name="assunto" required>
+                  <select id="assunto" name="subject" required>
                     <option value="">Selecione um assunto</option>
                     <option value="geral">Geral</option>
                     <option value="pedido">Pedido</option>
@@ -148,6 +154,7 @@ get_header();
                   </select>
                   <i class="fas fa-chevron-down input-icon"></i>
                 </div>
+                <span class="error" id="err-subject" aria-live="polite"></span>
               </div>
             </div>
             <div class="form-row form-row--full">
@@ -155,7 +162,7 @@ get_header();
               <div class="input-wrapper">
                 <textarea
                   id="msg"
-                  name="msg"
+                  name="message"
                   rows="6"
                   placeholder="Digite sua mensagem aqui..."
                   required
@@ -172,6 +179,24 @@ get_header();
                 <i class="fas fa-paper-plane"></i>
                 Enviar mensagem
               </button>
+            </div>
+            
+            <!-- Success Message -->
+            <div id="formSuccess" class="form-message form-message--success" style="display: none;">
+              <i class="fas fa-check-circle"></i>
+              <div class="form-message__content">
+                <h4>Mensagem enviada com sucesso!</h4>
+                <p>Obrigado por entrar em contato conosco. Retornaremos em breve.</p>
+              </div>
+            </div>
+            
+            <!-- Error Message -->
+            <div id="formError" class="form-message form-message--error" style="display: none;">
+              <i class="fas fa-exclamation-circle"></i>
+              <div class="form-message__content">
+                <h4>Erro ao enviar mensagem</h4>
+                <p>Desculpe, ocorreu um erro ao enviar sua mensagem. Tente novamente ou entre em contato conosco pelo WhatsApp.</p>
+              </div>
             </div>
           </form>
         </div>
