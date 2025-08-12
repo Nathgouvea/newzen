@@ -1,71 +1,86 @@
 jQuery(document).ready(function ($) {
-  console.log("=== PRODUCT FILTER SCRIPT LOADED ===");
-
-  // Check if we're on a page with category tags
+  // Get all category tags and product sections
   const categoryTags = $(".category-tag");
-  const productSections = $(".featured-products");
+  const productSections = $(".product-section");
 
-  console.log("Category tags found:", categoryTags.length);
-  console.log("Product sections found:", productSections.length);
-
+  // Check if elements exist
   if (categoryTags.length === 0) {
-    console.log("No category tags found - script will not run");
+    return; // Exit if no category tags found
+  }
+
+  // Log initial setup for debugging (removed console.log)
+  // console.log("Category tags found:", categoryTags.length);
+  // console.log("Product sections found:", productSections.length);
+
+  // If no category tags, don't proceed
+  if (categoryTags.length === 0) {
     return;
   }
 
-  // Log what we found
+  // Log each tag and section for debugging (removed console.log)
   categoryTags.each(function (index) {
-    console.log(`Tag ${index}:`, $(this).text(), "href:", $(this).attr("href"));
+    // console.log(`Tag ${index}:`, $(this).text(), "href:", $(this).attr("href"));
   });
 
   productSections.each(function (index) {
-    console.log(`Section ${index}:`, $(this).attr("id"));
+    // console.log(`Section ${index}:`, $(this).attr("id"));
   });
 
-  // Simple click handler
+  // Handle click events on category tags
   categoryTags.on("click", function (e) {
-    console.log("=== CLICK DETECTED ===");
     e.preventDefault();
-    e.stopPropagation();
+
+    // Log click detection (removed console.log)
+    // console.log("=== CLICK DETECTED ===");
 
     const $tag = $(this);
-    const href = $tag.attr("href");
-    const targetId = href.replace(/^.*#/, "");
+    const targetId = $tag.attr("href").substring(1); // Remove the # from href
 
-    console.log("Clicked tag:", $tag.text());
-    console.log("Target ID:", targetId);
+    // Log clicked tag info (removed console.log)
+    // console.log("Clicked tag:", $tag.text());
+    // console.log("Target ID:", targetId);
 
-    // Hide all sections
-    productSections.hide();
-
-    // Show target section
-    const targetSection = $(`#${targetId}`);
-    if (targetSection.length) {
-      targetSection.show();
-      console.log("✓ Showing section:", targetId);
-    } else {
-      console.log("✗ Section not found:", targetId);
-    }
-
-    // Update active state
+    // Remove active class from all tags
     categoryTags.removeClass("active");
+
+    // Add active class to clicked tag
     $tag.addClass("active");
 
-    return false;
+    // Hide all product sections
+    productSections.hide();
+
+    // Show the target section
+    const targetSection = $("#" + targetId);
+    if (targetSection.length > 0) {
+      targetSection.show();
+      // Log success (removed console.log)
+      // console.log("✓ Showing section:", targetId);
+    } else {
+      // Log error (removed console.log)
+      // console.log("✗ Section not found:", targetId);
+    }
   });
 
-  // Show default section
-  const defaultSection = $("#todos-produtos");
-  if (defaultSection.length) {
+  // Set default active state
+  function setDefaultActive() {
+    // Show "todos-produtos" section by default
     productSections.hide();
-    defaultSection.show();
-    console.log("✓ Default section shown: todos-produtos");
-  }
+    $("#todos-produtos").show();
 
-  // Set first tag as active
-  if (categoryTags.length > 0) {
+    // Set first tag as active
     categoryTags.first().addClass("active");
+
+    // Log default state (removed console.log)
+    // console.log("✓ Default section shown: todos-produtos");
   }
 
-  console.log("=== PRODUCT FILTER INITIALIZED ===");
+  // Initialize the filter
+  function initFilter() {
+    setDefaultActive();
+    // Log initialization (removed console.log)
+    // console.log("=== PRODUCT FILTER INITIALIZED ===");
+  }
+
+  // Start the filter
+  initFilter();
 });

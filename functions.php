@@ -182,18 +182,14 @@ function zensecrets_custom_related_products() {
     global $product;
     
     if (!$product) {
-        error_log('Debug: No product found in zensecrets_custom_related_products');
         return;
     }
     
     $related_products = wc_get_related_product_ids($product->get_id());
     
     if (empty($related_products)) {
-        error_log('Debug: No related products found for product ' . $product->get_id());
         return;
     }
-    
-    error_log('Debug: Found ' . count($related_products) . ' related products');
     
     echo '<section class="related products">';
     echo '<h2>Produtos relacionados</h2>';

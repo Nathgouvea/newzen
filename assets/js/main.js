@@ -185,8 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   if (productLightboxLinks.length > 0) {
     MicroModal.init({
-      onShow: (modal) => console.log(`${modal.id} is shown`),
-      onClose: (modal) => console.log(`${modal.id} is hidden`),
       openTrigger: "data-micromodal-trigger",
       closeTrigger: "data-micromodal-close",
       openClass: "is-open",
