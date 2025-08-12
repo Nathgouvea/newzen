@@ -44,6 +44,9 @@ function zensecrets_scripts() {
     wp_enqueue_style('zensecrets-style', get_stylesheet_uri());
     wp_enqueue_style('zensecrets-original', get_template_directory_uri() . '/assets/css/style.css');
     
+    // Enqueue component styles
+    wp_enqueue_style('zensecrets-product-cards', get_template_directory_uri() . '/assets/css/components/product-cards.css');
+    
     // Enqueue Font Awesome
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
     
